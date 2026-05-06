@@ -1,0 +1,15 @@
+{
+  "url": "https://red.anthropic.com/2026/property-based-testing/",
+  "canonical_url": "https://red.anthropic.com/2026/property-based-testing/",
+  "fetched_at": "2026-05-06T16:47:11Z",
+  "http_status": 200,
+  "content_sha256": "bb47a4a688930e34984607a0c720d3b478bd3bce0df5b5995db3f27d2d2fb506",
+  "archive_url": "",
+  "search_term": "property-based testing agentic code",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Anthropic Red Team writeup of an autonomous Claude agent that infers properties from docstrings/types and writes Hypothesis tests, finding bugs in NumPy, SciPy, Pandas; published at NeurIPS 2025 DL4C workshop."
+}

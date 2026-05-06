@@ -1,0 +1,3 @@
+Attract Group (2026) surveys security and compliance failure modes of vibe/dark-factory coding in fintech and regulated workloads. The argument: agent-written code fails at audit-trail generation, role-based access, session expiry, and least-privilege defaults — all of which are the difference between SOX/PCI/GDPR pass and fail.
+
+From a domains lens, fintech + healthcare + regulated workloads are the consistent failure cluster across multiple secondary sources, and Attract Group adds that the failures compound: fast iteration without these primitives produces apps that cannot become compliant by patching.

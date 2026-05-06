@@ -1,0 +1,3 @@
+MindStudio (April 2026) produces an explicit best-fit / worst-fit domain decision rule for Dark Factory. Best fits: high-volume well-defined tasks (migrations, refactors, dependency updates, boilerplate generation, test writing), continuous maintenance (security patches), background features in stable code areas.
+
+Explicit excludes: novel business logic, anything touching authentication, payments, user data, or core infrastructure, and ambiguous requirements. The article's framing — 'human involvement at the right level, not zero' — is a useful counter to the maximalist Shapiro/StrongDM reading, and the exclusion list is the most concrete domain-boundary statement in the public discourse.

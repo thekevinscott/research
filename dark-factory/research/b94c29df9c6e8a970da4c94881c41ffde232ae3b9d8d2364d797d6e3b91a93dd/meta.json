@@ -1,0 +1,15 @@
+{
+  "url": "https://www.thepragmaticcto.com/p/the-software-factory-when-no-human",
+  "canonical_url": "https://www.thepragmaticcto.com/p/the-software-factory-when-no-human",
+  "fetched_at": "2026-05-06T16:47:12Z",
+  "http_status": 200,
+  "content_sha256": "b94c29df9c6e8a970da4c94881c41ffde232ae3b9d8d2364d797d6e3b91a93dd",
+  "archive_url": "",
+  "search_term": "scenario testing LLM",
+  "agent": "validation",
+  "source_tier": 3,
+  "primary_or_synthesis": "synthesis",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Critical assessment citing CodeRabbit Dec 2025 study (1.4-1.7x more critical issues in AI code) and Replit/Moltbook incidents; argues the holdout-set defense fails for unanticipated catastrophic failures."
+}

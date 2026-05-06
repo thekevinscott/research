@@ -1,0 +1,3 @@
+Retool's vibe-coding-risks post (March 2026) is the cleanest enterprise framing of where unreviewed agent code fails. It argues vibe coding is fine for prototypes and simple CRUD but breaks in production systems with real data access, multi-team permissions, or HIPAA/SOX/GDPR constraints.
+
+The article doesn't name customers but claims governance and guardrails determine outcome more than the coding approach itself. It's a direct counter to the StrongDM thesis: where StrongDM sees scenario-validation as sufficient, Retool sees enterprise-grade access controls and audit requirements as outside the scope of any agent-only loop.

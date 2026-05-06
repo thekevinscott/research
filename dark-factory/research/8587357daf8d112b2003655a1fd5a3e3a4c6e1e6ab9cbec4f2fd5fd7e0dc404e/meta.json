@@ -1,0 +1,15 @@
+{
+  "url": "https://github.com/haoyuwang99/AgentSpec",
+  "canonical_url": "https://github.com/haoyuwang99/AgentSpec",
+  "fetched_at": "2026-05-06T16:47:13Z",
+  "http_status": 200,
+  "content_sha256": "8587357daf8d112b2003655a1fd5a3e3a4c6e1e6ab9cbec4f2fd5fd7e0dc404e",
+  "archive_url": "",
+  "search_term": "simulation-based testing LLM",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Reference implementation of AgentSpec runtime enforcement for LLM agents; companion to the ICSE 2026 paper."
+}

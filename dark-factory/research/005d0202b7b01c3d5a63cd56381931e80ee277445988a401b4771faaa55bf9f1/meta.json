@@ -1,0 +1,14 @@
+{
+  "url": "https://claude.com/customers/rakuten",
+  "canonical_url": "https://claude.com/customers/rakuten",
+  "fetched_at": "2026-05-06T00:00:00Z",
+  "http_status": 200,
+  "content_sha256": "005d0202b7b01c3d5a63cd56381931e80ee277445988a401b4771faaa55bf9f1",
+  "archive_url": "",
+  "agent": "domains",
+  "search_term": "Rakuten Claude Code autonomous 12.5M lines",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2025,
+  "paywall": false
+}

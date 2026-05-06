@@ -1,0 +1,15 @@
+{
+  "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+  "canonical_url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+  "fetched_at": "2026-05-06T16:47:12Z",
+  "http_status": 200,
+  "content_sha256": "1cc791291734f0993dfd2b24751a684a2f4894cb28e233fd6fbabebcf322ed3a",
+  "archive_url": "",
+  "search_term": "satisfaction metric coding agent",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Anthropic engineering post on agent eval design covering deterministic graders, model-based rubrics, balanced problem sets, and pass@k / pass^k metrics that explicitly accommodate non-deterministic agent behavior."
+}

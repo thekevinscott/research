@@ -1,0 +1,15 @@
+{
+  "url": "https://factory.strongdm.ai/techniques",
+  "canonical_url": "https://factory.strongdm.ai/techniques",
+  "fetched_at": "2026-05-06T16:47:11Z",
+  "http_status": 200,
+  "content_sha256": "a374578858e51973da2c38adcebf71f51fe0e44d718a9cb55e27f3af1d4df306",
+  "archive_url": "",
+  "search_term": "scenario testing LLM",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Index of StrongDM's named techniques for non-interactive agentic development; introduces the Validation Constraint that systems must be validatable without semantic source inspection."
+}

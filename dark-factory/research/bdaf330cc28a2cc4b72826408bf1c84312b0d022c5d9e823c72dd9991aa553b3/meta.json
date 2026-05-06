@@ -1,0 +1,15 @@
+{
+  "url": "https://arxiv.org/abs/2505.17716",
+  "canonical_url": "https://arxiv.org/abs/2505.17716",
+  "fetched_at": "2026-05-06T16:47:12Z",
+  "http_status": 200,
+  "content_sha256": "bdaf330cc28a2cc4b72826408bf1c84312b0d022c5d9e823c72dd9991aa553b3",
+  "archive_url": "",
+  "search_term": "deterministic replay harness",
+  "agent": "validation",
+  "source_tier": 1,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2025,
+  "paywall": false,
+  "summary": "Record-and-replay framework for LLM agents that captures interaction traces and decision processes, summarizes them into multi-level experience abstractions, and replays with check functions as safety validation."
+}

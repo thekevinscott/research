@@ -1,0 +1,15 @@
+{
+  "url": "https://arxiv.org/abs/2503.18666",
+  "canonical_url": "https://arxiv.org/abs/2503.18666",
+  "fetched_at": "2026-05-06T16:47:13Z",
+  "http_status": 200,
+  "content_sha256": "3eae0728ec4fb880f4a9415ffba5601f67c498fd8e5566ee277ae04448ebb87c",
+  "archive_url": "",
+  "search_term": "simulation-based testing LLM",
+  "agent": "validation",
+  "source_tier": 1,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2025,
+  "paywall": false,
+  "summary": "ICSE 2026 paper defining a domain-specific language of (trigger, predicate, enforcement) rules to constrain agent actions at runtime; prevents >90% of unsafe code-agent executions with millisecond overhead."
+}

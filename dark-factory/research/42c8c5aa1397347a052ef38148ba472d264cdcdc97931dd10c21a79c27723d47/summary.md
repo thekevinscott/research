@@ -1,0 +1,3 @@
+Databricks' April 2026 launch post for Genie Code positions agentic coding for data-engineering pipelines: natural-language specs producing SQL, PySpark, and Lakeflow jobs across the data-engineering lifecycle. Genie more than doubled the success rate of leading coding agents on real-world data-science tasks (32.1% → 77.1%).
+
+Critically for the domains question, Databricks does not ship a Dark-Factory mode. Every Genie change is exposed as a diff for human approval, and the 'AI-optimized workloads' that would run agents unattended in the background are explicitly future work. Data engineering is therefore an active agentic domain but not a Dark-Factory domain in any vendor-shipped form.

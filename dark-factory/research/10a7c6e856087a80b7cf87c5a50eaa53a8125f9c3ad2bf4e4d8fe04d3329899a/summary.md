@@ -1,0 +1,3 @@
+Infralovers (Feb 2026) frames Dark Factory as a Level-4/5 spec-driven architecture pattern. The piece's most useful domain observation is that adoption is concentrated at Anthropic and StrongDM — i.e., the pattern is real but not yet generalized to mainstream infrastructure shops.
+
+It cites StrongDM's 16k Rust + 9.5k Go + 6.7k TypeScript output and notes a research finding that AI-accelerated brownfield modifications run 48% faster but produce no improvement in codebase comprehension — implying the Dark Factory ships code humans understand less, which is a domain-agnostic risk multiplier in IaC.

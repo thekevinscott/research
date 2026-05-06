@@ -1,0 +1,15 @@
+{
+  "url": "https://martinfowler.com/articles/harness-engineering.html",
+  "canonical_url": "https://martinfowler.com/articles/harness-engineering.html",
+  "fetched_at": "2026-05-06T16:47:11Z",
+  "http_status": 200,
+  "content_sha256": "37e7e9edf84055bb76d9d669c48d11558c9d162b90a891ed580874ff00a1e0fd",
+  "archive_url": "",
+  "search_term": "agent eval harness 2026",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "synthesis",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Birgitta Bockeler defines harness engineering as guides+sensors regulating agent behavior, distinguishing computational (deterministic linters/tests) from inferential (LLM judge) checks across maintainability, architecture-fitness, and behaviour harnesses."
+}

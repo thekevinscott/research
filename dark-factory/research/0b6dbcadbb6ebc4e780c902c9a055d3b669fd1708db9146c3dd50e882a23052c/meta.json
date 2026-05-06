@@ -1,0 +1,15 @@
+{
+  "url": "https://abaditya.com/2026/03/05/the-dark-factory-engineering-teams-that-run-with-the-lights-off/",
+  "canonical_url": "https://abaditya.com/2026/03/05/the-dark-factory-engineering-teams-that-run-with-the-lights-off/",
+  "fetched_at": "2026-05-06T16:47:13Z",
+  "http_status": 200,
+  "content_sha256": "0b6dbcadbb6ebc4e780c902c9a055d3b669fd1708db9146c3dd50e882a23052c",
+  "archive_url": "",
+  "search_term": "scenario testing LLM",
+  "agent": "validation",
+  "source_tier": 4,
+  "primary_or_synthesis": "synthesis",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Synthesis emphasizing rigorous test infra over human oversight: holdout-stored scenarios, digital twins, hard guardrails (linters/formatters as preconditions), QA agents running thousands of scenarios separated from coding agents."
+}

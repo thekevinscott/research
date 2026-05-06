@@ -1,0 +1,15 @@
+{
+  "url": "https://www.docker.com/blog/deterministic-ai-testing-with-session-recording-in-cagent/",
+  "canonical_url": "https://www.docker.com/blog/deterministic-ai-testing-with-session-recording-in-cagent/",
+  "fetched_at": "2026-05-06T16:47:11Z",
+  "http_status": 200,
+  "content_sha256": "0bfa20a06a8b525daabddfae0f71acb4b3076fffed9ace30d683aa4b2e2665a8",
+  "archive_url": "",
+  "search_term": "deterministic replay harness",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Stan Hamara introduces cagent's VCR-pattern session recording: record once against real LLM/tool providers, replay deterministically from YAML cassettes for CI testing with zero API cost."
+}

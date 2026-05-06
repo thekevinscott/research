@@ -1,0 +1,15 @@
+{
+  "url": "https://www.latent.space/p/harness-eng",
+  "canonical_url": "https://www.latent.space/p/harness-eng",
+  "fetched_at": "2026-05-06T16:47:12Z",
+  "http_status": 200,
+  "content_sha256": "3eb41e9a5454c108bae1aa4b5a45d13cd3585b32b5a90fffa2ee8897afdd022c",
+  "archive_url": "",
+  "search_term": "agent eval harness 2026",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Long-form interview with OpenAI Frontier's Ryan Lopopolo on shipping a 1M-LOC system with 0% human-written / 0% human-reviewed code via deterministic CI gates and dependency-direction enforcement; companion to Feb 11 2026 OpenAI post."
+}
