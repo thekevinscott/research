@@ -14,12 +14,18 @@ The product domain is notable: access management and security software. This is 
 
 ---
 
-## OpenAI: 1M-LOC System, Three Engineers, Five Months
+## OpenAI: Symphony and Harness Engineering
 
-BCG Platinion cites OpenAI building "a million-line product in five months with just three engineers and no manually written code whatsoever, representing speed improvement gains of 10x."[^bcg] A more detailed account from Latent Space confirms: Ryan Lopopolo (OpenAI Frontier) shipped a 1M-LOC system with 0% human-written / 0% human-reviewed code via deterministic CI gates and dependency-direction enforcement.[^latent_space]
+Ryan Lopopolo (OpenAI Frontier) published the most detailed account of OpenAI's Dark Factory practice in April 2026.[^latent_space] The constraint he started with: he refused to write any code himself, forcing the agent to do the job end-to-end. Result: a >1M-LOC codebase with 0% human-written and 0% human-reviewed code before merge, running at roughly 1 billion tokens per day (~$2–3k/day with caching).
 
+The infrastructure he built to enable this is **Symphony** (`github.com/openai/symphony`): an Elixir-based orchestration layer for spinning up, supervising, reworking, and coordinating large numbers of Codex agents across tickets and repos.[^latent_space] A companion concept is **"ghost libraries"** — spec-driven reference implementations that set up a system of Codex agents "all extensively prompted with the specificity of a proper PRD spec, but without full implementation." The ghost library is the spec artifact; agents generate the actual code from it.
+
+Lopopolo's framing — "harness engineering" — positions the harness, not the model, as the primary engineering surface. The key shift: from predefined scaffolds to reasoning-model-led workflows where the harness defines the box and the model chooses how to proceed. He called it borderline "negligent" if you aren't using >1B tokens/day.
+
+BCG Platinion independently cites the same case: OpenAI building "a million-line product in five months with just three engineers and no manually written code whatsoever, representing speed improvement gains of 10x."[^bcg]
+
+[^latent_space]: https://www.latent.space/p/harness-eng — "Symphony**, OpenAI's internal Elixir-based orchestration layer for spinning up, supervising, reworking, and coordinating large numbers of coding agents" — sha256:3eb41e9a5454c108bae1aa4b5a45d13cd3585b32b5a90fffa2ee8897afdd022c
 [^bcg]: https://www.bcgplatinion.com/insights/the-dark-software-factory — "average. OpenAI was able to build a million-line product in five months with just three engineers and no manually" — sha256:1223500beed9dad3c0289732aa941183900a39c9ea88012924ba83ab4794a258
-[^latent_space]: https://www.latent.space/p/harness-eng — "lding and shipping an internal beta product with **zero manually written code**. Through the experiment, they adopted a" — sha256:3eb41e9a5454c108bae1aa4b5a45d13cd3585b32b5a90fffa2ee8897afdd022c
 ---
 
 ## Stripe: Minions at Scale

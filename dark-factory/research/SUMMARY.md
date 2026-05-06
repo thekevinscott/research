@@ -14,7 +14,7 @@ The pattern is real and functioning in production as of early 2026. The only det
 
 ## The Enabling Condition
 
-The Dark Factory is gated on frontier model capability, not technique. StrongDM's founding insight was a specific inflection: the October 2024 revision of Claude 3.5 Sonnet was the first model where long-horizon agentic coding workflows "began to compound correctness rather than error."[^00-d5099378] Before that transition, iterative LLM application accumulated errors until the codebase collapsed. A second inflection — November 2025 releases from Anthropic and OpenAI — made agentic coding reliably enough that BCG Platinion could document 3–5x productivity gains on average across organizations operating at this level, with OpenAI building a million-line product in five months with three engineers and no manually written code.[^07-bcg]
+The Dark Factory is gated on frontier model capability, not technique. StrongDM's founding insight was a specific inflection: the October 2024 revision of Claude 3.5 Sonnet was the first model where long-horizon agentic coding workflows "began to compound correctness rather than error."[^00-d5099378] Before that transition, iterative LLM application accumulated errors until the codebase collapsed. A second inflection — November 2025 releases from Anthropic and OpenAI — made agentic coding reliably enough that BCG Platinion could document 3–5x productivity gains on average across organizations operating at this level, with OpenAI building a million-line product in five months with three engineers and no manually written code.[^07-bcg] Ryan Lopopolo (OpenAI Frontier) published the technical details in April 2026: his team runs ~1B tokens/day through **Symphony**, an Elixir-based orchestration layer for coordinating large numbers of Codex agents, using "ghost libraries" — spec-driven reference implementations agents instantiate from high-fidelity PRD specs rather than shared source code.[^04-latent_space]
 
 ---
 
@@ -110,3 +110,4 @@ Claims in this summary trace to report sections as follows:
 [^06-embedded]: report/06-domains.md — [^embedded]
 [^07-bcg]: report/07-contested.md — [^bcg]
 [^07-stanford]: report/07-contested.md — [^stanford]
+[^04-latent_space]: report/04-cases.md — [^latent_space]
