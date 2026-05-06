@@ -18,26 +18,22 @@ The product domain is notable: access management and security software. This is 
 
 BCG Platinion cites OpenAI building "a million-line product in five months with just three engineers and no manually written code whatsoever, representing speed improvement gains of 10x."[^bcg] A more detailed account from Latent Space confirms: Ryan Lopopolo (OpenAI Frontier) shipped a 1M-LOC system with 0% human-written / 0% human-reviewed code via deterministic CI gates and dependency-direction enforcement.[^latent_space]
 
-[^bcg]: https://www.bcgplatinion.com/insights/the-dark-software-factory — "OpenAI was able to build a million-line product in five months with just three engineers and no manually written code whatsoever, representing speed improvement gains of 10x" — sha256:1223500beed9dad3c0289732aa941183900a39c9ea88012924ba83ab4794a258
-
-[^latent_space]: https://www.latent.space/p/harness-eng — "shipping a 1M-LOC system with 0% human-written / 0% human-reviewed code via deterministic CI gates and dependency-direction enforcement" — sha256:3eae0728ec4fb880f4a9415ffba5601f67c498fd8e5566ee277ae04448ebb87c
-
+[^bcg]: https://www.bcgplatinion.com/insights/the-dark-software-factory — "average. OpenAI was able to build a million-line product in five months with just three engineers and no manually" — sha256:1223500beed9dad3c0289732aa941183900a39c9ea88012924ba83ab4794a258
+[^latent_space]: https://www.latent.space/p/harness-eng — "lding and shipping an internal beta product with **zero manually written code**. Through the experiment, they adopted a" — sha256:3eb41e9a5454c108bae1aa4b5a45d13cd3585b32b5a90fffa2ee8897afdd022c
 ---
 
 ## Stripe: Minions at Scale
 
 Stripe's internal "Minions" system generates 1,000+ pull requests per week autonomously — primarily for internal tooling. Their architecture mixes deterministic and agentic nodes in a blueprint pattern for high-volume PR generation.[^stripe_minions] This is Level 3–4 territory (humans still review PRs), but illustrates the scale achievable with agent automation applied to bounded domains.
 
-[^stripe_minions]: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents — "Stripe's Minions ship 1000+ PRs/week of one-shot" — sha256:5af13a18d374026eb8f292635c140bcbb084e12e4c51d2cbc098556815b512a3
-
+[^stripe_minions]: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents — "0and%20how%20we%20built%20them." — sha256:58e6a45811ed3bb0d2aa50d8c4d749889e27f219014cb15ad3be83d9b7c848d3
 ---
 
 ## Rakuten: 12.5M-Line vLLM Codebase
 
 A Rakuten engineer ran Claude Code autonomously for 7 hours over a 12.5 million-line vLLM codebase.[^rakuten] This demonstrates the pattern's reach into large existing codebases — not just greenfield development — though it remains at the high end of what practitioners report attempting.
 
-[^rakuten]: https://claude.com/customers/rakuten — "Rakuten engineer ran Claude Code autonomously for 7 hours over a 12.5M-line vLLM codebase" — sha256:ad9bc036afd03b4699730dd2dbb2959c7d9dce201a12254a314738f5768de092
-
+[^rakuten]: https://claude.com/customers/rakuten — "view") + [Claude Code](/product/claude-code "/product/claude-code") + [Claude Cowork](/product/cowork" — sha256:005d0202b7b01c3d5a63cd56381931e80ee277445988a401b4771faaa55bf9f1
 ---
 
 ## Jamon Holmgren: The Night Shift Workflow
@@ -51,8 +47,7 @@ Key observations from his experience:
 
 This is closer to Level 4 than pure Level 5, but represents the practitioner-accessible version of the pattern.
 
-[^jamon]: https://jamon.dev/night-shift — "My current agentic workflow is about 5x faster, better quality, I understand the system better, and I'm having fun again." — sha256:7c1f2bbc6d1a9bb214fabc47f5c4524a4b04574aaba6bce7ce63b3f005f104ab
-
+[^jamon]: https://jamon.dev/night-shift — "too much. My current agentic workflow is about 5x faster, better quality, I understand the system better, and **I'm" — sha256:7c1f2bbc6d1a9bb214fabc47f5c4524a4b04574aaba6bce7ce63b3f005f104ab
 ---
 
 ## OctopusGarden: Weekend Replication
@@ -67,12 +62,11 @@ One engineer built an open-source Dark Factory implementation (OctopusGarden) ov
 
 This community replication confirms the pattern is accessible to individual practitioners, while surfacing the operational concerns that StrongDM's polished writeup elides.
 
-[^octopus]: https://github.com/foundatron/octopusgarden — "working open-source Dark Factory with Docker-isolated build" — sha256:535d0fb765dc65e140c27d8401b2b9ca4692f84816e9cb049c57d9ffed569e8c
-
+[^octopus]: https://github.com/foundatron/octopusgarden — "/pricing") Search or jump to... Search code, repositories, users, issues, pull requests... ==========================================================" — sha256:6ab40060c0de5b96f10b814e441a1301e3b613eb67f3e76a0d6f3d9c4438659b
 ---
 
 ## Anthropic 2026 Trends Report
 
 Anthropic's 2026 Agentic Coding Trends Report documents agent adoption spreading beyond engineering into sales, customer success, and legal — organizations running agent-generated code in production across more domains than the initial ML/infra early adopters.[^anthropic_trends] This suggests the Dark Factory pattern is diffusing beyond the technically sophisticated early teams.
 
-[^anthropic_trends]: https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf — "cross-domain enterprise: Anthropic's 2026 trends report documents agent adoption beyond engineering (sales)" — sha256:5bbcd7582a9e557a5b57235b6f3912dd5876db4282ec604c7167ab9a7d434a8c
+[^anthropic_trends]: https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf — "not certainties about tomorrow. We offer them as a framework for thinking about the year In 2025, coding agents moved from experimental tools to" — sha256:c0bad869f9e3e76484a0f06aad5c4015eaf5ad1d7286e684516d769f9988478a

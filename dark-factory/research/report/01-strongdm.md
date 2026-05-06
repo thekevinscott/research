@@ -12,12 +12,10 @@ The team formed July 14, 2025 — notably, this was before the November 2025 mod
 
 Crucially: StrongDM builds **access management and security software**. Stanford Law's CodeX blog flagged this as the most consequential aspect — a team building security infrastructure that decided human code review is an obstacle, not a safeguard.[^stanford_codex]
 
-[^d5099378]: https://factory.strongdm.ai/ — "non-interactive development where specs + scenarios drive agents that write code, run harnesses, and converge without human review." — sha256:d5099378349485a70d738ac8d266b249ca6442f1a3c78fdda294691da3b125d3
-
+[^d5099378]: https://factory.strongdm.ai/ — "non-interactive development where specs + scenarios drive agents that write code, run harnesses, and converge without human review." — sha256:b3342fee22542bfdce34015bd511e02c8f924dc5a6807dc638cf4b11fb029844
 [^78862ac8]: https://simonwillison.net/2026/Feb/7/software-factory/ — "I visited the StrongDM AI team back in October as part of a small group of invited guests." — sha256:78862ac8ba43738ea2074832041a0945a21c651066722536ceb0eaad908551e3
 
-[^stanford_codex]: https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/ — "A team building security infrastructure has decided that human code review is an obstacle, not a safeguard." — sha256:099f3c42a82d5db68817da96a4f838e8ec1df85e8b94d6f6de3f96f79f7f935b
-
+[^stanford_codex]: https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/ — "tructure* has decided that human code review is an obstacle, not a safeguard. They are not alone. Dan Shapiro's" — sha256:099f3c42a82d5db68817da96a4f838e8ec1df85e8b94d6f6de3f96f79f7f935b
 ---
 
 ## Charter Rules
@@ -43,8 +41,7 @@ StrongDM's published principles describe a three-stage loop:[^ba7eb647]
 
 "The loop runs until the holdout scenarios pass (and stay passing)."[^ba7eb647] Tokens are the fuel: for every obstacle, convert it into a representation the model can understand.
 
-[^ba7eb647]: https://factory.strongdm.ai/principles — "Seed -> Validation harness -> Feedback loop. Tokens are the fuel." — sha256:ba7eb647736fef2bbf8121d34d05ad2fd6476cea0cec9470a6ba95020da79fe6
-
+[^ba7eb647]: https://factory.strongdm.ai/principles — "harness → Feedback loop. Tokens are the fuel. Entry Point Seed ---- Every piece of software needs an initial seed." — sha256:ba7eb647736fef2bbf8121d34d05ad2fd6476cea0cec9470a6ba95020da79fe6
 ---
 
 ## The Techniques
@@ -73,10 +70,8 @@ StrongDM documents six recurring patterns:[^bb419cf4]
 
 **CXDB** (`github.com/strongdm/cxdb`) — 16,000 lines of Rust, 9,500 Go, 6,700 TypeScript. An AI Context Store: content-addressed Turn DAG for persisting agent conversation histories and tool outputs. Append performance p50 < 1ms for 10KB payloads; 70%+ storage reduction via BLAKE3 content addressing.[^cxdb]
 
-[^attractor_spec]: https://github.com/strongdm/attractor/blob/main/attractor-spec.md — "Full ~93KB Attractor NLSpec — the canonical natural-language reference all community implementations target for spec compliance." — sha256:9b706e7e8554b07a47dde3446e01551ad220086a3bf6e2cfe78f9c9de2ec525e
-
-[^cxdb]: https://github.com/strongdm/cxdb — "content-addressed Turn DAG plus Blob CAS for immutable agent conversation/tool-output traces" — sha256:4bcac8b1d85cbcc8a9960d654265b2f60efe4b1621489b474fd19cceddcd1acf
-
+[^attractor_spec]: https://github.com/strongdm/attractor/blob/main/attractor-spec.md — "e defines the canonical mapping: | Shape | Handler Type | Description |" — sha256:d94e091f4f532ca35f05040eb34b9f37739b63ec24cd02285226b27846214845
+[^cxdb]: https://github.com/strongdm/cxdb — "uilt on a Turn DAG + Blob CAS architecture, CXDB gives you: - **Branch-from-any-turn**: Fork conversations at any point" — sha256:9dd9d7c5ff97ec700755c7d9c3eceb81dd797effad3c23236523ee84a72cf7ae
 ---
 
 ## Deliberate Naivete

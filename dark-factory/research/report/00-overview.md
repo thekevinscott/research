@@ -75,6 +75,5 @@ A second inflection Willison identified: November 2025 releases from Anthropic a
 
 This dependency on frontier model capability is a hard constraint: teams attempting the pattern on sub-frontier models or earlier checkpoints report the compounding-error failure mode rather than compounding correctness.
 
-[^d5099378]: https://factory.strongdm.ai/ — "with the second revision of Claude 3.5 (October 2024), long-horizon agentic coding workflows began to compound correctness rather than error." — sha256:d5099378349485a70d738ac8d266b249ca6442f1a3c78fdda294691da3b125d3
-
+[^d5099378]: https://factory.strongdm.ai/ — "with the second revision of Claude 3.5 (October 2024), long-horizon agentic coding workflows began to compound correctness rather than error." — sha256:b3342fee22542bfdce34015bd511e02c8f924dc5a6807dc638cf4b11fb029844
 [^78862ac8]: https://simonwillison.net/2026/Feb/7/software-factory/ — "StrongDM's AI team was founded in July 2025 based on an earlier inflection point relating to Claude Sonnet 3.5" — sha256:78862ac8ba43738ea2074832041a0945a21c651066722536ceb0eaad908551e3

@@ -14,8 +14,7 @@
 
 **Status**: Genuinely contested. StrongDM's domain choice (security software) is either the strongest possible proof or the most reckless possible gamble, depending on whether the scenario coverage is actually comprehensive. No independent audit of their coverage has been published.
 
-[^base44]: https://www.wiz.io/blog/critical-vulnerability-base44 — "critical auth-bypass in Wix-acquired Base44 vibe-coding platform that exposed every customer's private app to anyone" — sha256:5587cb1c8fcfacca89d040a7f69b14db4ceaaca70bff4f6468e24305a57bd1dd
-
+[^base44]: https://www.wiz.io/blog/critical-vulnerability-base44 — "eplace traditional programming. This shift has empowered millions of users with little to no technical background to build fully functional" — sha256:32ae935a9a38012f15a4d99b34106451fe9340f8c2577aec9cb995043deb33e5
 [^stanford]: https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/ — "It inverts how we assign responsibility for software behavior. Existing regulatory frameworks are not prepared for it." — sha256:099f3c42a82d5db68817da96a4f838e8ec1df85e8b94d6f6de3f96f79f7f935b
 
 ---
@@ -30,8 +29,7 @@
 
 **Status**: The contradiction is partly explained by model vintage (early-2025 vs post-November-2025 frontier) and workflow level (METR tested Level 2–3, BCG/OpenAI report Level 4–5). A controlled study of Level 5 workflows with post-2025 models has not been published.
 
-[^bcg]: https://www.bcgplatinion.com/insights/the-dark-software-factory — "organizations operating at this level report productivity gains of 3 to 5x on average" — sha256:1223500beed9dad3c0289732aa941183900a39c9ea88012924ba83ab4794a258
-
+[^bcg]: https://www.bcgplatinion.com/insights/the-dark-software-factory — "utcomes - organizations operating at this level report **productivity gains of 3 to 5x** on average. OpenAI was able to" — sha256:1223500beed9dad3c0289732aa941183900a39c9ea88012924ba83ab4794a258
 [^metr]: https://arxiv.org/abs/2507.09089 — "allowing AI actually increases completion time by 19%" — sha256:0c7700afa99c5d14a3c2b745eb2c0208b72e3092c413786974b32ed9e55a30b9
 
 ---
@@ -58,8 +56,7 @@
 
 **Status**: Probably both true, in different contexts. For greenfield products with clear specs and small teams (the StrongDM case), code generation may indeed be the bottleneck. For large organizations with multiple stakeholders and complex integration dependencies, the bottleneck is upstream of code. The Dark Factory is not a solution to organizational dysfunction.
 
-[^kellan]: https://laughingmeme.org/2026/02/09/code-has-always-been-the-easy-part.html — "skeptical that the bottleneck was ever code; coordination/socio-technical work remains." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
-
+[^kellan]: https://laughingmeme.org/2026/02/09/code-has-always-been-the-easy-part.html — "ys* known that the value is the system, the value is human-technology hybrid that allows a product to be delivered," — sha256:e835240967b666293fea7d47aac204cc50739a34f2ac35227b3944599e9a0cb5
 ---
 
 ## Accountability and Regulation
