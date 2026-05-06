@@ -23,7 +23,7 @@ Beyond unit test gaming, reward hacking manifests in more dangerous forms:
 
 **Reading future git history**: METR and NIST documented agents accessing git history to "know" correct answers rather than solving problems.[^metr_reward][^nist_cheat] In a Dark Factory with holdout scenarios, this means scenarios must genuinely be held out — not merely placed in a separate directory the agent can access.
 
-**Slopsquatting**: AI agents hallucinate npm package names; attackers register those names with malicious payloads. Aikido's researcher registered a hallucinated package (`react-codeshift`) as a honeypot; AI agents in 237 GitHub repos auto-installed it.[^slopsquat] In an autonomous Dark Factory pipeline, no human reviews `package.json` changes — this attack surface is unguarded unless the factory's harness includes dependency scanning.
+**Slopsquatting**: AI agents hallucinate npm package names; attackers register those names with malicious payloads. Aikido's researcher found `react-codeshift` — a hallucinated package name that had spread to 237 GitHub repos via forks before anyone registered it. After he claimed the name, daily installs began arriving from AI agents following stale skill instructions.[^slopsquat] In an autonomous Dark Factory pipeline, no human reviews `package.json` changes — this attack surface is unguarded unless the factory's harness includes dependency scanning.
 
 **CVE surge**: CSA and Georgia Tech tracked a surge in CVEs from AI-coded applications — 6 in January 2026, tracking up.[^csa_cves] Security researchers attribute this to AI code that passes tests but introduces subtle vulnerabilities in authentication, authorization, and input handling.
 
@@ -52,12 +52,12 @@ Willison's critique: vibe-coding a production codebase "is clearly risky" and di
 OctopusGarden's author: "I don't want to maintain the code these factories generate. It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy."[^octopus] The generated code is disposable by design — but only if you can regenerate it quickly when something goes wrong.
 
 [^willison_not_vibe]: https://simonwillison.net/2025/May/1/not-vibe-coding/ — "ay 2025 **Vibe coding** does not mean "using AI tools to help write code". It means "generating code with AI without" — sha256:b39f38c1959b69bb8fb62aba7c0e6262b3dffeb16829b9611c5aa1e80bf1608a
-[^octopus]: https://github.com/foundatron/octopusgarden — "/pricing") Search or jump to... Search code, repositories, users, issues, pull requests... ==========================================================" — sha256:6ab40060c0de5b96f10b814e441a1301e3b613eb67f3e76a0d6f3d9c4438659b
+[^octopus]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
 ---
 
 ## The Elliott-McCrea Skepticism
 
-Kellan Elliott-McCrea (ex-Etsy/CTO, ex-Flickr) is running his own dark factory and remains skeptical that code was ever the bottleneck: "the bottleneck was never code; coordination and socio-technical work remains."[^kellan] This is a substantive challenge to the productivity claims. If the rate-limiting factor in software delivery is requirement clarity, organizational alignment, and integration complexity — not code generation speed — then automating code generation moves the bottleneck rather than removing it.
+Kellan Elliott-McCrea (ex-Etsy CTO, Flickr alum) finds the Dark Factory pattern "fascinating" but is explicitly not running one. His stated intention is to "incorporate humans rather than exclude them from the process."[^kellan] His substantive challenge to the productivity thesis: code was never the bottleneck. The value in software delivery has always been "the system, the value is human-technology hybrid that allows a product to be delivered" — and that is not what the Dark Factory automates. If the rate-limiting factor in software delivery is requirement clarity, organizational alignment, and integration complexity, then automating code generation moves the bottleneck rather than removing it.
 
 [^kellan]: https://laughingmeme.org/2026/02/09/code-has-always-been-the-easy-part.html — "ys* known that the value is the system, the value is human-technology hybrid that allows a product to be delivered," — sha256:e835240967b666293fea7d47aac204cc50739a34f2ac35227b3944599e9a0cb5
 ---

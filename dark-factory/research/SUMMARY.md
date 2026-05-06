@@ -46,9 +46,9 @@ Domains where the pattern struggles: regulated industries requiring audit trails
 
 The most challenging counter-evidence comes from a 2025 METR randomized controlled trial: 16 experienced developers, 246 tasks, early-2025 AI tools. Result — allowing AI tools **increased completion time by 19%**.[^05-metr_rct] Proponents of the Dark Factory argue this measures Level 2–3 workflows (humans in the review loop), not Level 5. The study does not directly test autonomous agent operation with holdout-scenario validation. The mitigating context is genuine: METR used early-2025 models in mature large codebases with high quality standards — not the post-November-2025 models or greenfield conditions practitioners cite.
 
-Production incidents exist: the Replit data loss case (AI Incident Database #1152) and the Base44 auth-bypass vulnerability — both from Level 2–3 workflows, but illustrating the threat model for any deployment path that reduces human code review.[^05-replit][^05-base44] Slopsquatting is an autonomous-pipeline-specific threat: AI agents hallucinated npm package names; attackers registered them with malicious payloads; agents in 237 GitHub repos auto-installed them.[^05-slopsquat]
+Production incidents exist: the Replit data loss case (AI Incident Database #1152) and the Base44 auth-bypass vulnerability — both from Level 2–3 workflows, but illustrating the threat model for any deployment path that reduces human code review.[^05-replit][^05-base44] Slopsquatting is an autonomous-pipeline-specific threat: hallucinated package names spread to 237 GitHub repos via forks; once registered by an attacker, any agent following stale skill instructions will install them.[^05-slopsquat]
 
-Kellan Elliott-McCrea (running his own dark factory) challenges the premise: "code was never the bottleneck; coordination and socio-technical work remains."[^05-kellan] If the rate-limiting factor in software delivery is requirement clarity and organizational alignment — not code generation speed — then automating code generation moves the bottleneck rather than removing it. Probably both are true in different contexts.
+Kellan Elliott-McCrea (ex-Etsy CTO) challenges the premise: code was never the bottleneck — "the value is the system, the value is human-technology hybrid that allows a product to be delivered."[^05-kellan] Elliott-McCrea is not running a dark factory; he explicitly plans to incorporate humans rather than exclude them. His point stands regardless: if the rate-limiting factor in software delivery is requirement clarity and organizational alignment, then automating code generation moves the bottleneck rather than removing it. Probably both are true in different contexts.
 
 ---
 
@@ -105,7 +105,7 @@ Claims in this summary trace to report sections as follows:
 [^06-stripe]: report/06-domains.md — [^stripe]
 [^06-bcg]: report/06-domains.md — [^bcg]
 [^06-pulumi]: report/06-domains.md — [^pulumi]
-[^06-stanford]: report/06-domains.md — [^stanford_codex]
+[^06-stanford]: report/06-domains.md — [^stanford]
 [^06-automat]: report/06-domains.md — [^automat]
 [^06-embedded]: report/06-domains.md — [^embedded]
 [^07-bcg]: report/07-contested.md — [^bcg]

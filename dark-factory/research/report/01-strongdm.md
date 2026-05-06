@@ -68,10 +68,10 @@ StrongDM documents six recurring patterns:[^bb419cf4]
 
 **Attractor** (`github.com/strongdm/attractor`) — published as three markdown NLSpec files with no runtime code. Users feed the specs to their coding agent of choice to generate the implementation.[^78862ac8] The release strategy demonstrates the Dark Factory principle: the artifact is the spec, not the code. The ~93KB `attractor-spec.md` is the canonical reference all community implementations target for compliance.[^attractor_spec]
 
-**CXDB** (`github.com/strongdm/cxdb`) — 16,000 lines of Rust, 9,500 Go, 6,700 TypeScript. An AI Context Store: content-addressed Turn DAG for persisting agent conversation histories and tool outputs. Append performance p50 < 1ms for 10KB payloads; 70%+ storage reduction via BLAKE3 content addressing.[^cxdb]
+**CXDB** (`github.com/strongdm/cxdb`) — 16,000 lines of Rust, 9,500 Go, 6,700 TypeScript.[^78862ac8] An AI Context Store: content-addressed Turn DAG for persisting agent conversation histories and tool outputs. Append performance p50 < 1ms for 10KB payloads; 70%+ storage reduction via BLAKE3 content addressing.[^cxdb]
 
 [^attractor_spec]: https://github.com/strongdm/attractor/blob/main/attractor-spec.md — "e defines the canonical mapping: | Shape | Handler Type | Description |" — sha256:d94e091f4f532ca35f05040eb34b9f37739b63ec24cd02285226b27846214845
-[^cxdb]: https://github.com/strongdm/cxdb — "uilt on a Turn DAG + Blob CAS architecture, CXDB gives you: - **Branch-from-any-turn**: Fork conversations at any point" — sha256:9dd9d7c5ff97ec700755c7d9c3eceb81dd797effad3c23236523ee84a72cf7ae
+[^cxdb]: https://factory.strongdm.ai/products/cxdb — "p50 < 1ms for 10KB payloads. Your agent doesn't slow down to record itself." — sha256:bce1231e81a01c89144296dd3a8a440973a9dfbc5a4cfc102ac8b5a4361727d3
 ---
 
 ## Deliberate Naivete

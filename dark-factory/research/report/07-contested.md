@@ -52,7 +52,7 @@
 
 **Claim**: Automating code generation meaningfully accelerates software delivery.
 
-**Counter-claim** (Elliott-McCrea): Code was never the bottleneck. Coordination, requirement clarity, organizational alignment, and socio-technical integration are what slow software delivery — and those are not automated by a Dark Factory.[^kellan]
+**Counter-claim** (Elliott-McCrea): Code was never the bottleneck. The value has always been "the system, the value is human-technology hybrid that allows a product to be delivered" — and that is not what a Dark Factory automates. Elliott-McCrea explicitly plans to "incorporate humans rather than exclude them" — he is not running a dark factory, but finds the pattern worth engaging with.[^kellan]
 
 **Status**: Probably both true, in different contexts. For greenfield products with clear specs and small teams (the StrongDM case), code generation may indeed be the bottleneck. For large organizations with multiple stakeholders and complex integration dependencies, the bottleneck is upstream of code. The Dark Factory is not a solution to organizational dysfunction.
 

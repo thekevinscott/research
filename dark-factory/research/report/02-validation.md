@@ -61,7 +61,7 @@ The community has begun building open tooling for scenario-style validation:
 [^deepeval]: https://github.com/confident-ai/deepeval — "en-source LLM evaluation framework, for evaluating large-language model systems. It is similar to Pytest but" — sha256:5689d6a404d1711b82d659c7de1ef235d1d94fd60ae1328cc87638801276e4de
 [^promptfoo]: https://github.com/promptfoo/promptfoo — "y, run an eval and view results: cd getting-started promptfoo eval promptfoo view See Getting Started (evals) or Red" — sha256:898c22c4c95b9ee31c530e619718b589a79e896b1b1b34f26772c5c6abdb2300
 [^agentspec]: https://github.com/haoyuwang99/AgentSpec — "de":"day"} Search or jump to... Search code, repositories, users, issues, pull requests... ==========================================================" — sha256:8587357daf8d112b2003655a1fd5a3e3a4c6e1e6ab9cbec4f2fd5fd7e0dc404e
-[^octopus]: https://github.com/foundatron/octopusgarden — "/pricing") Search or jump to... Search code, repositories, users, issues, pull requests... ==========================================================" — sha256:6ab40060c0de5b96f10b814e441a1301e3b613eb67f3e76a0d6f3d9c4438659b
+[^octopus]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
 ---
 
 ## Record-Replay and Determinism

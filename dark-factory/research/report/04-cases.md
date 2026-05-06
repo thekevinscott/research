@@ -62,7 +62,7 @@ One engineer built an open-source Dark Factory implementation (OctopusGarden) ov
 
 This community replication confirms the pattern is accessible to individual practitioners, while surfacing the operational concerns that StrongDM's polished writeup elides.
 
-[^octopus]: https://github.com/foundatron/octopusgarden — "/pricing") Search or jump to... Search code, repositories, users, issues, pull requests... ==========================================================" — sha256:6ab40060c0de5b96f10b814e441a1301e3b613eb67f3e76a0d6f3d9c4438659b
+[^octopus]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
 ---
 
 ## Anthropic 2026 Trends Report
