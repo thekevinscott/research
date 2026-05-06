@@ -1,0 +1,5 @@
+# Overview
+
+RLEF (Gehring et al., arXiv 2410.02089, Oct 2024) is the foundational paper for "Reinforcement Learning from Execution Feedback." It teaches an LLM, via PPO, to read the output of executing its own code against a hidden test harness and revise — turning what would otherwise be a brittle one-shot generator into an iterative agent grounded in real environment signals. Public tests provide turn-level feedback inserted into the conversation; private tests provide the terminal reward, preventing test-gaming. The result is SOTA on CodeContests for both 8B and 70B Llama models with an order of magnitude fewer samples, and the gains transfer to HumanEval+ and MBPP+.
+
+For Dark Factories the paper matters because it formalizes the seed → harness → feedback loop as a training objective, not just a deployment pattern. It is the academic anchor for harness-first engineering: a richer, faster, more discriminating harness produces a better agent both at inference time (more useful per-turn signals) and at training time (denser RL reward). It sits alongside RLVR and ReVeal in a small but rapidly growing literature on verifiable rewards for code.

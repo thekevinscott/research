@@ -1,0 +1,5 @@
+# Summary
+
+Ry Walker's research note treats the StrongDM Software Factory as an organisational case study rather than a manifesto. He summarises the build - "a three-person team built the system in just three months," with Claude 3.5 (October 2024 revision) as the technical catalyst that enabled "compounding correctness" in long-horizon agentic workflows - and frames its central conceit cleanly: "code is treated as opaque weights - correctness is inferred from behavior, not inspection."
+
+The most useful first-hand contribution is Walker's structured "recommended for / not recommended for" guide. He argues the pattern works for organisations exploring AI coding limits, integration-heavy products, and infrastructure teams designing validation systems, but it does not fit regulated industries that need audit trails, teams uncomfortable with opaque code, or orgs without significant observability investment. He flags two real adoption costs: building a Digital Twin Universe is expensive, and accepting that no one reads the generated code is a cultural shift many orgs will resist.

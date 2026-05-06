@@ -1,0 +1,5 @@
+# Overview
+
+Agent-as-a-Judge (arXiv 2410.10934) generalizes LLM-as-a-Judge by making the judge itself an agent — with tool use, memory, and multi-step reasoning — so it can probe intermediate states of the system under test rather than only scoring final outputs. The authors introduce DevAI, a benchmark of 55 realistic AI development tasks with 365 hierarchical user requirements, and show that Agent-as-a-Judge dramatically outperforms plain LLM-as-a-Judge on agent evaluation while approaching human-evaluator reliability.
+
+For dark factories this is the formal underpinning of the generator-judge separation pattern at agentic scale. Plain LLM judges are usable for short, single-turn outputs; long, multi-step agent runs (the StrongDM scenario style) need an agentic verifier that can step through traces. The paper effectively justifies the architectural decision to spend a non-trivial fraction of the token budget on a separate judge agent rather than only on the worker agent — a cost the StrongDM-style "$1k/day/engineer" budget anticipates.

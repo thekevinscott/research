@@ -1,0 +1,5 @@
+# Overview
+
+METR (Model Evaluation and Threat Research) measures *how long* an AI agent can work autonomously on real-world software/ML/security tasks before humans must step in. Its HCAST suite contains 189 tasks calibrated to human completion times from one minute to 8+ hours; the headline metric is the 50% Task-Completion Time Horizon — the human-effort length at which an agent succeeds 50% of the time. The trend is striking: ~4 minutes in early 2024, ~14.5 hours by Feb 2026, doubling roughly every 4 months. The MirrorCode result (Claude Opus 4.6 reimplementing a 16k-LoC bioinformatics toolkit, ~2-17 human-weeks of work) is a single-task existence proof at the high end.
+
+For dark-factory builders, METR's framing matters because it reframes "is the agent good enough?" as "what task duration is the harness *designed* for?" Short-horizon agents need lighter, faster harnesses; long-horizon agents need scenario-level validation, observability hooks, and recovery paths. The doubling curve is the strongest case for investing in heavy harness infrastructure now, before the underlying capability outruns review processes.

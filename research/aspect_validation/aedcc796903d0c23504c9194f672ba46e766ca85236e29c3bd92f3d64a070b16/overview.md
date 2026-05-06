@@ -1,0 +1,5 @@
+# Overview
+
+Datadog's "Closing the verification loop" post is the canonical industry articulation of harness-first engineering. The argument: agents can produce more code than any human can review, so the only scalable check is automated verification — a closed loop of generate → static verify → production telemetry → harness update. Observability is positioned not as a monitoring afterthought but as the terminal verifier in that loop, and Datadog's MCP Server, LLM Observability, and Agent Builder are framed as the control plane.
+
+The post lands the economic argument that drives the entire dark-factory shift: the marginal cost of catching a bug rises by orders of magnitude per stage downstream, so investing in fast harness verification beats investing in larger human review queues. The BitsEvolve case study (10x ingestion speedup, 1.53x DeBERTa, 1.57x Toto, all verified against live traffic) is one of the rare public proof points where production traffic itself was the loop's reward signal.

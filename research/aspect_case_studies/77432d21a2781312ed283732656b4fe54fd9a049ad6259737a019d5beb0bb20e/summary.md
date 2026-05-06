@@ -1,0 +1,5 @@
+# Summary
+
+Aktagon Signals contrasts the frontier dark-factory teams with everyday AI-tool users to illustrate that the dark factory is not just a thought experiment. Anchor data points: StrongDM's three-person team running a fully autonomous factory, and Anthropic itself, where "90% of Claude Code's codebase was written by Claude Code itself" and the project lead Boris Churny has not personally written code in months. Both are presented as concrete examples of Level 5 in the Shapiro/Willison 5-level framework.
+
+The piece pairs this with the 2025 randomized control trial showing that experienced developers using AI tools took 19% longer to complete tasks than those working without them, while believing AI had made them 24% faster. The implication: the same AI ecosystem is simultaneously producing the fastest software production we have ever seen (frontier teams in dark factories) and a measurable slowdown in typical day-to-day coding - the differentiator is workflow design, not tool quality.

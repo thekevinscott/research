@@ -1,0 +1,5 @@
+# Overview
+
+The Ralph Loop is the simplest, most widely-replicated open-source incarnation of the dark-factory feedback loop: an agent reads a plan, picks a task, implements, tests, commits, exits, then a wrapper restarts it so it picks the next task — and any test failures captured in the previous iteration are visible to the next. The pattern is described in this Mar 2026 post and is implemented in several repos (snarktank/ralph, ralphify, frankbria/ralph-claude-code, etc.).
+
+The defining anecdote is a YC hackathon demo: participants spun Ralph up on a GCP instance and went to sleep, and by morning 1,100 commits had accumulated across 6 repos and the Browser Use library had been nearly completely ported from Python to TypeScript for $800. The pattern's main risk — diverging cost from non-converging iterations — is documented and addressed via max_iterations and cost monitoring guards. Ralph is the existence proof that the seed → harness → feedback loop works for real refactors at hobbyist budgets.

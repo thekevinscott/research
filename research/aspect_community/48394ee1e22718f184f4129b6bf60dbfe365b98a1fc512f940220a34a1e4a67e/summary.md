@@ -1,0 +1,5 @@
+# Summary
+
+This Hacker News thread is the most-cited community discussion of StrongDM's announcement, surfacing right after Simon Willison's Feb 7 2026 endorsement. Commenters dug into the open-sourced strongdm/attractor and strongdm/cxdb repos and quickly flagged Rust anti-patterns, lenient error handling, and the absence of a visible end-product. The dominant tone is "interesting but unproven," with the audience treating StrongDM's two charter rules ("Code must not be written by humans," "Code must not be reviewed by humans") as either a stunt or a leap of faith.
+
+The thread also crystallised the field's central technical question: the Digital Twin Universe (behavioural clones of Okta, Jira, Slack, Google Docs/Drive/Sheets) appears to be the actual hard part, not the agents themselves. HN's verdict reads as cautiously curious: respect for the engineering, scepticism about generalisability, and explicit concern that LLMs' "inhuman" failure modes are not well covered by even sophisticated test harnesses.

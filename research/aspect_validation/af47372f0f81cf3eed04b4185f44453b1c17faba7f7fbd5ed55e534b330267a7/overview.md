@@ -1,0 +1,5 @@
+# Overview
+
+SWE-bench Verified is a 500-instance, human-filtered subset of SWE-bench created with OpenAI to remove ambiguous problem statements, broken test patches, and unsolvable instances from the original benchmark. Solutions are graded purely deterministically — a patch passes iff every previously failing test now passes (issue resolution) and every previously passing test still passes (no regression). To make leaderboard comparisons reflect raw model capability, all LMs are run inside mini-SWE-agent: a minimal bash environment with no tools and a simple ReAct loop.
+
+For Dark Factories, Verified is the prototype of "harness-as-grader": no LLM judge needed, the test suite *is* the verifier, and the model iterates until fail-to-pass and pass-to-pass both hold. The progression from 40% → 80%+ in a year drove the field to create SWE-bench Pro for harder, multi-file, multi-language tasks; but Verified remains the cleanest example of deterministic, executable validation — the bottom layer of the dark-factory grader stack.

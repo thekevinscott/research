@@ -1,0 +1,5 @@
+# Summary
+
+Alexander Opalic's post translates the StrongDM dark factory into the daily reality of an everyday product team, drawing on his hands-on experience running Claude Code as a scheduled cloud agent on his own projects. He argues that handoffs - BA to PO to dev to QA - are the real bottleneck, and a software factory removes them: "Claude Code runs as a scheduled agent in the cloud, reading the codebase, writing code, running tests, and opening PRs." Developers stop writing code and instead design and improve the factory.
+
+His most provocative framing is that role boundaries dissolve once specs become the control surface: "the UX designer can write a spec and hand it to an agent, and the business analyst can describe a fix and kick off an agent." He concludes that "we already have everything we need to build software factories" and that the only differentiator left between teams is how fast they adopt the new workflow. The post pairs with his other hands-on writeups on Claude Code agent swarms and spec-driven development, making it one of the more grounded "I'm running this today" voices in the dark-factory discourse.

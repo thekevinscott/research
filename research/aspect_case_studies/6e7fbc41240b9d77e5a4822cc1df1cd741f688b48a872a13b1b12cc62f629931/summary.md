@@ -1,0 +1,5 @@
+# Summary
+
+factory.strongdm.ai is the first-party home of the StrongDM Software Factory, published February 6, 2026 by Justin McCarthy (CTO), Jay Taylor and Navan Chauhan. The site lays out the three governing rules - code must not be written by humans, code must not be reviewed by humans, and "if you haven't spent at least \$1,000 on tokens today per human engineer, your software factory has room for improvement" - and frames code as "opaque weights" whose correctness is inferred from behavior rather than inspection.
+
+The rest of the site documents the technical machinery: markdown Specs plus YAML Scenarios that live outside the repo as a holdout; an "Attractor" convergence loop (generate -> test -> score -> feedback -> regenerate); a probabilistic LLM-as-judge "Satisfaction" score (0-100) instead of boolean pass/fail; and a Digital Twin Universe of Okta, Jira, Slack, Google Docs/Drive/Sheets used to drive thousands of scenarios per hour. Humans write specs, design scenarios and architect the system; they do not program.

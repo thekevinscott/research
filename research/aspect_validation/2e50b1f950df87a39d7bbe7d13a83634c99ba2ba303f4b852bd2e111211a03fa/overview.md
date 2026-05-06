@@ -1,0 +1,5 @@
+# Overview
+
+Meta's J1 paper (arXiv 2505.10320, May 2025) trains LLM judges with reinforcement learning on a unified verifiable-reward formulation that covers both objectively-checkable and subjective judgment tasks. The trained judges (8B / 32B / 70B variants) use chain-of-thought reasoning and produce verdicts or scores; J1-Qwen-32B beats o1-mini, o3, and even DeepSeek-R1 (671B) on portions of PPE, RewardBench, JudgeBench, RM-Bench, and FollowBenchEval despite training only on synthetic data.
+
+For Dark Factory builders, J1 is the proof point that the LLM judge itself is a model worth training, not merely a prompt to GPT-4. Smaller, specialized, RL-tuned judges can match much larger frontier models for evaluation, slashing the marginal cost of every harness run — a critical economic input to scenarios-at-scale loops. Qualitatively the paper also documents emergent behaviors (dynamic rubric creation, reference-answer generation, iterative self-correction) that map directly onto what a Dark Factory needs from its scenario verifier.

@@ -1,0 +1,5 @@
+# Overview
+
+The ICLR 2026 Workshop on AI with Recursive Self-Improvement (Rio de Janeiro, April 26, 2026) is the first dedicated academic venue for RSI, framed around the observation that the technique has moved from thought experiment to deployed system: LLM agents rewriting their own codebases, scientific discovery pipelines scheduling continual fine-tuning, robotics stacks patching controllers from telemetry. The workshop's framing connects directly to the harness-engineering / scenario-validation discourse: a harness that can score and feed back into the agent is the infrastructure RSI runs on.
+
+The most-cited concrete proof point is AlphaEvolve, Google DeepMind's autonomous algorithm-discovery system, which has improved data-center scheduling, hardware accelerator design, and — crucially — the matrix multiplication kernel used to train the Gemini models that power AlphaEvolve itself. That last loop closes RSI literally. For dark-factory builders, the workshop signals that the field considers the harness-loop pattern the substrate on which RSI will be built, not a separate research direction.

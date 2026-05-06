@@ -1,0 +1,5 @@
+# Summary
+
+This Hacker News thread, posted on February 9, 2026 in response to Simon Willison's StrongDM writeup, became the central public peer-review of the dark factory pattern. Working engineers downloaded the released Rust code in real time and pointed out suspected bugs, Rust anti-patterns and "relatively lenient error handling methods." Jay Taylor from StrongDM's three-person AI team showed up in the thread and replied to those critiques.
+
+The most-cited concern from the thread - one that has since propagated through almost every other dark-factory writeup - is that "if the same model class reads the documentation to build code and also reads it to build tests, they share the same blind spots." Commenters framed it as "the most consequential question in software development right now: how can you prove that software you are producing works if both the implementation and the tests are being written for you by coding agents?" The thread also debated the "$1,000/day per engineer" token benchmark and questioned whether StrongDM had shipped enough public artifacts to back the manifesto's claims.
