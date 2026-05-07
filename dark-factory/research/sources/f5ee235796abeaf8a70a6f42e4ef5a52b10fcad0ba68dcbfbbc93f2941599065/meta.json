@@ -1,0 +1,15 @@
+{
+  "url": "https://kiro.dev/blog/property-based-testing/",
+  "canonical_url": "https://kiro.dev/blog/property-based-testing/",
+  "fetched_at": "2026-05-06T16:47:12Z",
+  "http_status": 200,
+  "content_sha256": "f5ee235796abeaf8a70a6f42e4ef5a52b10fcad0ba68dcbfbbc93f2941599065",
+  "archive_url": "",
+  "search_term": "property-based testing agentic code",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2025,
+  "paywall": false,
+  "summary": "Aaron Eline (Kiro) shows spec-driven development translating natural-language requirements into Hypothesis property tests with shrinking-based counterexamples, framed as a neurosymbolic loop validating LLM-generated code."
+}

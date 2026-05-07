@@ -1,0 +1,3 @@
+StrongDM's own blog (Feb 2026) is the primary first-person account of running a Dark Factory in security software — building privileged-access management software where agents write and review all code. Three engineers shipped 32k lines of production Rust/Go/TypeScript with no hand-coded software and no human review.
+
+Security is the most counter-intuitive domain for unreviewed code. StrongDM's argument is that scenario tests kept outside the codebase, plus the Digital Twin Universe (behavioral clones of Okta/Slack/Jira/Google Workspace), substitute for human review. This is the singular existence-proof for Dark Factory in a regulated/security domain and remains contested (see Stanford Law, Polyglot Factotum critique).

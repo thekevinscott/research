@@ -1,0 +1,3 @@
+Anthropic's 2026 Agentic Coding Trends Report compiles cross-domain enterprise adoption data. Engineering wins include Rakuten (99.9% on 12.5M LOC, 7 autonomous hours), TELUS (30% faster ship, 500k+ hours saved), an Augment Code customer compressing a 4–8 month project to two weeks, CRED (2x execution), and Zapier (89–97% organizational AI adoption with 800+ deployed agents).
+
+The headline claim is that agentic coding has spilled out of engineering into sales, legal, ops, marketing, and security teams who now build their own tools. From a Dark-Factory-domains lens, this report is the strongest evidence that the pattern's center of gravity is internal-tooling and enterprise-migration work, not greenfield external-facing product.

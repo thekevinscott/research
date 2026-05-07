@@ -1,0 +1,3 @@
+Hu et al. (May 2026, arxiv 2605.00803) introduce AutoMat, a benchmark of 85 SME-curated computational materials science claims testing whether coding agents can reproduce published scientific findings end-to-end. Best-performing agent setting succeeds only 54.1% of the time; performance drops further when the workflow must be reconstructed from paper text alone.
+
+Failure modes are domain-specific to scientific computing: incomplete procedures, methodological deviations, and execution fragility against specialized toolchains. This is direct evidence that Dark-Factory-style autonomy breaks in scientific reproducibility — a domain where the specification (the paper) is intentionally underspecified and the validation (does it match a published claim) is itself contested.

@@ -1,0 +1,3 @@
+HackerNoon (Feb 2026) walks through a Dark-Factory implementation on an 8-engineer platform team running ~12 Java/TypeScript microservices. The pattern claims 3–10x velocity and points to baseline waste — 2–8 hours of human review wait and 30–60 minutes of localhost manual testing per change — that the agent loop eliminates.
+
+It leans heavily on holdout scenarios borrowed from StrongDM and on standard infrastructure (GitHub Actions, Spring Boot, container envs). The implicit domain claim is that internal-tooling and microservices CRUD is where the pattern lands first, with OpenAI's harness work and StrongDM's security factory cited as upper-bound case studies.

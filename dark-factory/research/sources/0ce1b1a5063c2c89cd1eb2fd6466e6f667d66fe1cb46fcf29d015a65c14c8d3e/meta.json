@@ -1,0 +1,15 @@
+{
+  "url": "https://arxiv.org/html/2602.07900v2",
+  "canonical_url": "https://arxiv.org/html/2602.07900v2",
+  "fetched_at": "2026-05-06T16:47:12Z",
+  "http_status": 200,
+  "content_sha256": "0ce1b1a5063c2c89cd1eb2fd6466e6f667d66fe1cb46fcf29d015a65c14c8d3e",
+  "archive_url": "",
+  "search_term": "self-congratulation machine LLM tests",
+  "agent": "validation",
+  "source_tier": 1,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "Empirical SWE-bench Verified study finds agent self-written tests function as debug print statements rather than validation; prompt-induced changes in test volume produce no significant change in resolution rate, undermining 'agent-tests-itself' justification."
+}

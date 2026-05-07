@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# safe-fetch: curl wrapper with SSRF + size/time guards.
+# Usage: safe-fetch <url> [output_path]
+set -euo pipefail
+
+url="${1:?url required}"
+out="${2:-/tmp/safe-fetch-$$.html}"
+
+# HTTPS only — block file://, http://, gopher://, dict://, etc.
+[[ "$url" =~ ^https:// ]] || { echo "ERROR: https:// only" >&2; exit 1; }
+
+host=$(echo "$url" | awk -F/ '{print $3}' | awk -F: '{print $1}')
+[[ -n "$host" ]] || { echo "ERROR: no host" >&2; exit 1; }
+
+# Resolve and reject private/link-local/loopback/metadata IPs (SSRF guard).
+ip=$(getent ahostsv4 "$host" | awk 'NR==1{print $1}')
+[[ -n "$ip" ]] || { echo "ERROR: dns fail for $host" >&2; exit 1; }
+case "$ip" in
+  10.*|127.*|169.254.*|0.*) echo "ERROR: blocked ip $ip" >&2; exit 1 ;;
+  172.1[6-9].*|172.2[0-9].*|172.3[01].*) echo "ERROR: blocked ip $ip" >&2; exit 1 ;;
+  192.168.*) echo "ERROR: blocked ip $ip" >&2; exit 1 ;;
+esac
+
+# Output path: enforce /tmp/ prefix to prevent arbitrary writes.
+case "$out" in
+  /tmp/*) ;;
+  *) echo "ERROR: output must be under /tmp/" >&2; exit 1 ;;
+esac
+
+curl \
+  --proto '=https' \
+  --proto-redir '=https' \
+  --max-filesize 20971520 \
+  --max-time 30 \
+  --max-redirs 3 \
+  --resolve "$host:443:$ip" \
+  -sSL \
+  -A "Mozilla/5.0 (safe-fetch research)" \
+  -w "\n---HTTP_STATUS:%{http_code}---\n---FINAL_URL:%{url_effective}---\n" \
+  -o "$out" \
+  "$url"
+
+echo "saved: $out ($(wc -c < "$out") bytes)"

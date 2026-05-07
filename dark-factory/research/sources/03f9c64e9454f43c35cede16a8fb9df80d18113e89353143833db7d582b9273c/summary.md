@@ -1,0 +1,5 @@
+# strongdm/attractor
+
+Attractor is a public natural-language specification (NLSpec) of StrongDM's non-interactive coding agent — the model used inside the StrongDM Software Factory. The repo intentionally contains no code, only three markdown specs (Attractor spec, coding-agent loop spec, unified-LLM-client spec). The README's instructions are literally to hand the spec URL to a modern coding agent (Claude Code, Codex, Cursor, Amp, OpenCode) and have it implement the agent itself. This is a deliberate inversion of the usual open-source release: the artifact is the spec, the implementation is whatever the reader's coding agent produces from it.
+
+In Dark Factory pipeline terms Attractor is the canonical reference design for the agent that occupies Level 5 of Shapiro's model — i.e. the loop that writes and reviews code without a human in the loop. The repo (strongdm/attractor on GitHub) was created in early 2026 alongside the StrongDM Software Factory announcement and is actively maintained as a spec; flag: very small repo, activity is in spec edits not code commits.

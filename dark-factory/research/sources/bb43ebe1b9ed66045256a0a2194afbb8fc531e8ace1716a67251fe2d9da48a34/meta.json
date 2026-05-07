@@ -1,0 +1,15 @@
+{
+  "url": "https://www.strongdm.com/blog/the-strongdm-software-factory-building-software-with-ai",
+  "canonical_url": "https://www.strongdm.com/blog/the-strongdm-software-factory-building-software-with-ai",
+  "fetched_at": "2026-05-06T16:47:13Z",
+  "http_status": 200,
+  "content_sha256": "bb43ebe1b9ed66045256a0a2194afbb8fc531e8ace1716a67251fe2d9da48a34",
+  "archive_url": "",
+  "search_term": "Digital Twin Universe StrongDM",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "StrongDM's official narrative of their software factory: scenario-based validation, DTU, autonomous end-to-end agent execution, with validation cycles replacing human code review."
+}

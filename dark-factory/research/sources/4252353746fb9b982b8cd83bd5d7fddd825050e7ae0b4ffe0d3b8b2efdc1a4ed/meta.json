@@ -1,0 +1,15 @@
+{
+  "url": "https://arxiv.org/abs/2510.11977",
+  "canonical_url": "https://arxiv.org/abs/2510.11977",
+  "fetched_at": "2026-05-06T16:47:13Z",
+  "http_status": 200,
+  "content_sha256": "4252353746fb9b982b8cd83bd5d7fddd825050e7ae0b4ffe0d3b8b2efdc1a4ed",
+  "archive_url": "",
+  "search_term": "agent eval harness 2026",
+  "agent": "validation",
+  "source_tier": 1,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2025,
+  "paywall": false,
+  "summary": "ICLR 2026 paper introducing HAL: standardized harness running 21,730 rollouts across 9 models and 9 benchmarks; reliability dashboard scores consistency, predictability, robustness, safety, self-awareness beyond accuracy."
+}

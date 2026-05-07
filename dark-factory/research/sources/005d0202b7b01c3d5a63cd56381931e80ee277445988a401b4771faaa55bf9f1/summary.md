@@ -1,0 +1,3 @@
+Rakuten's Claude Code customer story (2025) features ML engineer Kenta Naruse running Claude Code autonomously for seven hours over the 12.5M-line vLLM open-source codebase to port an activation-vector extraction method. The result hit 99.9% numerical accuracy against the reference, with no code written by the human during the run.
+
+This is the most-cited public success case for Dark-Factory-style autonomy on large open-source ML/inference infrastructure. Time-to-market for new features dropped from 24 days to 5 (79% reduction). Still, it is one task with a single oversight engineer providing 'occasional guidance' — closer to Level 4 than Level 5 — and the domain is research/ML infra, not safety-critical software.

@@ -1,0 +1,15 @@
+{
+  "url": "https://factory.strongdm.ai/techniques/dtu",
+  "canonical_url": "https://factory.strongdm.ai/techniques/dtu",
+  "fetched_at": "2026-05-06T16:47:11Z",
+  "http_status": 200,
+  "content_sha256": "372e65421caf3342bb10496f833f7218ed137fab24b24a21af6de241f94834d6",
+  "archive_url": "",
+  "search_term": "Digital Twin Universe StrongDM",
+  "agent": "validation",
+  "source_tier": 2,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "StrongDM canonical page describing DTU as behavioral clones of Okta/Jira/Slack/Google services for high-volume scenario validation without API costs or rate limits."
+}
