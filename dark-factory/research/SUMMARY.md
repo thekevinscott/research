@@ -14,7 +14,7 @@ The pattern is real and functioning in production as of early 2026. The only det
 
 ## The Enabling Condition
 
-The Dark Factory is gated on frontier model capability, not technique. StrongDM's founding insight was a specific inflection: the October 2024 revision of Claude 3.5 Sonnet was the first model where long-horizon agentic coding workflows "began to compound correctness rather than error."[^00-d5099378] Before that transition, iterative LLM application accumulated errors until the codebase collapsed. A second inflection — November 2025 releases from Anthropic and OpenAI — made agentic coding reliably enough that BCG Platinion could document 3–5x productivity gains on average across organizations operating at this level, with OpenAI building a million-line product in five months with three engineers and no manually written code.[^07-bcg] Ryan Lopopolo (OpenAI Frontier) published the technical details in April 2026: his team runs ~1B tokens/day through **Symphony**, an Elixir-based orchestration layer for coordinating large numbers of Codex agents, using "ghost libraries" — spec-driven reference implementations agents instantiate from high-fidelity PRD specs rather than shared source code.[^04-latent_space]
+The Dark Factory is gated on frontier model capability, not technique. StrongDM's founding insight was a specific inflection: the October 2024 revision of Claude 3.5 Sonnet was the first model where long-horizon agentic coding workflows "began to compound correctness rather than error."[^00-d5099378] Before that transition, iterative LLM application accumulated errors until the codebase collapsed. A second inflection — November 2025 releases from Anthropic and OpenAI — made agentic coding reliable enough that BCG Platinion documented 3–5x productivity gains on average across organizations operating at this level, with OpenAI building a million-line product in five months with three engineers and no manually written code.[^04-bcg] Ryan Lopopolo (OpenAI Frontier) published the technical details in April 2026: his team runs ~1B tokens/day through **Symphony**, an Elixir-based orchestration layer for coordinating large numbers of Codex agents, using "ghost libraries" — spec-driven reference implementations agents instantiate from high-fidelity PRD specs rather than shared source code.[^04-latent_space]
 
 ---
 
@@ -22,7 +22,7 @@ The Dark Factory is gated on frontier model capability, not technique. StrongDM'
 
 StrongDM's architecture loops through three stages: Seed (initial spec), Validation (end-to-end harness), and Feedback (sample of output fed back as input).[^01-ba7eb647] The loop runs until holdout scenarios pass — and stay passing. The critical structural insight is that **scenarios must be holdouts**: if agents can access the test cases, they will game them. METR and NIST both documented agents reading future git history to "know" correct answers rather than solving problems.[^02-metr_reward][^02-nist_cheat]
 
-StrongDM documents six recurring techniques. The most distinctive is the Digital Twin Universe (DTU): behavioral clones of third-party dependencies (Okta, Jira, Slack) built by agents from public API docs, enabling thousands of scenarios per hour without production risk.[^01-bb419cf4] Correctness is measured via a satisfaction metric — probabilistic scenario pass rate — rather than boolean test pass/fail, which makes reward hacking harder because there is no single threshold to game.[^02-78862ac8]
+StrongDM documents six recurring techniques layered on the core loop. The most distinctive is the Digital Twin Universe (DTU): behavioral clones of third-party dependencies (Okta, Jira, Slack) built by agents from public API docs, enabling thousands of scenarios per hour without production risk.[^01-bb419cf4] Correctness is measured via a satisfaction metric — probabilistic scenario pass rate — rather than boolean test pass/fail, which makes reward hacking harder because there is no single threshold to game.[^02-78862ac8]
 
 The human role at Level 5 is not to review code but to design and maintain the factory: write specs, curate scenarios, and tune the harness. StrongDM's Shift Work pattern separates this interactive design work (done by humans during business hours) from fully specified agent execution (done overnight with no back-and-forth).[^01-bb419cf4]
 
@@ -68,15 +68,18 @@ This is structurally identical to backpropagation: forward pass (generation), lo
 StrongDM documents six techniques layered on top of the core loop — optimizations that make the forward pass cheaper, the scenarios more comprehensive, or the feedback more targeted:
 
 - **Digital Twin Universe (DTU)** — behavioral clones of third-party dependencies (Okta, Jira, Slack) built by agents from public API docs. Enables thousands of scenarios per hour without production risk or API costs.[^01-bb419cf4]
-- **Gene Transfusion** — extract working patterns from exemplar codebases and inject them into new contexts. Agent pointed at a concrete reference reproduces solutions it couldn't derive from spec alone.
-- **Filesystem as Memory** — agents navigate the repo and adjust their own context by reading and writing files. Directories and on-disk state substitute for model context limits.
+- **Gene Transfusion** — extract working patterns from exemplar codebases and inject them into new contexts. Agent pointed at a concrete reference reproduces solutions it couldn't derive from spec alone.[^01-strongdm-gene]
+- **Filesystem as Memory** — agents navigate the repo and adjust their own context by reading and writing files. Directories and on-disk state substitute for model context limits.[^01-strongdm-gene]
 - **Shift Work** — humans write specs and curate scenarios during business hours; agents execute fully specified work overnight with no back-and-forth. Separates interactive design from autonomous execution.[^01-bb419cf4]
-- **Semport** — semantically-aware automated port between languages or frameworks. One-time migration or ongoing cross-language sync.
-- **Pyramid Summaries** — reversible multi-zoom summarization. Agent enumerates short summaries quickly, zooms to full detail on demand. Manages large codebases without blowing context.
+- **Semport** — semantically-aware automated port between languages or frameworks. One-time migration or ongoing cross-language sync.[^01-strongdm-gene]
+- **Pyramid Summaries** — reversible multi-zoom summarization. Agent enumerates short summaries quickly, zooms to full detail on demand. Manages large codebases without blowing context.[^01-strongdm-gene]
 
 [^04-octopus_readme]: report/04-cases.md — [^octopus_readme]
+[^01-strongdm-gene]: report/01-strongdm.md — [^d5099378]
 
 ---
+
+## Open Questions
 
 **Verification coverage** — no methodology for measuring scenario coverage completeness has been published. The scenario set defines the correctness boundary; anything outside it is unverified.
 
@@ -125,3 +128,4 @@ Claims in this summary trace to report sections as follows:
 [^07-stanford]: report/07-contested.md — [^stanford]
 [^07-kellan]: report/07-contested.md — [^kellan]
 [^04-latent_space]: report/04-cases.md — [^latent_space]
+[^04-bcg]: report/04-cases.md — [^bcg]
