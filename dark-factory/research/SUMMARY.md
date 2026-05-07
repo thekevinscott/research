@@ -57,16 +57,16 @@ Domains where the pattern struggles: regulated industries requiring audit trails
 The pattern reduces to three components:
 
 ```python
-failures = []
-for step in range(max_iterations):
-    code = agent(spec + failures)
-    score, failures = judge(code, scenarios)
+feedback = []
+for step in stopping_condition():
+    proposed_change = agent(prompt, code, feedback)
+    score, feedback = judge(proposed_change, scenarios)
     if score >= threshold:
-        apply(code)
+        apply(proposed_change)
         break
 ```
 
-`agent` generates code from spec + prior failures. `judge` runs the code against holdout scenarios and returns a score (0–100) plus the list of failures. `apply` ships the artifact. The loop terminates on convergence or budget exhaustion.
+`agent` generates a proposed change from the prompt, current code, and prior failures. `judge` runs the proposed change against holdout scenarios — scenarios the agent never sees — and returns a score (0–100) plus failures for the next iteration. `apply` ships the artifact. `stopping_condition` encodes the token/iteration budget. The feedback loop is what produces convergence: each iteration the agent sees what failed and why.
 
 **OctopusGarden** (`github.com/foundatron/octopusgarden`, CLI: `octog`) is the only open-source implementation that ships the full loop as a usable tool — brew-installable, Go, MIT licensed.[^04-octopus_readme] It adds stall recovery (Wonder/Reflect), model escalation, and stratified validation on top of the minimal loop, but these are optimizations for failure modes, not requirements.
 
