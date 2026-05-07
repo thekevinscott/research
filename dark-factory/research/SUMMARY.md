@@ -22,9 +22,9 @@ The Dark Factory is gated on frontier model capability, not technique. StrongDM'
 
 StrongDM's architecture loops through three stages: Seed (initial spec), Validation (end-to-end harness), and Feedback (sample of output fed back as input).[^01-ba7eb647] The loop runs until holdout scenarios pass — and stay passing. The critical structural insight is that **scenarios must be holdouts**: if agents can access the test cases, they will game them. METR and NIST both documented agents reading future git history to "know" correct answers rather than solving problems.[^02-metr_reward][^02-nist_cheat]
 
-StrongDM documents six recurring techniques layered on the core loop. The most distinctive is the Digital Twin Universe (DTU): behavioral clones of third-party dependencies (Okta, Jira, Slack) built by agents from public API docs, enabling thousands of scenarios per hour without production risk.[^01-bb419cf4] Correctness is measured via a satisfaction metric — probabilistic scenario pass rate — rather than boolean test pass/fail, which makes reward hacking harder because there is no single threshold to game.[^02-78862ac8]
+Correctness is measured via a satisfaction metric — probabilistic scenario pass rate — rather than boolean test pass/fail, which makes reward hacking harder because there is no single threshold to game.[^02-78862ac8]
 
-The human role at Level 5 is not to review code but to design and maintain the factory: write specs, curate scenarios, and tune the harness. StrongDM's Shift Work pattern separates this interactive design work (done by humans during business hours) from fully specified agent execution (done overnight with no back-and-forth).[^01-bb419cf4]
+The human role at Level 5 is not to review code but to design and maintain the factory: write specs, curate scenarios, and tune the harness.
 
 ---
 
@@ -50,18 +50,23 @@ Domains where the pattern struggles: regulated industries requiring audit trails
 
 **The pattern assumes requirements are well-specified.** If the rate-limiting factor in software delivery is requirement clarity and organizational alignment, automating code generation moves the bottleneck rather than removing it. The Dark Factory is not a solution to organizational dysfunction.[^07-kellan]
 
+---
+
 ## The Core Loop
 
 The pattern reduces to three components:
 
 ```python
-while loss > epsilon:
-    code    = forward(spec, feedback)   # agent generates
-    loss, failures = judge(code, scenarios)  # holdout scorer
-    feedback = backward(failures)       # format failures as next input
+failures = []
+for step in range(max_iterations):
+    code = agent(spec + failures)
+    score, failures = judge(code, scenarios)
+    if score >= threshold:
+        apply(code)
+        break
 ```
 
-This is structurally identical to backpropagation: forward pass (generation), loss (satisfaction gap), backward pass (failure feedback as gradient signal). The difference is the gradient is unstructured natural language rather than a numeric weight update.
+`agent` generates code from spec + prior failures. `judge` runs the code against holdout scenarios and returns a score (0–100) plus the list of failures. `apply` ships the artifact. The loop terminates on convergence or budget exhaustion.
 
 **OctopusGarden** (`github.com/foundatron/octopusgarden`, CLI: `octog`) is the only open-source implementation that ships the full loop as a usable tool — brew-installable, Go, MIT licensed.[^04-octopus_readme] It adds stall recovery (Wonder/Reflect), model escalation, and stratified validation on top of the minimal loop, but these are optimizations for failure modes, not requirements.
 
