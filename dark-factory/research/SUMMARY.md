@@ -65,7 +65,14 @@ This is structurally identical to backpropagation: forward pass (generation), lo
 
 **OctopusGarden** (`github.com/foundatron/octopusgarden`, CLI: `octog`) is the only open-source implementation that ships the full loop as a usable tool — brew-installable, Go, MIT licensed.[^04-octopus_readme] It adds stall recovery (Wonder/Reflect), model escalation, and stratified validation on top of the minimal loop, but these are optimizations for failure modes, not requirements.
 
-The six techniques StrongDM documents (DTU, Gene Transfusion, Filesystem as Memory, Shift Work, Semport, Pyramid Summaries) are also optimizations layered on the same core loop — ways to make the forward pass cheaper, the scenarios more comprehensive, or the feedback more targeted.
+StrongDM documents six techniques layered on top of the core loop — optimizations that make the forward pass cheaper, the scenarios more comprehensive, or the feedback more targeted:
+
+- **Digital Twin Universe (DTU)** — behavioral clones of third-party dependencies (Okta, Jira, Slack) built by agents from public API docs. Enables thousands of scenarios per hour without production risk or API costs.[^01-bb419cf4]
+- **Gene Transfusion** — extract working patterns from exemplar codebases and inject them into new contexts. Agent pointed at a concrete reference reproduces solutions it couldn't derive from spec alone.
+- **Filesystem as Memory** — agents navigate the repo and adjust their own context by reading and writing files. Directories and on-disk state substitute for model context limits.
+- **Shift Work** — humans write specs and curate scenarios during business hours; agents execute fully specified work overnight with no back-and-forth. Separates interactive design from autonomous execution.[^01-bb419cf4]
+- **Semport** — semantically-aware automated port between languages or frameworks. One-time migration or ongoing cross-language sync.
+- **Pyramid Summaries** — reversible multi-zoom summarization. Agent enumerates short summaries quickly, zooms to full detail on demand. Manages large codebases without blowing context.
 
 [^04-octopus_readme]: report/04-cases.md — [^octopus_readme]
 
