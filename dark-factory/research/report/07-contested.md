@@ -19,21 +19,6 @@
 
 ---
 
-## The Productivity Claim
-
-**Claim**: Dark Factory delivers 3–5x productivity gains (BCG Platinion) or 10x gains (OpenAI case).
-
-**For**: BCG Platinion documents 3–5x productivity gains "on average" for organizations operating at this level.[^bcg] The OpenAI case (1M LOC, 3 engineers, 5 months) represents a ratio that is difficult to explain without substantial automation leverage.
-
-**Against**: The METR RCT found a 19% slowdown for experienced developers on early-2025 tools.[^metr] BCG and OpenAI figures are self-reported, not RCT-measured. The methodology for measuring "productivity" varies: BCG may be measuring throughput (features shipped), METR measured time-per-task. These are not the same thing.
-
-**Status**: The contradiction is partly explained by model vintage (early-2025 vs post-November-2025 frontier) and workflow level (METR tested Level 2–3, BCG/OpenAI report Level 4–5). A controlled study of Level 5 workflows with post-2025 models has not been published.
-
-[^bcg]: https://www.bcgplatinion.com/insights/the-dark-software-factory — "utcomes - organizations operating at this level report **productivity gains of 3 to 5x** on average. OpenAI was able to" — sha256:1223500beed9dad3c0289732aa941183900a39c9ea88012924ba83ab4794a258
-[^metr]: https://arxiv.org/abs/2507.09089 — "allowing AI actually increases completion time by 19%" — sha256:0c7700afa99c5d14a3c2b745eb2c0208b72e3092c413786974b32ed9e55a30b9
-
----
-
 ## The Cost Claim
 
 **Claim**: $1,000/day/engineer in token costs is a benchmark for a productive factory.
@@ -52,9 +37,9 @@
 
 **Claim**: Automating code generation meaningfully accelerates software delivery.
 
-**Counter-claim** (Elliott-McCrea): Code was never the bottleneck. The value has always been "the system, the value is human-technology hybrid that allows a product to be delivered" — and that is not what a Dark Factory automates. Elliott-McCrea explicitly plans to "incorporate humans rather than exclude them" — he is not running a dark factory, but finds the pattern worth engaging with.[^kellan]
+**Counter-claim**: Code was never the bottleneck. If the rate-limiting factor in software delivery is requirement clarity, organizational alignment, and integration complexity, then automating code generation moves the bottleneck rather than removing it.[^kellan]
 
-**Status**: Probably both true, in different contexts. For greenfield products with clear specs and small teams (the StrongDM case), code generation may indeed be the bottleneck. For large organizations with multiple stakeholders and complex integration dependencies, the bottleneck is upstream of code. The Dark Factory is not a solution to organizational dysfunction.
+**Status**: Both can be true in different contexts. For greenfield products with clear specs and small teams (the StrongDM case), code generation may be the bottleneck. For large organizations with multiple stakeholders and complex integration dependencies, the bottleneck is upstream of code. The Dark Factory is not a solution to organizational dysfunction — it is a production method that assumes requirements are well-specified.
 
 [^kellan]: https://laughingmeme.org/2026/02/09/code-has-always-been-the-easy-part.html — "ys* known that the value is the system, the value is human-technology hybrid that allows a product to be delivered," — sha256:e835240967b666293fea7d47aac204cc50739a34f2ac35227b3944599e9a0cb5
 ---

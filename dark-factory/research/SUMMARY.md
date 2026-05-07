@@ -42,17 +42,34 @@ Domains where the pattern struggles: regulated industries requiring audit trails
 
 ---
 
-## The Failures
+## Caveats and Limitations
 
-The most challenging counter-evidence comes from a 2025 METR randomized controlled trial: 16 experienced developers, 246 tasks, early-2025 AI tools. Result — allowing AI tools **increased completion time by 19%**.[^05-metr_rct] Proponents of the Dark Factory argue this measures Level 2–3 workflows (humans in the review loop), not Level 5. The study does not directly test autonomous agent operation with holdout-scenario validation. The mitigating context is genuine: METR used early-2025 models in mature large codebases with high quality standards — not the post-November-2025 models or greenfield conditions practitioners cite.
+**Production incidents** (Replit data loss, Base44 auth-bypass) are Level 2–3 failures — vibe-coding workflows, not dark factories.[^05-replit][^05-base44] They're relevant as threat-model illustrations for any path that reduces human code review, but shouldn't be read as evidence the Dark Factory pattern itself has failed in production. The only production Dark Factory in the public record is StrongDM, which has not reported incidents.
 
-Production incidents exist: the Replit data loss case (AI Incident Database #1152) and the Base44 auth-bypass vulnerability — both from Level 2–3 workflows, but illustrating the threat model for any deployment path that reduces human code review.[^05-replit][^05-base44] Slopsquatting is an autonomous-pipeline-specific threat: hallucinated package names spread to 237 GitHub repos via forks; once registered by an attacker, any agent following stale skill instructions will install them.[^05-slopsquat]
+**Slopsquatting** is the one failure mode that is autonomous-pipeline-specific: hallucinated package names spread to 237 GitHub repos via forks; once registered by an attacker, any agent following stale skill instructions will install them.[^05-slopsquat] No human reviews `package.json` in a dark factory.
 
-Kellan Elliott-McCrea (ex-Etsy CTO) challenges the premise: code was never the bottleneck — "the value is the system, the value is human-technology hybrid that allows a product to be delivered."[^05-kellan] Elliott-McCrea is not running a dark factory; he explicitly plans to incorporate humans rather than exclude them. His point stands regardless: if the rate-limiting factor in software delivery is requirement clarity and organizational alignment, then automating code generation moves the bottleneck rather than removing it. Probably both are true in different contexts.
+**The pattern assumes requirements are well-specified.** If the rate-limiting factor in software delivery is requirement clarity and organizational alignment, automating code generation moves the bottleneck rather than removing it. The Dark Factory is not a solution to organizational dysfunction.[^07-kellan]
+
+## The Core Loop
+
+The pattern reduces to three components:
+
+```python
+while loss > epsilon:
+    code    = forward(spec, feedback)   # agent generates
+    loss, failures = judge(code, scenarios)  # holdout scorer
+    feedback = backward(failures)       # format failures as next input
+```
+
+This is structurally identical to backpropagation: forward pass (generation), loss (satisfaction gap), backward pass (failure feedback as gradient signal). The difference is the gradient is unstructured natural language rather than a numeric weight update.
+
+**OctopusGarden** (`github.com/foundatron/octopusgarden`, CLI: `octog`) is the only open-source implementation that ships the full loop as a usable tool — brew-installable, Go, MIT licensed.[^04-octopus_readme] It adds stall recovery (Wonder/Reflect), model escalation, and stratified validation on top of the minimal loop, but these are optimizations for failure modes, not requirements.
+
+The six techniques StrongDM documents (DTU, Gene Transfusion, Filesystem as Memory, Shift Work, Semport, Pyramid Summaries) are also optimizations layered on the same core loop — ways to make the forward pass cheaper, the scenarios more comprehensive, or the feedback more targeted.
+
+[^04-octopus_readme]: report/04-cases.md — [^octopus_readme]
 
 ---
-
-## Open Questions
 
 **Verification coverage** — no methodology for measuring scenario coverage completeness has been published. The scenario set defines the correctness boundary; anything outside it is unverified.
 
@@ -61,14 +78,6 @@ Kellan Elliott-McCrea (ex-Etsy CTO) challenges the premise: code was never the b
 **Model dependency** — the pattern works on frontier models. Agent behavior on re-runs is non-deterministic; a factory's output may change across model versions. What is the recovery path if the model the factory was tuned for is deprecated?
 
 **Cost** — the $1,000/day/engineer figure is a benchmark for a fully productionized factory, not a minimum. Community implementations (OctopusGarden, Willison's experiments at $200/month) demonstrate the pattern works at lower spend. But for organizations at full scale, the cost structure is real.[^01-78862ac8]
-
----
-
-## The State of Evidence
-
-The productivity claims are not contradicted by the METR RCT — they measure different workflow levels and different model generations. BCG Platinion's 3–5x figures[^07-bcg] and the OpenAI 1M-LOC case are self-reported, not RCT-measured; METR used early-2025 tools on mature codebases. A controlled study of Level 5 workflows with post-2025 models has not been published.
-
-The pattern's domain fit matters more than any single productivity figure. For greenfield products with clear specs and small teams, the evidence that it works is substantial. For large organizations with multiple stakeholders, legacy systems, and regulatory requirements, the bottleneck is upstream of code generation and the pattern is at best partial.
 
 ---
 
@@ -81,7 +90,7 @@ Claims in this summary trace to report sections as follows:
 - Reward hacking, holdout scenarios, satisfaction metric → [02-validation.md](report/02-validation.md)
 - Tool ecosystem → [03-tools.md](report/03-tools.md)
 - StrongDM, OpenAI, Stripe, Rakuten, Night Shift cases → [04-cases.md](report/04-cases.md)
-- METR RCT, reward hacking taxonomy, incidents → [05-failures.md](report/05-failures.md)
+- Reward hacking, production incidents, maintenance → [05-failures.md](report/05-failures.md)
 - Domain fit heuristics → [06-domains.md](report/06-domains.md)
 - Contested claims, accountability, open questions → [07-contested.md](report/07-contested.md)
 
@@ -97,17 +106,15 @@ Claims in this summary trace to report sections as follows:
 [^02-metr_reward]: report/02-validation.md — [^metr_reward]
 [^02-nist_cheat]: report/02-validation.md — [^nist_cheat]
 [^02-78862ac8]: report/02-validation.md — [^78862ac8]
-[^05-metr_rct]: report/05-failures.md — [^metr_rct]
 [^05-replit]: report/05-failures.md — [^replit]
 [^05-base44]: report/05-failures.md — [^base44]
 [^05-slopsquat]: report/05-failures.md — [^slopsquat]
-[^05-kellan]: report/05-failures.md — [^kellan]
 [^06-stripe]: report/06-domains.md — [^stripe]
 [^06-bcg]: report/06-domains.md — [^bcg]
 [^06-pulumi]: report/06-domains.md — [^pulumi]
 [^06-stanford]: report/06-domains.md — [^stanford]
 [^06-automat]: report/06-domains.md — [^automat]
 [^06-embedded]: report/06-domains.md — [^embedded]
-[^07-bcg]: report/07-contested.md — [^bcg]
 [^07-stanford]: report/07-contested.md — [^stanford]
+[^07-kellan]: report/07-contested.md — [^kellan]
 [^04-latent_space]: report/04-cases.md — [^latent_space]

@@ -4,19 +4,6 @@
 
 ---
 
-## The Productivity Paradox
-
-The most directly challenging evidence for the Dark Factory thesis comes from a 2025 METR randomized controlled trial. 16 experienced open-source developers with ~5 years of prior experience in their projects completed 246 tasks, randomly assigned to allow or disallow early-2025 AI tools.[^metr_rct]
-
-Result: **allowing AI tools increased completion time by 19%**. Developers forecast 24% speedup. Economics and ML experts predicted 39% and 38% reductions respectively. The observed effect was a slowdown.
-
-Mitigating context: this study used early-2025 frontier tools (Cursor Pro with Claude 3.5/3.7 Sonnet), not the November 2025+ models practitioners cite as the capability inflection. The tasks were in mature, large projects with high quality standards — not greenfield or prototypical work. The researchers explicitly note "the robustness of the slowdown effect across our analyses suggests it is unlikely to primarily be a function of our experimental design," but also that artifacts cannot be entirely ruled out.
-
-**The contested claim**: the METR study covers Level 2–3 workflows, not Level 5. Proponents of the Dark Factory argue that the bottleneck METR measured — experienced engineers being slowed by AI tools in the *review loop* — is exactly what the Dark Factory eliminates. The study does not directly test autonomous agent operation with holdout-scenario validation.
-
-[^metr_rct]: https://arxiv.org/abs/2507.09089 — "find that allowing AI actually increases completion time by 19%--AI tooling slowed developers down. This slowdown also" — sha256:0c7700afa99c5d14a3c2b745eb2c0208b72e3092c413786974b32ed9e55a30b9
----
-
 ## Reward Hacking at Scale
 
 Beyond unit test gaming, reward hacking manifests in more dangerous forms:
@@ -53,13 +40,6 @@ OctopusGarden's author: "I don't want to maintain the code these factories gener
 
 [^willison_not_vibe]: https://simonwillison.net/2025/May/1/not-vibe-coding/ — "ay 2025 **Vibe coding** does not mean "using AI tools to help write code". It means "generating code with AI without" — sha256:b39f38c1959b69bb8fb62aba7c0e6262b3dffeb16829b9611c5aa1e80bf1608a
 [^octopus_hn]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
----
-
-## The Elliott-McCrea Skepticism
-
-Kellan Elliott-McCrea (ex-Etsy CTO, Flickr alum) finds the Dark Factory pattern "fascinating" but is explicitly not running one. His stated intention is to "incorporate humans rather than exclude them from the process."[^kellan] His substantive challenge to the productivity thesis: code was never the bottleneck. The value in software delivery has always been "the system, the value is human-technology hybrid that allows a product to be delivered" — and that is not what the Dark Factory automates. If the rate-limiting factor in software delivery is requirement clarity, organizational alignment, and integration complexity, then automating code generation moves the bottleneck rather than removing it.
-
-[^kellan]: https://laughingmeme.org/2026/02/09/code-has-always-been-the-easy-part.html — "ys* known that the value is the system, the value is human-technology hybrid that allows a product to be delivered," — sha256:e835240967b666293fea7d47aac204cc50739a34f2ac35227b3944599e9a0cb5
 ---
 
 ## Arize: Silent Failure Categories
