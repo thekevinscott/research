@@ -108,6 +108,7 @@ Claims in this summary trace to report sections as follows:
 - Reward hacking, production incidents, maintenance → [05-failures.md](report/05-failures.md)
 - Domain fit heuristics → [06-domains.md](report/06-domains.md)
 - Contested claims, accountability, open questions → [07-contested.md](report/07-contested.md)
+- Evidentiary limits, cost model, causal inference, regulation, talent → [08-gaps.md](report/08-gaps.md)
 
 ---
 
