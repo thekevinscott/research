@@ -56,19 +56,21 @@ This is closer to Level 4 than pure Level 5, but represents the practitioner-acc
 [^jamon]: https://jamon.dev/night-shift — "too much. My current agentic workflow is about 5x faster, better quality, I understand the system better, and **I'm" — sha256:7c1f2bbc6d1a9bb214fabc47f5c4524a4b04574aaba6bce7ce63b3f005f104ab
 ---
 
-## OctopusGarden: Weekend Replication
+## OctopusGarden: Community Implementation
 
-One engineer built an open-source Dark Factory implementation (OctopusGarden) over a weekend after reading StrongDM's writeup. Results on CRUD/REST API apps: it works. The honest post-mortem from the builder:[^octopus]
+OctopusGarden (`github.com/foundatron/octopusgarden`, CLI: `octog`) started as a weekend build after the StrongDM writeup and has since grown into the most complete open-source Dark Factory available. Brew-installable, written in Go, MIT licensed.[^octopus_readme]
 
-- Generated code is behaviorally correct but internally messy
-- Debugging is harder than with hand-written code
-- Compliance (SOC 2, ISO 27001) is "a nightmare" with current tooling
-- Dependency on AI availability is a new operational risk (Claude outage blocked smoke tests)
-- The unit of responsibility is growing: "Most SRE teams manage 1-5 services at big companies. Will that number increase per team?"
+The architecture matches StrongDM's pattern closely: spec + holdout scenarios in, Docker-built code out, LLM-as-judge satisfaction scoring, convergence loop. It adds several features beyond the minimal pattern: Preflight (spec/scenario quality check before running), Wonder/Reflect (stall recovery), Model Escalation (cheap model first, escalate on stalls), Gene Transfusion (`octog extract`), and Stratified Validation (tier scenarios by difficulty).
 
-This community replication confirms the pattern is accessible to individual practitioners, while surfacing the operational concerns that StrongDM's polished writeup elides.
+The builder's original HN post-mortem remains the most candid practitioner account in the corpus:[^octopus_hn]
 
-[^octopus]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
+- Generated code works behaviorally but is "pretty wild and messy" internally
+- Debugging is harder; compliance boxes (SOC 2, ISO 27001) are "a nightmare"
+- AI availability becomes an operational dependency (Claude outage blocked smoke tests)
+- "The unit of responsibility keeps growing" — SRE teams managing meshes of factory-generated services
+
+[^octopus_hn]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
+[^octopus_readme]: https://github.com/foundatron/octopusgarden — "scenarios are a **holdout set**. The coding agent never sees them during" — sha256:c421eb018c072a7bac1c0a398a63c578925b3f7388fb1c984a0c6a9fd4314d37
 ---
 
 ## Anthropic 2026 Trends Report

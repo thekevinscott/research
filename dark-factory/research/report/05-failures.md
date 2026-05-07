@@ -49,10 +49,10 @@ These incidents are not from Dark Factory deployments specifically — they are 
 
 Willison's critique: vibe-coding a production codebase "is clearly risky" and distinguishes irresponsible vibe coding from responsible LLM-assisted programming.[^willison_not_vibe] The Dark Factory doesn't eliminate this concern — it relocates it. If the factory produces code no human can read, debugging production incidents requires regenerating new versions rather than patching the existing code.
 
-OctopusGarden's author: "I don't want to maintain the code these factories generate. It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy."[^octopus] The generated code is disposable by design — but only if you can regenerate it quickly when something goes wrong.
+OctopusGarden's author: "I don't want to maintain the code these factories generate. It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy."[^octopus_hn] The generated code is disposable by design — but only if you can regenerate it quickly when something goes wrong.
 
 [^willison_not_vibe]: https://simonwillison.net/2025/May/1/not-vibe-coding/ — "ay 2025 **Vibe coding** does not mean "using AI tools to help write code". It means "generating code with AI without" — sha256:b39f38c1959b69bb8fb62aba7c0e6262b3dffeb16829b9611c5aa1e80bf1608a
-[^octopus]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
+[^octopus_hn]: https://news.ycombinator.com/item?id=47226107 — "It works. The phenotype is (largely) correct, but the genotype is pretty wild and messy." — sha256:18f7206c7c967d28de86dcce51aa176110e10b1bf79a8286eec206f7a2cb329d
 ---
 
 ## The Elliott-McCrea Skepticism

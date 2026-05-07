@@ -1,0 +1,15 @@
+{
+  "url": "https://github.com/foundatron/octopusgarden",
+  "canonical_url": "https://github.com/foundatron/octopusgarden",
+  "fetched_at": "2026-05-07T00:00:00Z",
+  "http_status": 200,
+  "content_sha256": "c421eb018c072a7bac1c0a398a63c578925b3f7388fb1c984a0c6a9fd4314d37",
+  "archive_url": "",
+  "search_term": "octopusgarden dark factory",
+  "agent": "manual",
+  "source_tier": 4,
+  "primary_or_synthesis": "primary",
+  "recency_year": 2026,
+  "paywall": false,
+  "summary": "OctopusGarden README: open-source dark factory CLI (octog), brew-installable, Go, holdout scenarios, LLM-as-judge, wonder/reflect stall recovery, gene transfusion, stratified validation, model escalation."
+}
