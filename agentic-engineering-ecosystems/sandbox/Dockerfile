@@ -5,10 +5,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git curl wget jq ripgrep fd-find \
     build-essential \
     sudo ca-certificates tmux \
+    gnupg \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+    > /etc/apt/sources.list.d/github-cli.list \
+    && apt-get update && apt-get install -y gh \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g @anthropic-ai/claude-code @earendil-works/pi-coding-agent
@@ -20,6 +28,11 @@ WORKDIR /home/agent
 
 COPY --chown=agent:agent .claude/ /home/agent/.claude/
 COPY .claude/ /root/.claude/
+
+COPY --chown=agent:agent sandbox-config/CLAUDE.md /home/agent/CLAUDE.md
+COPY --chown=agent:agent sandbox-config/AGENTS.md /home/agent/AGENTS.md
+COPY --chown=agent:agent sandbox-config/settings.json /home/agent/.claude/settings.json
+COPY sandbox-config/settings.json /root/.claude/settings.json
 
 RUN printf '{"hasCompletedOnboarding":true,"lastOnboardingVersion":"2.1.141"}' > /root/.claude.json \
     && cp /root/.claude.json /home/agent/.claude.json \

@@ -22,6 +22,10 @@ func main() {
 	r.Get("/auth/callback", handlers.GitHubCallback)
 	r.Get("/auth/me", handlers.Me)
 	r.Get("/api/repos", handlers.ListRepos)
+	r.Post("/api/sessions", handlers.CreateSession)
+	r.Get("/api/sessions/{id}/output", handlers.GetSessionOutput)
+	r.Post("/api/sessions/{id}/input", handlers.SendSessionInput)
+	r.Delete("/api/sessions/{id}", handlers.DestroySession)
 
 	port := os.Getenv("PORT")
 	if port == "" {

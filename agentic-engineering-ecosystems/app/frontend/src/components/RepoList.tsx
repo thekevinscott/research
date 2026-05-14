@@ -20,7 +20,7 @@ export default function RepoList() {
         <div key={repo.full_name} className="repo-card">
           <div className="repo-name">
             {repo.private && <span className="badge">private</span>}
-            {repo.full_name}
+            {repo.full_name.split('/').pop()}
           </div>
           {repo.description && <div className="repo-desc">{repo.description}</div>}
           <div className="repo-meta">
