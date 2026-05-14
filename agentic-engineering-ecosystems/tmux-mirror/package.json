@@ -1,0 +1,14 @@
+{
+  "name": "tmux-mirror",
+  "version": "1.0.0",
+  "description": "Browser-based tmux pane mirror with bidirectional I/O",
+  "main": "server.js",
+  "pnpm": {
+    "onlyBuiltDependencies": ["node-pty"]
+  },
+  "dependencies": {
+    "express": "^4.18",
+    "node-pty": "^1.0",
+    "ws": "^8.16"
+  }
+}
