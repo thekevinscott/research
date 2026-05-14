@@ -34,6 +34,7 @@ Each section is self-contained (~1500-2000 words). Cross-references are inline.
 | 11 | [amazon-q-sourcegraph.md](research/11-amazon-q-sourcegraph.md) | Coverage gaps | Amazon Q Developer (~75% parity at $19/mo); Sourcegraph Cody (enterprise context layer) |
 | 12 | [mcp-deep-dive.md](research/12-mcp-deep-dive.md) | MCP ecosystem | Near-universal adoption (70+ clients); no longer an Anthropic differentiator; security vulnerabilities documented |
 | 13 | [caching-economics.md](research/13-caching-economics.md) | Prompt caching | 90% discount not unique (Google matches); Anthropic's real advantage is 68% hit rate in practice |
+| 14 | [openhands-deep-dive.md](research/14-openhands-deep-dive.md) | OpenHands architecture | 73K stars, $23.8M raised, 64% SWE-bench, 6 git platforms, Enterprise product May 2026 |
 
 ---
 
