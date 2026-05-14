@@ -1,0 +1,10 @@
+app = "agent-sandbox"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 4
+  memory = "4gb"

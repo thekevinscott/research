@@ -1,0 +1,3 @@
+# .claude is copied in by launch.sh at build time, not kept in repo
+# This gitignore prevents accidental commits of credentials
+.claude/
