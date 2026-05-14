@@ -26,8 +26,8 @@ rm -rf .claude
 mkdir -p .claude
 touch .claude/.keep
 
-echo "==> Machine running. Connecting with tmux..."
-fly ssh console --app "$APP_NAME" --command "tmux new-session -s agent"
+echo "==> Machine running. Connecting..."
+fly ssh console --app "$APP_NAME"
 
 echo "==> Disconnected. Destroying app..."
 fly apps destroy "$APP_NAME" --yes
