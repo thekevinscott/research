@@ -32,17 +32,22 @@ body {
 .panel {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #30363d;
   background: #010409;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
-.panel-repos {
-  width: 220px;
+/* Resize handle */
+.resize-handle {
+  width: 4px;
+  cursor: col-resize;
+  background: #30363d;
+  flex-shrink: 0;
+  transition: background 0.15s;
 }
 
-.panel-sessions {
-  width: 200px;
+.resize-handle:hover {
+  background: #58a6ff;
 }
 
 .panel-header {
@@ -171,8 +176,7 @@ body {
 
 /* Right panel (placeholder) */
 .right-panel {
-  width: 280px;
-  border-left: 1px solid #30363d;
+  border-left: none;
   background: #010409;
   flex-shrink: 0;
 }

@@ -38,15 +38,21 @@ func flyCmd(args ...string) (string, error) {
 	return strings.TrimSpace(string(out)), err
 }
 
+func getAPIToken() (string, error) {
+	tok := os.Getenv("FLY_API_TOKEN")
+	if tok != "" {
+		return strings.TrimSpace(tok), nil
+	}
+	out, err := flyCmd("auth", "token")
+	if err != nil {
+		return "", fmt.Errorf("no FLY_API_TOKEN and flyctl auth failed: %w", err)
+	}
+	return strings.TrimSpace(out), nil
+}
 func createMachine(appName, image string) (string, error) {
-	apiToken := os.Getenv("FLY_API_TOKEN")
-	if apiToken == "" {
-		// Try to get token from flyctl
-		tok, err := flyCmd("auth", "token")
-		if err != nil {
-			return "", fmt.Errorf("no FLY_API_TOKEN and flyctl auth failed: %w", err)
-		}
-		apiToken = tok
+	apiToken, err := getAPIToken()
+	if err != nil {
+		return "", err
 	}
 
 	body := map[string]interface{}{
@@ -88,10 +94,9 @@ func createMachine(appName, image string) (string, error) {
 }
 
 func waitMachineStarted(appName, machineID string) error {
-	apiToken := os.Getenv("FLY_API_TOKEN")
-	if apiToken == "" {
-		tok, _ := flyCmd("auth", "token")
-		apiToken = tok
+	apiToken, err := getAPIToken()
+	if err != nil {
+		return err
 	}
 
 	url := fmt.Sprintf("https://api.machines.dev/v1/apps/%s/machines/%s/wait?state=started&timeout=60", appName, machineID)
@@ -112,10 +117,9 @@ func waitMachineStarted(appName, machineID string) error {
 }
 
 func destroyMachine(appName, machineID string) error {
-	apiToken := os.Getenv("FLY_API_TOKEN")
-	if apiToken == "" {
-		tok, _ := flyCmd("auth", "token")
-		apiToken = tok
+	apiToken, err := getAPIToken()
+	if err != nil {
+		return err
 	}
 
 	url := fmt.Sprintf("https://api.machines.dev/v1/apps/%s/machines/%s?force=true", appName, machineID)

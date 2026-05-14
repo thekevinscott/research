@@ -6,12 +6,13 @@ interface Props {
   onSelect: (session: Session) => void
   onNew: () => void
   repoSelected: boolean
+  width: number
 }
 
-export default function SessionPanel({ sessions, selected, onSelect, onNew, repoSelected }: Props) {
+export default function SessionPanel({ sessions, selected, onSelect, onNew, repoSelected, width }: Props) {
   if (!repoSelected) {
     return (
-      <aside className="panel panel-sessions">
+      <aside className="panel panel-sessions" style={{ width }}>
         <div className="panel-header">Sessions</div>
         <div className="panel-empty">Select a repo</div>
       </aside>
@@ -19,7 +20,7 @@ export default function SessionPanel({ sessions, selected, onSelect, onNew, repo
   }
 
   return (
-    <aside className="panel panel-sessions">
+    <aside className="panel panel-sessions" style={{ width }}>
       <div className="panel-header">
         <span>Sessions</span>
         <button className="panel-action" onClick={onNew}>+</button>

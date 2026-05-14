@@ -6,9 +6,10 @@ interface Props {
   selected: Repo | null
   onSelect: (repo: Repo) => void
   user: GitHubUser
+  width: number
 }
 
-export default function RepoPanel({ repos, selected, onSelect, user }: Props) {
+export default function RepoPanel({ repos, selected, onSelect, user, width }: Props) {
   const [filter, setFilter] = useState('')
 
   const filtered = repos.filter(r =>
@@ -16,7 +17,7 @@ export default function RepoPanel({ repos, selected, onSelect, user }: Props) {
   )
 
   return (
-    <aside className="panel panel-repos">
+    <aside className="panel panel-repos" style={{ width }}>
       <div className="panel-header">
         <img src={user.avatar_url} alt="" width={20} height={20} />
         <span>{user.login}</span>
