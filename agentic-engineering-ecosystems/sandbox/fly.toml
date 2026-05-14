@@ -1,10 +1,10 @@
-app = "agent-sandbox"
-primary_region = "iad"
+app = 'agent-sandbox-lively-leaf-9253'
+primary_region = 'iad'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [[vm]]
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
   cpus = 4
-  memory = "4gb"
+  memory = '4gb'
