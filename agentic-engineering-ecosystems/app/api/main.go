@@ -8,9 +8,12 @@ import (
 	"github.com/agent-sandbox/api/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	godotenv.Load()
+
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 	r.Use(corsMiddleware)
@@ -22,17 +25,18 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "9090"
 	}
-	log.Printf("API server listening on :%s", port)
-	log.Fatal(http.ListenAndServe(":"+port, r))
+	addr := "0.0.0.0:" + port
+	log.Printf("API server listening on %s", addr)
+	log.Fatal(http.ListenAndServe(addr, r))
 }
 
 func corsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		origin := r.Header.Get("Origin")
 		if origin == "" {
-			origin = "http://localhost:5173"
+			origin = "http://localhost:9091"
 		}
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 		w.Header().Set("Access-Control-Allow-Credentials", "true")

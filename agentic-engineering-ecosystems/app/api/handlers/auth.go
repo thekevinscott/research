@@ -11,20 +11,21 @@ import (
 	"net/url"
 	"os"
 	"strings"
-	"time"
 )
 
-var (
-	clientID     = os.Getenv("GITHUB_CLIENT_ID")
-	clientSecret = os.Getenv("GITHUB_CLIENT_SECRET")
-	sessionKey   = os.Getenv("SESSION_SECRET")
-)
+func env(key, fallback string) string {
+	if v := os.Getenv(key); v != "" {
+		return v
+	}
+	return fallback
+}
 
 func GitHubLogin(w http.ResponseWriter, r *http.Request) {
+	baseURL := env("BASE_URL", "http://localhost:9090")
 	redirectURL := fmt.Sprintf(
 		"https://github.com/login/oauth/authorize?client_id=%s&scope=repo&redirect_uri=%s",
-		clientID,
-		url.QueryEscape("http://localhost:8080/auth/callback"),
+		os.Getenv("GITHUB_CLIENT_ID"),
+		url.QueryEscape(baseURL+"/auth/callback"),
 	)
 	http.Redirect(w, r, redirectURL, http.StatusTemporaryRedirect)
 }
@@ -52,7 +53,8 @@ func GitHubCallback(w http.ResponseWriter, r *http.Request) {
 		MaxAge:   86400 * 7,
 	})
 
-	http.Redirect(w, r, "http://localhost:5173", http.StatusTemporaryRedirect)
+	frontendURL := env("FRONTEND_URL", env("BASE_URL", "http://localhost:9091"))
+	http.Redirect(w, r, frontendURL, http.StatusTemporaryRedirect)
 }
 
 func Me(w http.ResponseWriter, r *http.Request) {
@@ -85,8 +87,8 @@ func getToken(r *http.Request) (string, error) {
 
 func exchangeCode(code string) (string, error) {
 	data := url.Values{
-		"client_id":     {clientID},
-		"client_secret": {clientSecret},
+		"client_id":     {os.Getenv("GITHUB_CLIENT_ID")},
+		"client_secret": {os.Getenv("GITHUB_CLIENT_SECRET")},
 		"code":          {code},
 	}
 
@@ -114,7 +116,8 @@ func exchangeCode(code string) (string, error) {
 }
 
 func signToken(token string) string {
-	mac := hmac.New(sha256.New, []byte(sessionKey))
+	key := env("SESSION_SECRET", "dev-secret-change-me")
+	mac := hmac.New(sha256.New, []byte(key))
 	mac.Write([]byte(token))
 	sig := base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
 	encoded := base64.RawURLEncoding.EncodeToString([]byte(token))
@@ -132,7 +135,8 @@ func verifyToken(signed string) (string, error) {
 	}
 	token := string(tokenBytes)
 
-	mac := hmac.New(sha256.New, []byte(sessionKey))
+	key := env("SESSION_SECRET", "dev-secret-change-me")
+	mac := hmac.New(sha256.New, []byte(key))
 	mac.Write([]byte(token))
 	expected := base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
 
@@ -140,11 +144,4 @@ func verifyToken(signed string) (string, error) {
 		return "", fmt.Errorf("invalid signature")
 	}
 	return token, nil
-}
-
-func init() {
-	if sessionKey == "" {
-		sessionKey = "dev-secret-change-me"
-	}
-	_ = time.Now()
 }
