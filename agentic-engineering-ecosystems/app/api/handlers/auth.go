@@ -20,6 +20,27 @@ func env(key, fallback string) string {
 	return fallback
 }
 
+func DevLogin(w http.ResponseWriter, r *http.Request) {
+	token := os.Getenv("DEV_GITHUB_TOKEN")
+	if token == "" {
+		http.Error(w, "DEV_GITHUB_TOKEN not set", http.StatusNotFound)
+		return
+	}
+
+	signed := signToken(token)
+	http.SetCookie(w, &http.Cookie{
+		Name:     "session",
+		Value:    signed,
+		Path:     "/",
+		HttpOnly: true,
+		SameSite: http.SameSiteLaxMode,
+		MaxAge:   86400 * 7,
+	})
+
+	// Redirect to root — stays on same origin via proxy
+	http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+}
+
 func GitHubLogin(w http.ResponseWriter, r *http.Request) {
 	baseURL := env("BASE_URL", "http://localhost:9090")
 	redirectURL := fmt.Sprintf(

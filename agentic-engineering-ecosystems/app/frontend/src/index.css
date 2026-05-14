@@ -154,16 +154,37 @@ body {
   flex-shrink: 0;
 }
 
-.session-dot-active {
+.session-dot-active, .session-dot-started {
   background: #3fb950;
 }
 
-.session-dot-stopped {
+.session-dot-stopped, .session-dot-stopping {
   background: #d29922;
 }
 
-.session-dot-done {
+.session-dot-starting {
+  background: #58a6ff;
+}
+
+.session-dot-done, .session-dot-destroyed {
   background: #8b949e;
+}
+
+.session-close {
+  background: none;
+  border: none;
+  color: #8b949e;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0 0.3rem;
+  border-radius: 3px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.session-close:hover {
+  background: #da3633;
+  color: #fff;
 }
 
 /* Main pane */
@@ -228,6 +249,13 @@ body {
   align-items: center;
   justify-content: center;
   color: #8b949e;
+}
+
+.terminal-container {
+  flex: 1;
+  overflow: hidden;
+  padding: 0.5rem;
+  background: #0d1117;
 }
 
 .terminal-error {
@@ -445,4 +473,37 @@ body {
   font-size: 0.7rem;
   background: #30363d;
   border-radius: 3px;
+}
+
+/* Panel divider & issues */
+.panel-divider {
+  height: 1px;
+  background: #30363d;
+  margin: 0.5rem 0;
+  flex-shrink: 0;
+}
+
+.panel-section-header {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.issue-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.issue-item:hover {
+  background: #161b22;
+}
+
+.issue-number {
+  font-size: 0.75rem;
+  color: #8b949e;
+  flex-shrink: 0;
 }

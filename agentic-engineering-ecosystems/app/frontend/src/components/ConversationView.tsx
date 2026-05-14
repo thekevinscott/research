@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Repo } from '../api'
-import { Session } from '../App'
+import { Repo, MachineSession } from '../api'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -9,7 +8,7 @@ interface Message {
 
 interface Props {
   repo: Repo
-  session: Session
+  session: MachineSession
 }
 
 export default function ConversationView({ repo, session }: Props) {
@@ -20,7 +19,6 @@ export default function ConversationView({ repo, session }: Props) {
     if (!input.trim()) return
     setMessages(prev => [...prev, { role: 'user', content: input }])
     setInput('')
-    // TODO: send to agent backend
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -35,7 +33,7 @@ export default function ConversationView({ repo, session }: Props) {
       <div className="conversation-header">
         <h2>{repo.full_name.split('/').pop()}</h2>
         <span className="conversation-desc">
-          Session started {new Date(session.createdAt).toLocaleString()}
+          Session {session.name || session.id}
         </span>
       </div>
       <div className="conversation-messages">

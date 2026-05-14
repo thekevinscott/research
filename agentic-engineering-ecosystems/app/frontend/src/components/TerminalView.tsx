@@ -1,91 +1,105 @@
-import { useState, useEffect, useRef } from 'react'
-import { Repo, getSessionOutput, sendSessionInput } from '../api'
-import { Session } from '../App'
+import { useEffect, useRef } from 'react'
+import { Terminal } from '@xterm/xterm'
+import { FitAddon } from '@xterm/addon-fit'
+import '@xterm/xterm/css/xterm.css'
+import { Repo, MachineSession } from '../api'
 
 interface Props {
   repo: Repo
-  session: Session
+  session: MachineSession
 }
 
 export default function TerminalView({ repo, session }: Props) {
-  const [output, setOutput] = useState('')
-  const [input, setInput] = useState('')
-  const [error, setError] = useState('')
-  const outputRef = useRef<HTMLPreElement>(null)
-  const intervalRef = useRef<number | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const termRef = useRef<Terminal | null>(null)
+  const wsRef = useRef<WebSocket | null>(null)
+  const fitRef = useRef<FitAddon | null>(null)
 
   useEffect(() => {
-    if (!session.machineSessionId) return
+    if (!session.id || !containerRef.current) return
 
-    const poll = () => {
-      getSessionOutput(session.machineSessionId!)
-        .then(data => {
-          setOutput(data.output)
-          setError('')
-        })
-        .catch(e => setError(e.message))
+    const term = new Terminal({
+      cursorBlink: true,
+      fontSize: 13,
+      fontFamily: "'SF Mono', 'Cascadia Code', 'Fira Code', monospace",
+      theme: {
+        background: '#0d1117',
+        foreground: '#c9d1d9',
+        cursor: '#58a6ff',
+        selectionBackground: '#264f78',
+      },
+    })
+
+    const fit = new FitAddon()
+    term.loadAddon(fit)
+    term.open(containerRef.current)
+    fit.fit()
+
+    termRef.current = term
+    fitRef.current = fit
+
+    const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
+    const ws = new WebSocket(`${proto}//${window.location.host}/ws/sessions/${session.id}/terminal`)
+    wsRef.current = ws
+
+    ws.binaryType = 'arraybuffer'
+
+    ws.onopen = () => {
+      term.writeln('Connected to session...')
+      ws.send(JSON.stringify({ type: 'resize', cols: term.cols, rows: term.rows }))
     }
 
-    poll()
-    intervalRef.current = window.setInterval(poll, 2000)
+    ws.onmessage = (event) => {
+      if (event.data instanceof ArrayBuffer) {
+        term.write(new Uint8Array(event.data))
+      } else {
+        term.write(event.data)
+      }
+    }
+
+    ws.onclose = () => {
+      term.writeln('\r\n\x1b[31mConnection closed\x1b[0m')
+    }
+
+    ws.onerror = () => {
+      term.writeln('\r\n\x1b[31mConnection error\x1b[0m')
+    }
+
+    term.onData((data) => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(data)
+      }
+    })
+
+    const handleResize = () => {
+      fit.fit()
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: 'resize', cols: term.cols, rows: term.rows }))
+      }
+    }
+
+    const resizeObserver = new ResizeObserver(handleResize)
+    resizeObserver.observe(containerRef.current)
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
+      resizeObserver.disconnect()
+      ws.close()
+      term.dispose()
+      termRef.current = null
+      wsRef.current = null
+      fitRef.current = null
     }
-  }, [session.machineSessionId])
-
-  useEffect(() => {
-    if (outputRef.current) {
-      outputRef.current.scrollTop = outputRef.current.scrollHeight
-    }
-  }, [output])
-
-  const send = () => {
-    if (!input.trim() || !session.machineSessionId) return
-    sendSessionInput(session.machineSessionId, input)
-      .catch(e => setError(e.message))
-    setInput('')
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      send()
-    }
-  }
-
-  if (!session.machineSessionId) {
-    return (
-      <div className="terminal-view">
-        <div className="terminal-header">
-          <h2>{repo.full_name.split('/').pop()}</h2>
-          <span className="terminal-status">Starting...</span>
-        </div>
-        <div className="terminal-loading">Launching Fly.io machine...</div>
-      </div>
-    )
-  }
+  }, [session.id])
 
   return (
     <div className="terminal-view">
       <div className="terminal-header">
         <h2>{repo.full_name.split('/').pop()}</h2>
-        <span className={`terminal-status terminal-status-${session.status}`}>
-          {session.status}
+        <span className={`terminal-status terminal-status-${session.state}`}>
+          {session.state}
         </span>
       </div>
-      {error && <div className="terminal-error">{error}</div>}
-      <pre ref={outputRef} className="terminal-output">{output || 'Waiting for output...'}</pre>
-      <div className="terminal-input">
-        <input
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type a command..."
-        />
-        <button onClick={send} disabled={!input.trim()}>Send</button>
-      </div>
+      <div ref={containerRef} className="terminal-container" />
     </div>
   )
 }

@@ -24,7 +24,6 @@ type MachineSession struct {
 var (
 	sessionsMu sync.RWMutex
 	sessions   = map[string]*MachineSession{}
-	sessionSeq int
 )
 
 func flyCmd(args ...string) (string, error) {
@@ -47,7 +46,9 @@ func getAPIToken() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("no FLY_API_TOKEN and flyctl auth failed: %w", err)
 	}
-	return strings.TrimSpace(out), nil
+	// flyctl may print deprecation warnings before the token — take last line
+	lines := strings.Split(strings.TrimSpace(out), "\n")
+	return strings.TrimSpace(lines[len(lines)-1]), nil
 }
 func createMachine(appName, image string) (string, error) {
 	apiToken, err := getAPIToken()
@@ -134,6 +135,94 @@ func destroyMachine(appName, machineID string) error {
 	return nil
 }
 
+func ListSessions(w http.ResponseWriter, r *http.Request) {
+	_, err := getToken(r)
+	if err != nil {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	appName := env("FLY_APP", "dark-factory-sandbox")
+	apiToken, err := getAPIToken()
+	if err != nil {
+		http.Error(w, "failed to get fly token: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	url := fmt.Sprintf("https://api.machines.dev/v1/apps/%s/machines", appName)
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Header.Set("Authorization", "Bearer "+apiToken)
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		http.Error(w, "failed to list machines: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		b, _ := io.ReadAll(resp.Body)
+		http.Error(w, fmt.Sprintf("fly API error (%d): %s", resp.StatusCode, string(b)), http.StatusInternalServerError)
+		return
+	}
+
+	var machines []struct {
+		ID        string `json:"id"`
+		Name      string `json:"name"`
+		State     string `json:"state"`
+		Region    string `json:"region"`
+		CreatedAt string `json:"created_at"`
+		UpdatedAt string `json:"updated_at"`
+		ImageRef  struct {
+			Tag string `json:"tag"`
+		} `json:"image_ref"`
+	}
+	json.NewDecoder(resp.Body).Decode(&machines)
+
+	type sessionResp struct {
+		ID        string `json:"id"`
+		MachineID string `json:"machine_id"`
+		Name      string `json:"name"`
+		State     string `json:"state"`
+		Region    string `json:"region"`
+		CreatedAt string `json:"created_at"`
+		AppName   string `json:"app_name"`
+	}
+
+	var result []sessionResp
+	for _, m := range machines {
+		if m.State == "started" || m.State == "starting" {
+			sessionsMu.Lock()
+			if _, exists := sessions[m.ID]; !exists {
+				sessions[m.ID] = &MachineSession{
+					ID:        m.ID,
+					MachineID: m.ID,
+					AppName:   appName,
+					Status:    "active",
+				}
+			}
+			sessionsMu.Unlock()
+
+			result = append(result, sessionResp{
+				ID:        m.ID,
+				MachineID: m.ID,
+				Name:      m.Name,
+				State:     m.State,
+				Region:    m.Region,
+				CreatedAt: m.CreatedAt,
+				AppName:   appName,
+			})
+		}
+	}
+
+	if result == nil {
+		result = []sessionResp{}
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(result)
+}
+
 func CreateSession(w http.ResponseWriter, r *http.Request) {
 	_, err := getToken(r)
 	if err != nil {
@@ -149,8 +238,12 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	appName := env("FLY_APP", "agent-sandbox-lively-leaf-9253")
-	image := env("FLY_IMAGE", "registry.fly.io/"+appName+":latest")
+	appName := env("FLY_APP", "dark-factory-sandbox")
+	image := os.Getenv("FLY_IMAGE")
+	if image == "" {
+		http.Error(w, "FLY_IMAGE not configured", http.StatusInternalServerError)
+		return
+	}
 
 	// Create a new machine
 	machineID, err := createMachine(appName, image)
@@ -168,28 +261,75 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 	// Give it a moment to fully boot
 	time.Sleep(2 * time.Second)
 
-	// Start tmux with claude
+	// Clone the repo and fix ownership so agent user can access it
+	repoDir := "/home/agent/work"
+	cloneCmd := fmt.Sprintf("bash -c 'git clone https://github.com/%s %s 2>&1; chown -R agent:agent %s'", req.RepoName, repoDir, repoDir)
 	_, err = flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
-		"--command", "bash -c 'tmux new-session -d -s agent claude'")
+		"--command", cloneCmd)
+	if err != nil {
+		// Non-fatal — clone might fail for private repos without token
+	}
+
+	// Start tmux with claude as agent user (claude rejects --dangerously-skip-permissions under root)
+	startCmd := fmt.Sprintf("su - agent -c 'cd %s 2>/dev/null; tmux new-session -d -s agent claude --dangerously-skip-permissions'", repoDir)
+	_, err = flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
+		"--command", startCmd)
 	if err != nil {
 		http.Error(w, "failed to start claude: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
+	// Auto-accept Claude startup prompts by polling tmux output
+	go func() {
+		sendKey := func(key string) {
+			flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
+				"--command", fmt.Sprintf("su - agent -c 'tmux send-keys -t agent %s'", key))
+		}
+		capture := func() string {
+			out, _ := flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
+				"--command", "su - agent -c 'tmux capture-pane -t agent -p -S -50'")
+			return out
+		}
+
+		for i := 0; i < 30; i++ {
+			time.Sleep(2 * time.Second)
+			screen := capture()
+			switch {
+			case strings.Contains(screen, "Yes, I trust this folder"):
+				sendKey("Enter")
+			case strings.Contains(screen, "Yes, allow external imports"):
+				sendKey("Enter")
+			case strings.Contains(screen, "Yes, I accept"):
+				sendKey("Down")
+				time.Sleep(500 * time.Millisecond)
+				sendKey("Enter")
+			case strings.Contains(screen, "Try \"how does"):
+				return
+			}
+		}
+	}()
+
 	sessionsMu.Lock()
-	sessionSeq++
 	session := &MachineSession{
-		ID:        fmt.Sprintf("sess-%d", sessionSeq),
+		ID:        machineID,
 		MachineID: machineID,
 		AppName:   appName,
 		RepoName:  req.RepoName,
 		Status:    "active",
 	}
-	sessions[session.ID] = session
+	sessions[machineID] = session
 	sessionsMu.Unlock()
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(session)
+	json.NewEncoder(w).Encode(map[string]string{
+		"id":         machineID,
+		"machine_id": machineID,
+		"name":       "new-session",
+		"state":      "started",
+		"region":     env("FLY_REGION", "iad"),
+		"created_at": time.Now().UTC().Format(time.RFC3339),
+		"app_name":   appName,
+	})
 }
 
 func GetSessionOutput(w http.ResponseWriter, r *http.Request) {
@@ -267,21 +407,14 @@ func DestroySession(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sessionID := r.PathValue("id")
+	machineID := r.PathValue("id")
+	appName := env("FLY_APP", "dark-factory-sandbox")
+
 	sessionsMu.Lock()
-	session, ok := sessions[sessionID]
-	if ok {
-		session.Status = "done"
-	}
+	delete(sessions, machineID)
 	sessionsMu.Unlock()
 
-	if !ok {
-		http.Error(w, "session not found", http.StatusNotFound)
-		return
-	}
-
-	// Destroy the machine entirely
-	destroyMachine(session.AppName, session.MachineID)
+	destroyMachine(appName, machineID)
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{"status": "destroyed"})

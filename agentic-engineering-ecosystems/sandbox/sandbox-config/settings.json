@@ -9,5 +9,9 @@
     "deny": [],
     "defaultMode": "auto"
   },
-  "autoCompactEnabled": true
+  "autoCompactEnabled": true,
+  "trustedDirectories": [
+    "/home/agent",
+    "/home/agent/work"
+  ]
 }

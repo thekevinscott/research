@@ -20,12 +20,16 @@ func main() {
 
 	r.Get("/auth/github", handlers.GitHubLogin)
 	r.Get("/auth/callback", handlers.GitHubCallback)
+	r.Get("/auth/dev", handlers.DevLogin)
 	r.Get("/auth/me", handlers.Me)
 	r.Get("/api/repos", handlers.ListRepos)
+	r.Get("/api/repos/{owner}/{repo}/issues", handlers.ListIssues)
+	r.Get("/api/sessions", handlers.ListSessions)
 	r.Post("/api/sessions", handlers.CreateSession)
 	r.Get("/api/sessions/{id}/output", handlers.GetSessionOutput)
 	r.Post("/api/sessions/{id}/input", handlers.SendSessionInput)
 	r.Delete("/api/sessions/{id}", handlers.DestroySession)
+	r.Get("/ws/sessions/{id}/terminal", handlers.Terminal)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -44,7 +48,7 @@ func corsMiddleware(next http.Handler) http.Handler {
 		}
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 		w.Header().Set("Access-Control-Allow-Credentials", "true")
-		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		if r.Method == "OPTIONS" {
 			w.WriteHeader(http.StatusOK)

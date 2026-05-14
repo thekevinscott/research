@@ -24,9 +24,12 @@ export interface Repo {
 
 export interface MachineSession {
   id: string
+  machine_id: string
+  name: string
+  state: string
+  region: string
+  created_at: string
   app_name: string
-  repo_name: string
-  status: string
 }
 
 export function getMe(): Promise<GitHubUser> {
@@ -35,6 +38,10 @@ export function getMe(): Promise<GitHubUser> {
 
 export function getRepos(): Promise<Repo[]> {
   return fetchJSON('/api/repos')
+}
+
+export function listSessions(): Promise<MachineSession[]> {
+  return fetchJSON('/api/sessions')
 }
 
 export function createSession(repoName: string): Promise<MachineSession> {
@@ -59,4 +66,18 @@ export function sendSessionInput(sessionId: string, input: string): Promise<void
 
 export function destroySession(sessionId: string): Promise<void> {
   return fetchJSON(`/api/sessions/${sessionId}`, { method: 'DELETE' })
+}
+
+export interface GitHubIssue {
+  number: number
+  title: string
+  state: string
+  updated_at: string
+  html_url: string
+  user: { login: string }
+  labels: { name: string; color: string }[]
+}
+
+export function getIssues(owner: string, repo: string): Promise<GitHubIssue[]> {
+  return fetchJSON(`/api/repos/${owner}/${repo}/issues`)
 }

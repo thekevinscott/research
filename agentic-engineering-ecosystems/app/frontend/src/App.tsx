@@ -1,28 +1,18 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getMe, getRepos, createSession, GitHubUser, Repo } from './api'
+import { getMe, getRepos, getIssues, listSessions, createSession, destroySession, GitHubUser, Repo, GitHubIssue, MachineSession } from './api'
 import Login from './components/Login'
 import RepoPanel from './components/RepoPanel'
 import SessionPanel from './components/SessionPanel'
 import TerminalView from './components/TerminalView'
 import ResizeHandle from './components/ResizeHandle'
 
-export interface Session {
-  id: string
-  repoName: string
-  createdAt: string
-  status: 'active' | 'stopped' | 'done'
-  preview: string
-  machineSessionId?: string
-}
-
-let nextSessionId = 1
-
 export default function App() {
   const [user, setUser] = useState<GitHubUser | null>(null)
   const [repos, setRepos] = useState<Repo[]>([])
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null)
-  const [sessions, setSessions] = useState<Session[]>([])
-  const [selectedSession, setSelectedSession] = useState<Session | null>(null)
+  const [sessions, setSessions] = useState<MachineSession[]>([])
+  const [selectedSession, setSelectedSession] = useState<MachineSession | null>(null)
+  const [issues, setIssues] = useState<GitHubIssue[]>([])
   const [loading, setLoading] = useState(true)
 
   const [repoWidth, setRepoWidth] = useState(220)
@@ -40,56 +30,39 @@ export default function App() {
       .finally(() => setLoading(false))
   }, [])
 
+  useEffect(() => {
+    if (!user) return
+    const fetchSessions = () => {
+      listSessions().then(setSessions).catch(() => {})
+    }
+    fetchSessions()
+    const interval = setInterval(fetchSessions, 5000)
+    return () => clearInterval(interval)
+  }, [user])
+
   const handleSelectRepo = (repo: Repo) => {
     setSelectedRepo(repo)
-    const repoSessions = sessions.filter(s => s.repoName === repo.full_name)
-    if (repoSessions.length > 0) {
-      setSelectedSession(repoSessions[0])
-    } else {
-      setSelectedSession(null)
-    }
+    setIssues([])
+    const [owner, name] = repo.full_name.split('/')
+    getIssues(owner, name).then(setIssues).catch(() => setIssues([]))
   }
 
   const handleNewSession = async () => {
     if (!selectedRepo) return
-    const localId = String(nextSessionId++)
-    const session: Session = {
-      id: localId,
-      repoName: selectedRepo.full_name,
-      createdAt: new Date().toISOString(),
-      status: 'active',
-      preview: 'Starting...',
-    }
-    setSessions(prev => [session, ...prev])
-    setSelectedSession(session)
-
     try {
-      const machineSession = await createSession(selectedRepo.full_name)
-      setSessions(prev =>
-        prev.map(s =>
-          s.id === localId
-            ? { ...s, machineSessionId: machineSession.id, preview: 'Claude session' }
-            : s
-        )
-      )
-      setSelectedSession(prev =>
-        prev?.id === localId
-          ? { ...prev, machineSessionId: machineSession.id, preview: 'Claude session' }
-          : prev
-      )
+      const session = await createSession(selectedRepo.full_name)
+      setSessions(prev => [session, ...prev])
+      setSelectedSession(session)
     } catch (e) {
-      setSessions(prev =>
-        prev.map(s =>
-          s.id === localId
-            ? { ...s, status: 'done', preview: `Error: ${e}` }
-            : s
-        )
-      )
-      setSelectedSession(prev =>
-        prev?.id === localId
-          ? { ...prev, status: 'done' as const, preview: `Error: ${e}` }
-          : prev
-      )
+      console.error('Failed to create session:', e)
+    }
+  }
+
+  const handleCloseSession = async (session: MachineSession) => {
+    destroySession(session.id).catch(() => {})
+    setSessions(prev => prev.filter(s => s.id !== session.id))
+    if (selectedSession?.id === session.id) {
+      setSelectedSession(null)
     }
   }
 
@@ -110,10 +83,6 @@ export default function App() {
   if (loading) return <div className="container">Loading...</div>
   if (!user) return <div className="container"><Login /></div>
 
-  const repoSessions = selectedRepo
-    ? sessions.filter(s => s.repoName === selectedRepo.full_name)
-    : []
-
   return (
     <div className="layout">
       <RepoPanel
@@ -125,17 +94,19 @@ export default function App() {
       />
       <ResizeHandle onResize={resizeRepo} />
       <SessionPanel
-        sessions={repoSessions}
+        sessions={sessions}
         selected={selectedSession}
         onSelect={setSelectedSession}
         onNew={handleNewSession}
+        onClose={handleCloseSession}
         repoSelected={!!selectedRepo}
+        issues={issues}
         width={sessionWidth}
       />
       <ResizeHandle onResize={resizeSession} />
       <main className="main-pane">
-        {selectedSession ? (
-          <TerminalView repo={selectedRepo!} session={selectedSession} />
+        {selectedSession && selectedRepo ? (
+          <TerminalView repo={selectedRepo} session={selectedSession} />
         ) : (
           <div className="empty-state">
             {selectedRepo ? 'Start a session' : 'Select a repo'}
