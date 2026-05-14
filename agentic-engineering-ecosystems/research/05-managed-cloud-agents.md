@@ -56,7 +56,7 @@ Characteristics to match:
 
 ### What It Is
 
-Marketed as "the first AI software engineer" — a fully autonomous agent with its own shell, editor, and browser. Cognition also acquired Windsurf (Codeium), bundling IDE assistance with autonomous agent capabilities.
+Marketed as "the first AI software engineer" — a fully autonomous agent with its own shell, editor, and browser.
 
 ### Pricing Evolution
 

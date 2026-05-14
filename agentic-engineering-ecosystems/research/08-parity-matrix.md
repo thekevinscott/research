@@ -6,7 +6,7 @@ This section maps every surveyed tool against Anthropic's capabilities. The ques
 
 ## Feature Dimensions
 
-Anthropic's offering spans eight capability areas. Each represents something a power user relies on:
+Anthropic's offering spans nine capability areas. Each represents something a power user relies on:
 
 1. **CLI Agent** — Interactive terminal coding (read/write files, run commands, iterate)
 2. **App Sync** — CLI↔GUI bridge (/remote-control to claude.ai)
@@ -29,8 +29,8 @@ Rating scale: **Full** (feature-complete parity), **Partial** (functional but ga
 | Tool | CLI Agent | App Sync | Managed Agents | GitHub | Model Flex | Self-Host | MCP | IDE | Cost Control |
 |------|-----------|----------|----------------|--------|------------|-----------|-----|-----|--------------|
 | **Claude Code** | Full | Full | Full | Full | None | None | Full | Full | Partial |
-| **Codex CLI** | Partial | None | None | Partial | None | None | None | Full | Partial |
-| **Gemini CLI** | Partial | None | None | Partial | None | Full | Full | None | Full |
+| **Codex CLI** | Partial | None | None | Partial | Partial | None | None | Full | Partial |
+| **Gemini CLI** | Partial | None | None | Partial | None | Partial | Full | None | Full |
 | **Aider** | Full | None | Partial | Partial | Full | Full | None | None | Full |
 | **Goose** | Partial | None | None | Minimal | Full | Full | Full | None | Full |
 

@@ -30,6 +30,7 @@ Each section is self-contained (~1500-2000 words). Cross-references are inline.
 | 07 | [agent-frameworks.md](research/07-agent-frameworks.md) | Agent-building SDKs | Construction kits, not finished products; LangGraph most viable for custom managed agents |
 | 08 | [parity-matrix.md](research/08-parity-matrix.md) | Feature comparison | No single tool replaces Anthropic; best composite stacks reach ~80% parity |
 | 09 | [recommendations.md](research/09-recommendations.md) | Strategy and self-critique | Hybrid stack recommended; honest gaps and research opportunities identified |
+| 10 | [audit.md](research/10-audit.md) | Report audit | Factual corrections, structural weaknesses, prioritized research opportunities |
 
 ---
 
