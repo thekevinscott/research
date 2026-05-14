@@ -10,13 +10,6 @@ export default defineConfig({
     proxy: {
       '/auth': 'http://localhost:9090',
       '/api': 'http://localhost:9090',
-      '/ws': {
-        target: 'http://localhost:9090',
-        ws: true,
-        configure: (proxy) => {
-          proxy.on('error', () => {})
-        },
-      },
     },
   },
 })

@@ -46,10 +46,10 @@ func getAPIToken() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("no FLY_API_TOKEN and flyctl auth failed: %w", err)
 	}
-	// flyctl may print deprecation warnings before the token — take last line
 	lines := strings.Split(strings.TrimSpace(out), "\n")
 	return strings.TrimSpace(lines[len(lines)-1]), nil
 }
+
 func createMachine(appName, image string) (string, error) {
 	apiToken, err := getAPIToken()
 	if err != nil {
@@ -66,6 +66,17 @@ func createMachine(appName, image string) (string, error) {
 				"memory_mb": 4096,
 			},
 			"auto_destroy": true,
+			"services": []map[string]interface{}{
+				{
+					"ports": []map[string]interface{}{
+						{"port": 8788, "handlers": []string{"http"}},
+					},
+					"internal_port":      8788,
+					"protocol":           "tcp",
+					"auto_stop_machines": false,
+					"auto_start_machines": false,
+				},
+			},
 		},
 	}
 
@@ -135,6 +146,11 @@ func destroyMachine(appName, machineID string) error {
 	return nil
 }
 
+// channelURL returns the URL to reach a machine's channel server via Fly proxy
+func channelURL(appName, machineID, path string) string {
+	return fmt.Sprintf("https://%s.fly.dev%s", appName, path)
+}
+
 func ListSessions(w http.ResponseWriter, r *http.Request) {
 	_, err := getToken(r)
 	if err != nil {
@@ -172,10 +188,6 @@ func ListSessions(w http.ResponseWriter, r *http.Request) {
 		State     string `json:"state"`
 		Region    string `json:"region"`
 		CreatedAt string `json:"created_at"`
-		UpdatedAt string `json:"updated_at"`
-		ImageRef  struct {
-			Tag string `json:"tag"`
-		} `json:"image_ref"`
 	}
 	json.NewDecoder(resp.Body).Decode(&machines)
 
@@ -245,14 +257,12 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Create a new machine
 	machineID, err := createMachine(appName, image)
 	if err != nil {
 		http.Error(w, "failed to create machine: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Wait for it to start
 	if err := waitMachineStarted(appName, machineID); err != nil {
 		http.Error(w, "machine failed to start: "+err.Error(), http.StatusInternalServerError)
 		return
@@ -261,53 +271,19 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 	// Give it a moment to fully boot
 	time.Sleep(2 * time.Second)
 
-	// Clone the repo and fix ownership so agent user can access it
+	// Clone repo and fix ownership
 	repoDir := "/home/agent/work"
 	cloneCmd := fmt.Sprintf("bash -c 'git clone https://github.com/%s %s 2>&1; chown -R agent:agent %s'", req.RepoName, repoDir, repoDir)
-	_, err = flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
-		"--command", cloneCmd)
-	if err != nil {
-		// Non-fatal — clone might fail for private repos without token
-	}
+	flyCmd("ssh", "console", "--app", appName, "--machine", machineID, "--command", cloneCmd)
 
-	// Start tmux with claude as agent user (claude rejects --dangerously-skip-permissions under root)
-	startCmd := fmt.Sprintf("su - agent -c 'cd %s 2>/dev/null; tmux new-session -d -s agent claude --dangerously-skip-permissions'", repoDir)
-	_, err = flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
-		"--command", startCmd)
-	if err != nil {
-		http.Error(w, "failed to start claude: "+err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	// Auto-accept Claude startup prompts by polling tmux output
-	go func() {
-		sendKey := func(key string) {
-			flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
-				"--command", fmt.Sprintf("su - agent -c 'tmux send-keys -t agent %s'", key))
-		}
-		capture := func() string {
-			out, _ := flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
-				"--command", "su - agent -c 'tmux capture-pane -t agent -p -S -50'")
-			return out
-		}
-
-		for i := 0; i < 30; i++ {
-			time.Sleep(2 * time.Second)
-			screen := capture()
-			switch {
-			case strings.Contains(screen, "Yes, I trust this folder"):
-				sendKey("Enter")
-			case strings.Contains(screen, "Yes, allow external imports"):
-				sendKey("Enter")
-			case strings.Contains(screen, "Yes, I accept"):
-				sendKey("Down")
-				time.Sleep(500 * time.Millisecond)
-				sendKey("Enter")
-			case strings.Contains(screen, "Try \"how does"):
-				return
-			}
-		}
-	}()
+	// Start Claude Code with channels enabled (as agent user)
+	startCmd := fmt.Sprintf(
+		"su - agent -c 'cd %s 2>/dev/null; claude --dangerously-skip-permissions --dangerously-load-development-channels server:blunderdome'",
+		repoDir,
+	)
+	// Run in background — claude will keep running
+	flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
+		"--command", fmt.Sprintf("nohup %s > /tmp/claude.log 2>&1 &", startCmd))
 
 	sessionsMu.Lock()
 	session := &MachineSession{
@@ -332,7 +308,8 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func GetSessionOutput(w http.ResponseWriter, r *http.Request) {
+// SendMessage proxies a message to the channel server on the Fly machine
+func SendMessage(w http.ResponseWriter, r *http.Request) {
 	_, err := getToken(r)
 	if err != nil {
 		http.Error(w, "unauthorized", http.StatusUnauthorized)
@@ -349,55 +326,122 @@ func GetSessionOutput(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	output, err := flyCmd("ssh", "console", "--app", session.AppName,
-		"--machine", session.MachineID,
-		"--command", "tmux capture-pane -t agent -p -S -50")
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
-		http.Error(w, "failed to capture output: "+err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
-		"output": output,
-	})
-}
-
-func SendSessionInput(w http.ResponseWriter, r *http.Request) {
-	_, err := getToken(r)
-	if err != nil {
-		http.Error(w, "unauthorized", http.StatusUnauthorized)
-		return
-	}
-
-	sessionID := r.PathValue("id")
-	sessionsMu.RLock()
-	session, ok := sessions[sessionID]
-	sessionsMu.RUnlock()
-
-	if !ok {
-		http.Error(w, "session not found", http.StatusNotFound)
-		return
-	}
-
-	var body struct {
-		Input string `json:"input"`
-	}
-	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 		http.Error(w, "bad request", http.StatusBadRequest)
 		return
 	}
 
-	_, err = flyCmd("ssh", "console", "--app", session.AppName,
+	// Proxy to channel server via fly ssh
+	var input struct {
+		Message string `json:"message"`
+	}
+	json.Unmarshal(body, &input)
+
+	out, err := flyCmd("ssh", "console", "--app", session.AppName,
 		"--machine", session.MachineID,
-		"--command", fmt.Sprintf("tmux send-keys -t agent %q Enter", body.Input))
+		"--command", fmt.Sprintf("curl -s -X POST http://localhost:8788/message -d %q", input.Message))
 	if err != nil {
-		http.Error(w, "failed to send input: "+err.Error(), http.StatusInternalServerError)
+		http.Error(w, "failed to send message: "+err.Error()+"\n"+out, http.StatusInternalServerError)
 		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{"status": "sent"})
+	w.Write([]byte(out))
+}
+
+// StreamEvents proxies SSE events from the channel server on the Fly machine
+func StreamEvents(w http.ResponseWriter, r *http.Request) {
+	_, err := getToken(r)
+	if err != nil {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	sessionID := r.PathValue("id")
+	sessionsMu.RLock()
+	session, ok := sessions[sessionID]
+	sessionsMu.RUnlock()
+
+	if !ok {
+		http.Error(w, "session not found", http.StatusNotFound)
+		return
+	}
+
+	// Connect to channel server's SSE endpoint via Fly proxy
+	appName := session.AppName
+	machineID := session.MachineID
+	targetURL := channelURL(appName, machineID, "/events")
+
+	apiToken, err := getAPIToken()
+	if err != nil {
+		http.Error(w, "failed to get fly token", http.StatusInternalServerError)
+		return
+	}
+
+	proxyReq, _ := http.NewRequest("GET", targetURL, nil)
+	proxyReq.Header.Set("fly-force-instance-id", machineID)
+	proxyReq.Header.Set("Authorization", "Bearer "+apiToken)
+
+	client := &http.Client{Timeout: 0}
+	resp, err := client.Do(proxyReq)
+	if err != nil {
+		http.Error(w, "failed to connect to channel server: "+err.Error(), http.StatusBadGateway)
+		return
+	}
+	defer resp.Body.Close()
+
+	w.Header().Set("Content-Type", "text/event-stream")
+	w.Header().Set("Cache-Control", "no-cache")
+	w.Header().Set("Connection", "keep-alive")
+
+	flusher, ok := w.(http.Flusher)
+	if !ok {
+		http.Error(w, "streaming not supported", http.StatusInternalServerError)
+		return
+	}
+
+	buf := make([]byte, 4096)
+	for {
+		n, err := resp.Body.Read(buf)
+		if n > 0 {
+			w.Write(buf[:n])
+			flusher.Flush()
+		}
+		if err != nil {
+			break
+		}
+	}
+}
+
+// ChannelHealth checks if the channel server is running on a machine
+func ChannelHealth(w http.ResponseWriter, r *http.Request) {
+	_, err := getToken(r)
+	if err != nil {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	sessionID := r.PathValue("id")
+	sessionsMu.RLock()
+	session, ok := sessions[sessionID]
+	sessionsMu.RUnlock()
+
+	if !ok {
+		http.Error(w, "session not found", http.StatusNotFound)
+		return
+	}
+
+	out, err := flyCmd("ssh", "console", "--app", session.AppName,
+		"--machine", session.MachineID,
+		"--command", "curl -s http://localhost:8788/health")
+	if err != nil {
+		http.Error(w, "channel server not ready", http.StatusServiceUnavailable)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte(out))
 }
 
 func DestroySession(w http.ResponseWriter, r *http.Request) {

@@ -4,6 +4,16 @@ primary_region = 'iad'
 [build]
   dockerfile = 'Dockerfile'
 
+[[services]]
+  internal_port = 8788
+  protocol = "tcp"
+  auto_stop_machines = false
+  auto_start_machines = false
+
+  [[services.ports]]
+    port = 8788
+    handlers = ["http"]
+
 [[vm]]
   cpu_kind = 'shared'
   cpus = 4

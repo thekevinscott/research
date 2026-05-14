@@ -3,7 +3,7 @@ import { getMe, getRepos, getIssues, listSessions, createSession, destroySession
 import Login from './components/Login'
 import RepoPanel from './components/RepoPanel'
 import SessionPanel from './components/SessionPanel'
-import TerminalView from './components/TerminalView'
+import ChatView from './components/ChatView'
 import ResizeHandle from './components/ResizeHandle'
 
 export default function App() {
@@ -17,7 +17,6 @@ export default function App() {
 
   const [repoWidth, setRepoWidth] = useState(220)
   const [sessionWidth, setSessionWidth] = useState(200)
-  const [rightWidth, setRightWidth] = useState(280)
 
   useEffect(() => {
     getMe()
@@ -76,12 +75,8 @@ export default function App() {
     setSessionWidth(w => clamp(w + delta, 120, 400))
   }, [])
 
-  const resizeRight = useCallback((delta: number) => {
-    setRightWidth(w => clamp(w - delta, 120, 500))
-  }, [])
-
-  if (loading) return <div className="container">Loading...</div>
-  if (!user) return <div className="container"><Login /></div>
+  if (loading) return <div className="loading-screen">waking up...</div>
+  if (!user) return <div className="login-screen"><Login /></div>
 
   return (
     <div className="layout">
@@ -106,15 +101,19 @@ export default function App() {
       <ResizeHandle onResize={resizeSession} />
       <main className="main-pane">
         {selectedSession && selectedRepo ? (
-          <TerminalView repo={selectedRepo} session={selectedSession} />
+          <ChatView repo={selectedRepo} session={selectedSession} />
         ) : (
           <div className="empty-state">
-            {selectedRepo ? 'Start a session' : 'Select a repo'}
+            <div className="empty-state-art">
+{`   ___
+  / o \\
+ | ~~~ |
+  \\___/`}
+            </div>
+            <p>{selectedRepo ? 'pick a session or start one' : 'pick a repo to begin'}</p>
           </div>
         )}
       </main>
-      <ResizeHandle onResize={resizeRight} />
-      <aside className="right-panel" style={{ width: rightWidth }} />
     </div>
   )
 }

@@ -21,6 +21,10 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 
 RUN npm install -g @anthropic-ai/claude-code @earendil-works/pi-coding-agent
 
+# Install Bun (for channel server)
+RUN curl -fsSL https://bun.sh/install | bash \
+    && ln -s /root/.bun/bin/bun /usr/local/bin/bun
+
 RUN useradd -m -s /bin/bash agent \
     && echo "agent ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
@@ -33,6 +37,11 @@ COPY --chown=agent:agent sandbox-config/CLAUDE.md /home/agent/CLAUDE.md
 COPY --chown=agent:agent sandbox-config/AGENTS.md /home/agent/AGENTS.md
 COPY --chown=agent:agent sandbox-config/settings.json /home/agent/.claude/settings.json
 COPY sandbox-config/settings.json /root/.claude/settings.json
+COPY --chown=agent:agent sandbox-config/.mcp.json /home/agent/.mcp.json
+
+# Channel server
+COPY --chown=agent:agent channel-server/ /home/agent/channel-server/
+RUN cd /home/agent/channel-server && bun install
 
 RUN printf '{"hasCompletedOnboarding":true,"lastOnboardingVersion":"2.1.141"}' > /root/.claude.json \
     && cp /root/.claude.json /home/agent/.claude.json \
@@ -40,5 +49,7 @@ RUN printf '{"hasCompletedOnboarding":true,"lastOnboardingVersion":"2.1.141"}' >
 
 COPY watchdog.sh /usr/local/bin/watchdog.sh
 RUN chmod +x /usr/local/bin/watchdog.sh
+
+EXPOSE 8788
 
 CMD ["bash", "-c", "/usr/local/bin/watchdog.sh & sleep inf"]

@@ -52,20 +52,16 @@ export function createSession(repoName: string): Promise<MachineSession> {
   })
 }
 
-export function getSessionOutput(sessionId: string): Promise<{ output: string }> {
-  return fetchJSON(`/api/sessions/${sessionId}/output`)
-}
-
-export function sendSessionInput(sessionId: string, input: string): Promise<void> {
-  return fetchJSON(`/api/sessions/${sessionId}/input`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ input }),
-  })
-}
-
 export function destroySession(sessionId: string): Promise<void> {
   return fetchJSON(`/api/sessions/${sessionId}`, { method: 'DELETE' })
+}
+
+export function sendMessage(sessionId: string, message: string): Promise<{ status: string; chat_id: string }> {
+  return fetchJSON(`/api/sessions/${sessionId}/message`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message }),
+  })
 }
 
 export interface GitHubIssue {

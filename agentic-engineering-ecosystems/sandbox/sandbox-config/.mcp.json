@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "blunderdome": {
+      "command": "bun",
+      "args": ["/home/agent/channel-server/server.ts"]
+    }
+  }
+}

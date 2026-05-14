@@ -26,17 +26,17 @@ func main() {
 	r.Get("/api/repos/{owner}/{repo}/issues", handlers.ListIssues)
 	r.Get("/api/sessions", handlers.ListSessions)
 	r.Post("/api/sessions", handlers.CreateSession)
-	r.Get("/api/sessions/{id}/output", handlers.GetSessionOutput)
-	r.Post("/api/sessions/{id}/input", handlers.SendSessionInput)
 	r.Delete("/api/sessions/{id}", handlers.DestroySession)
-	r.Get("/ws/sessions/{id}/terminal", handlers.Terminal)
+	r.Post("/api/sessions/{id}/message", handlers.SendMessage)
+	r.Get("/api/sessions/{id}/events", handlers.StreamEvents)
+	r.Get("/api/sessions/{id}/health", handlers.ChannelHealth)
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "9090"
 	}
 	addr := "0.0.0.0:" + port
-	log.Printf("API server listening on %s", addr)
+	log.Printf("Blunderdome API listening on %s", addr)
 	log.Fatal(http.ListenAndServe(addr, r))
 }
 
