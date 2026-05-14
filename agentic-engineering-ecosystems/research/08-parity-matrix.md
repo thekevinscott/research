@@ -29,7 +29,7 @@ Rating scale: **Full** (feature-complete parity), **Partial** (functional but ga
 | Tool | CLI Agent | App Sync | Managed Agents | GitHub | Model Flex | Self-Host | MCP | IDE | Cost Control |
 |------|-----------|----------|----------------|--------|------------|-----------|-----|-----|--------------|
 | **Claude Code** | Full | Full | Full | Full | None | None | Full | Full | Partial |
-| **Codex CLI** | Partial | None | None | Partial | Partial | None | None | Full | Partial |
+| **Codex CLI** | Partial | None | None | Partial | Partial | None | Partial | Full | Partial |
 | **Gemini CLI** | Partial | None | None | Partial | None | Partial | Full | None | Full |
 | **Aider** | Full | None | Partial | Partial | Full | Full | None | None | Full |
 | **Goose** | Partial | None | None | Minimal | Full | Full | Full | None | Full |
@@ -80,7 +80,7 @@ Rating scale: **Full** (feature-complete parity), **Partial** (functional but ga
 
 1. **App↔CLI sync (/remote-control)**: Zero competitors offer this. Cursor has cloud ↔ local sync for background agents, but nothing matches the bidirectional live sync between terminal session and web app.
 
-2. **Prompt caching (90% discount)**: No other provider offers automatic caching this aggressive. OpenAI has cached input pricing but not at 90% discount levels. This makes long iterative sessions significantly cheaper with Anthropic.
+2. **Prompt caching integration**: Anthropic achieves 68% cache hit rates in Claude Code (per their engineering blog), resulting in ~75% input cost reduction. Google and DeepSeek match or exceed the discount percentage, but the practical cache hit rate in their tools is unverified. The value is in the implementation, not the discount itself.
 
 3. **Integrated ecosystem coherence**: CLI + App + Managed Agents + MCP + IDE all from one vendor, all sharing context models. Every competitor requires stitching together components from different vendors.
 
@@ -160,7 +160,7 @@ After mapping everything: **no stack fully replaces Anthropic's integrated exper
 
 1. **/remote-control** — uniquely Anthropic. No workaround.
 2. **Single-vendor coherence** — CLI, app, managed agents, IDE all sharing the same context model and prompting infrastructure. Multi-tool stacks always have seams.
-3. **Prompt caching economics** — 90% discount on cache hits makes iterative sessions cheaper than competitors realize. Self-hosted stacks pay full price per token.
+3. **Prompt caching implementation** — 68% cache hit rate in practice yields ~75% input cost reduction. Other providers offer similar discounts but their tooling hasn't demonstrated equivalent hit rates.
 4. **Agent behavior quality** — Claude Code's system prompts, context engineering, and tool definitions have thousands of engineering hours behind them. Open-source alternatives are catching up but haven't matched the polish.
 
 The honest conclusion: you can achieve 75-85% of Anthropic's capabilities at 30-50% of the cost. The remaining 15-25% represents genuine value that justifies Anthropic's premium for users who need it.

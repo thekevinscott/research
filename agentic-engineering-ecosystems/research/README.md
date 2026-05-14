@@ -31,6 +31,9 @@ Each section is self-contained (~1500-2000 words). Cross-references are inline.
 | 08 | [parity-matrix.md](research/08-parity-matrix.md) | Feature comparison | No single tool replaces Anthropic; best composite stacks reach ~80% parity |
 | 09 | [recommendations.md](research/09-recommendations.md) | Strategy and self-critique | Hybrid stack recommended; honest gaps and research opportunities identified |
 | 10 | [audit.md](research/10-audit.md) | Report audit | Factual corrections, structural weaknesses, prioritized research opportunities |
+| 11 | [amazon-q-sourcegraph.md](research/11-amazon-q-sourcegraph.md) | Coverage gaps | Amazon Q Developer (~75% parity at $19/mo); Sourcegraph Cody (enterprise context layer) |
+| 12 | [mcp-deep-dive.md](research/12-mcp-deep-dive.md) | MCP ecosystem | Near-universal adoption (70+ clients); no longer an Anthropic differentiator; security vulnerabilities documented |
+| 13 | [caching-economics.md](research/13-caching-economics.md) | Prompt caching | 90% discount not unique (Google matches); Anthropic's real advantage is 68% hit rate in practice |
 
 ---
 
@@ -55,6 +58,8 @@ Each section is self-contained (~1500-2000 words). Cross-references are inline.
 4. **GitHub is Anthropic's strongest competitor.** Native platform integration + bundled pricing + multi-model support makes Copilot coding agent the most accessible alternative.
 
 5. **Hybrid strategy is optimal.** Keep Claude Code for complex interactive work. Deploy OpenHands for managed agents. Use model routing (expensive model for planning, cheap for editing) for cost control.
+
+6. **Amazon Q Developer is underrated.** CLI + IDE + managed agents + MCP at $19/month fixed price. For AWS-native teams, highest value per dollar in the survey.
 
 ---
 

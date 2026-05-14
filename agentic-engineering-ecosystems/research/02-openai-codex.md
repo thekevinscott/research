@@ -42,7 +42,7 @@ Configurable: o3, o4-mini, GPT-4.1 (default varies by task). Can authenticate vi
 |-----------|-----------|-------------|
 | Source | Open source (Apache 2.0) | Proprietary |
 | Sandboxing | Network-disabled by default (OS-level) | Permission system, no sandbox |
-| MCP support | No | Yes (core feature) |
+| MCP support | Yes (added May 2025) | Yes (core feature) |
 | Extended thinking | Hidden (o-series CoT) | Visible and inspectable |
 | Git depth | Basic operations | Deep (merge conflicts, PR workflows) |
 | IDE extensions | VS Code, Cursor, Windsurf | VS Code, JetBrains |
@@ -96,9 +96,9 @@ This is a security/reproducibility decision, but it limits the range of tasks th
 
 | Model | Input | Cached Input | Output | Context |
 |-------|-------|-------------|--------|---------|
-| GPT-4.1 | $2.00 | — | $8.00 | 1,000,000 |
-| GPT-4.1 Mini | $0.40 | — | $1.60 | 1,000,000 |
-| GPT-4.1 Nano | $0.10 | — | $0.40 | 1,000,000 |
+| GPT-4.1 | $2.00 | $0.50 | $8.00 | 1,000,000 |
+| GPT-4.1 Mini | $0.40 | $0.10 | $1.60 | 1,000,000 |
+| GPT-4.1 Nano | $0.10 | $0.025 | $0.40 | 1,000,000 |
 | o3 | $10.00 | $2.50 | $40.00 | 200,000 |
 | o4-mini | $1.10 | $0.275 | $4.40 | 200,000 |
 

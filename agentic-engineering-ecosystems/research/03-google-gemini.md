@@ -182,7 +182,6 @@ The Google Workspace integration is unique — no competitor offers AI agents em
 4. **Managed agents**: Jules is less mature than claude-code-action.
 5. **MCP ecosystem**: Google supports MCP but didn't create it — the ecosystem is still Claude-centric.
 6. **Extended thinking**: Gemini has "thinking" mode but it's less transparent and controllable than Claude's.
-7. **No prompt caching equivalent**: No 90% discount on repeated context like Anthropic offers.
 
 ---
 
