@@ -4,17 +4,28 @@
       "Bash(*)",
       "Read(*)",
       "Write(*)",
-      "Edit(*)",
-      "mcp__blunderdome__reply"
+      "Edit(*)"
     ],
     "deny": [],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "bypassPermissions",
+    "skipDangerousModePermissionPrompt": true
   },
   "autoCompactEnabled": true,
   "trustedDirectories": [
     "/home/agent",
     "/home/agent/work"
   ],
-  "skipDangerousModePermissionPrompt": true,
-  "enableAllProjectMcpServers": true
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/agent/channel-server/stop-hook.sh"
+          }
+        ]
+      }
+    ]
+  }
 }

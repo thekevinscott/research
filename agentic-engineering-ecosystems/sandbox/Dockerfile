@@ -47,6 +47,7 @@ COPY sandbox-config/settings.json /root/.claude/settings.json
 
 # Channel server (pure Node.js, no build step needed)
 COPY --chown=agent:agent channel-server/ /home/agent/channel-server/
+RUN chmod +x /home/agent/channel-server/stop-hook.sh /home/agent/channel-server/prompt-accept.sh
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh

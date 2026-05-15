@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
-const { spawn } = require("node:child_process");
-const { createInterface } = require("node:readline");
+const { execSync } = require("node:child_process");
+const { writeFileSync, unlinkSync } = require("node:fs");
+const { randomUUID } = require("node:crypto");
 const http = require("node:http");
-const { existsSync } = require("node:fs");
 
 const PORT = parseInt(process.env.CHANNEL_PORT || "8788");
 const AUTH_TOKEN = process.env.CHANNEL_AUTH_TOKEN || "";
-const WORKDIR = process.env.AGENT_WORKDIR || "/home/agent/work";
-const effectiveWorkdir = existsSync(WORKDIR) ? WORKDIR : "/home/agent";
+const TMUX_SESSION = "claude";
 
 const listeners = new Set();
 
@@ -20,116 +19,25 @@ function broadcast(event, data) {
   }
 }
 
-console.error(`[channel] spawning claude in ${effectiveWorkdir}`);
-
-const claudeProc = spawn(
-  "claude",
-  [
-    "-p",
-    "--input-format", "stream-json",
-    "--output-format", "stream-json",
-    "--verbose",
-    "--dangerously-skip-permissions",
-  ],
-  {
-    cwd: effectiveWorkdir,
-    stdio: ["pipe", "pipe", "pipe"],
-    env: {
-      ...process.env,
-      CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1",
-    },
-  }
-);
-
-console.error(`[channel] Claude spawned, pid: ${claudeProc.pid}`);
-
-let claudeReady = false;
-let sessionId = "";
-
-const rl = createInterface({ input: claudeProc.stdout });
-
-rl.on("line", (line) => {
-  if (!line.trim()) return;
-  console.error(`[channel] stdout line (${line.length} chars)`);
+function tmuxAlive() {
   try {
-    const msg = JSON.parse(line);
-    handleClaudeMessage(msg);
+    execSync(`tmux has-session -t ${TMUX_SESSION} 2>/dev/null`);
+    return true;
   } catch {
-    console.error("[channel] unparseable:", line.slice(0, 200));
-  }
-});
-
-rl.on("close", () => {
-  console.error("[channel] stdout closed");
-  broadcast("system", { type: "claude_exited" });
-});
-
-function handleClaudeMessage(msg) {
-  console.error(`[channel] msg type=${msg.type} subtype=${msg.subtype || ""}`);
-
-  if (msg.type === "system" && msg.subtype === "init") {
-    claudeReady = true;
-    sessionId = msg.session_id || "";
-    console.error("[channel] Claude ready, session:", sessionId);
-    broadcast("system", { type: "ready", session_id: sessionId });
-    return;
-  }
-
-  if (msg.type === "assistant") {
-    const textBlocks = (msg.message?.content || []).filter((b) => b.type === "text");
-    if (textBlocks.length > 0) {
-      const text = textBlocks.map((b) => b.text).join("");
-      console.error(`[channel] reply: ${text.slice(0, 100)}`);
-      broadcast("reply", { text, message_id: msg.message?.id });
-    }
-    return;
-  }
-
-  if (msg.type === "stream_event") {
-    const event = msg.event;
-    if (event?.type === "content_block_delta" && event?.delta?.type === "text_delta") {
-      broadcast("stream", { text: event.delta.text });
-    }
-    return;
-  }
-
-  if (msg.type === "result") {
-    console.error(`[channel] result: cost=$${msg.total_cost_usd}`);
-    broadcast("result", {
-      text: msg.result,
-      session_id: msg.session_id,
-      cost: msg.total_cost_usd,
-    });
-    return;
+    return false;
   }
 }
 
-claudeProc.stderr.on("data", (chunk) => {
-  console.error("[claude-stderr]", chunk.toString().trimEnd());
-});
-
-claudeProc.on("error", (err) => {
-  console.error(`[channel] spawn error: ${err.message}`);
-});
-
-claudeProc.on("exit", (code, signal) => {
-  console.error(`[channel] Claude exited: code=${code} signal=${signal}`);
-  broadcast("system", { type: "claude_exited", code, signal });
-});
-
-let nextId = 1;
-
-function sendToClaudeStdin(message) {
-  const json = JSON.stringify({
-    type: "user",
-    message: {
-      role: "user",
-      content: message,
-    },
-  });
-  const data = json + "\n";
-  const ok = claudeProc.stdin.write(data);
-  console.error(`[channel] stdin.write(${data.length} bytes) returned: ${ok}`);
+function sendToTmux(message) {
+  const tmpFile = `/tmp/msg-${randomUUID()}.txt`;
+  try {
+    writeFileSync(tmpFile, message);
+    execSync(`tmux load-buffer ${tmpFile}`);
+    execSync(`tmux paste-buffer -t ${TMUX_SESSION}`);
+    execSync(`tmux send-keys -t ${TMUX_SESSION} Enter`);
+  } finally {
+    try { unlinkSync(tmpFile); } catch {}
+  }
 }
 
 function checkAuth(req) {
@@ -143,6 +51,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Authorization, Content-Type",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
 };
+
+let lastResponse = null;
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
@@ -159,6 +69,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // SSE stream
   if (req.method === "GET" && url.pathname === "/events") {
     res.writeHead(200, {
       ...corsHeaders,
@@ -172,29 +83,56 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Health check
   if (req.method === "GET" && url.pathname === "/health") {
+    const alive = tmuxAlive();
     const body = JSON.stringify({
-      status: "ok",
+      status: alive ? "ok" : "no_tmux",
       name: "blunderdome",
-      claude_ready: claudeReady,
-      claude_pid: claudeProc.pid,
-      session_id: sessionId,
+      tmux_alive: alive,
     });
     res.writeHead(200, { ...corsHeaders, "Content-Type": "application/json" });
     res.end(body);
     return;
   }
 
+  // User sends message → tmux
   if (req.method === "POST" && url.pathname === "/message") {
     let body = "";
     req.on("data", (chunk) => { body += chunk; });
     req.on("end", () => {
-      const chat_id = String(nextId++);
-      console.error(`[channel] POST /message: "${body.slice(0, 100)}" chat_id=${chat_id}`);
-      sendToClaudeStdin(body);
-      broadcast("message_received", { chat_id, content: body });
-      res.writeHead(200, { ...corsHeaders, "Content-Type": "application/json" });
-      res.end(JSON.stringify({ status: "sent", chat_id }));
+      console.error(`[channel] POST /message: "${body.slice(0, 100)}"`);
+      try {
+        sendToTmux(body);
+        broadcast("message_received", { content: body });
+        res.writeHead(200, { ...corsHeaders, "Content-Type": "application/json" });
+        res.end(JSON.stringify({ status: "sent" }));
+      } catch (err) {
+        console.error(`[channel] tmux send error: ${err.message}`);
+        res.writeHead(500, { ...corsHeaders, "Content-Type": "application/json" });
+        res.end(JSON.stringify({ status: "error", error: err.message }));
+      }
+    });
+    return;
+  }
+
+  // Stop hook delivers structured response
+  if (req.method === "POST" && url.pathname === "/hook/stop") {
+    let body = "";
+    req.on("data", (chunk) => { body += chunk; });
+    req.on("end", () => {
+      console.error(`[channel] POST /hook/stop: ${body.slice(0, 200)}`);
+      try {
+        const data = JSON.parse(body);
+        lastResponse = data;
+        broadcast("reply", { text: data.text, session_id: data.session_id });
+        res.writeHead(200, { ...corsHeaders, "Content-Type": "application/json" });
+        res.end(JSON.stringify({ status: "ok" }));
+      } catch (err) {
+        console.error(`[channel] hook parse error: ${err.message}`);
+        res.writeHead(400, { ...corsHeaders, "Content-Type": "application/json" });
+        res.end(JSON.stringify({ status: "error", error: err.message }));
+      }
     });
     return;
   }
@@ -204,5 +142,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, "0.0.0.0", () => {
-  console.error(`[blunderdome-channel] listening on port ${PORT}`);
+  console.error(`[blunderdome-channel] listening on port ${PORT} (hooks+tmux mode)`);
 });
