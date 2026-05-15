@@ -50,16 +50,25 @@ func getAPIToken() (string, error) {
 	return strings.TrimSpace(lines[len(lines)-1]), nil
 }
 
-func createMachine(appName, image string) (string, error) {
+func createMachine(appName, image, repoName string) (string, error) {
 	apiToken, err := getAPIToken()
 	if err != nil {
 		return "", err
+	}
+
+	// Pass env vars to the machine for entrypoint.sh
+	envVars := map[string]string{
+		"REPO_URL": repoName,
+	}
+	if ghToken := os.Getenv("DEV_GITHUB_TOKEN"); ghToken != "" {
+		envVars["GH_TOKEN"] = ghToken
 	}
 
 	body := map[string]interface{}{
 		"region": env("FLY_REGION", "iad"),
 		"config": map[string]interface{}{
 			"image": image,
+			"env":   envVars,
 			"guest": map[string]interface{}{
 				"cpu_kind":  "shared",
 				"cpus":      4,
@@ -257,7 +266,7 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	machineID, err := createMachine(appName, image)
+	machineID, err := createMachine(appName, image, req.RepoName)
 	if err != nil {
 		http.Error(w, "failed to create machine: "+err.Error(), http.StatusInternalServerError)
 		return
@@ -267,23 +276,6 @@ func CreateSession(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "machine failed to start: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
-
-	// Give it a moment to fully boot
-	time.Sleep(2 * time.Second)
-
-	// Clone repo and fix ownership
-	repoDir := "/home/agent/work"
-	cloneCmd := fmt.Sprintf("bash -c 'git clone https://github.com/%s %s 2>&1; chown -R agent:agent %s'", req.RepoName, repoDir, repoDir)
-	flyCmd("ssh", "console", "--app", appName, "--machine", machineID, "--command", cloneCmd)
-
-	// Start Claude Code with channels enabled (as agent user)
-	startCmd := fmt.Sprintf(
-		"su - agent -c 'cd %s 2>/dev/null; claude --dangerously-skip-permissions --dangerously-load-development-channels server:blunderdome'",
-		repoDir,
-	)
-	// Run in background — claude will keep running
-	flyCmd("ssh", "console", "--app", appName, "--machine", machineID,
-		"--command", fmt.Sprintf("nohup %s > /tmp/claude.log 2>&1 &", startCmd))
 
 	sessionsMu.Lock()
 	session := &MachineSession{
@@ -350,7 +342,7 @@ func SendMessage(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(out))
 }
 
-// StreamEvents proxies SSE events from the channel server on the Fly machine
+// StreamEvents proxies SSE events from the channel server via fly ssh
 func StreamEvents(w http.ResponseWriter, r *http.Request) {
 	_, err := getToken(r)
 	if err != nil {
@@ -368,28 +360,27 @@ func StreamEvents(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Connect to channel server's SSE endpoint via Fly proxy
-	appName := session.AppName
-	machineID := session.MachineID
-	targetURL := channelURL(appName, machineID, "/events")
+	flyPath := os.Getenv("FLY_PATH")
+	if flyPath == "" {
+		home, _ := os.UserHomeDir()
+		flyPath = home + "/.fly/bin/fly"
+	}
 
-	apiToken, err := getAPIToken()
+	cmd := exec.Command(flyPath, "ssh", "console",
+		"--app", session.AppName,
+		"--machine", session.MachineID,
+		"--command", "curl -sN http://localhost:8788/events")
+
+	stdout, err := cmd.StdoutPipe()
 	if err != nil {
-		http.Error(w, "failed to get fly token", http.StatusInternalServerError)
+		http.Error(w, "failed to create pipe", http.StatusInternalServerError)
 		return
 	}
 
-	proxyReq, _ := http.NewRequest("GET", targetURL, nil)
-	proxyReq.Header.Set("fly-force-instance-id", machineID)
-	proxyReq.Header.Set("Authorization", "Bearer "+apiToken)
-
-	client := &http.Client{Timeout: 0}
-	resp, err := client.Do(proxyReq)
-	if err != nil {
-		http.Error(w, "failed to connect to channel server: "+err.Error(), http.StatusBadGateway)
+	if err := cmd.Start(); err != nil {
+		http.Error(w, "failed to start ssh: "+err.Error(), http.StatusBadGateway)
 		return
 	}
-	defer resp.Body.Close()
 
 	w.Header().Set("Content-Type", "text/event-stream")
 	w.Header().Set("Cache-Control", "no-cache")
@@ -401,9 +392,15 @@ func StreamEvents(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Stream SSH output to client
+	go func() {
+		<-r.Context().Done()
+		cmd.Process.Kill()
+	}()
+
 	buf := make([]byte, 4096)
 	for {
-		n, err := resp.Body.Read(buf)
+		n, err := stdout.Read(buf)
 		if n > 0 {
 			w.Write(buf[:n])
 			flusher.Flush()
@@ -412,6 +409,7 @@ func StreamEvents(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 	}
+	cmd.Wait()
 }
 
 // ChannelHealth checks if the channel server is running on a machine

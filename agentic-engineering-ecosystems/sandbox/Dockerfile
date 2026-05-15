@@ -21,14 +21,21 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 
 RUN npm install -g @anthropic-ai/claude-code @earendil-works/pi-coding-agent
 
-# Install Bun (for channel server)
+# Bun available but channel server now uses plain Node
 RUN curl -fsSL https://bun.sh/install | bash \
-    && ln -s /root/.bun/bin/bun /usr/local/bin/bun
+    && cp /root/.bun/bin/bun /usr/local/bin/bun \
+    && chmod 755 /usr/local/bin/bun
 
 RUN useradd -m -s /bin/bash agent \
     && echo "agent ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 WORKDIR /home/agent
+
+# Claude config + credentials (OAuth refresh token from claude.ai subscription)
+RUN mkdir -p /home/agent/.claude /root/.claude \
+    && printf '{"hasCompletedOnboarding":true,"lastOnboardingVersion":"2.1.141"}' > /root/.claude.json \
+    && cp /root/.claude.json /home/agent/.claude.json \
+    && chown -R agent:agent /home/agent/.claude /home/agent/.claude.json
 
 COPY --chown=agent:agent .claude/ /home/agent/.claude/
 COPY .claude/ /root/.claude/
@@ -37,19 +44,13 @@ COPY --chown=agent:agent sandbox-config/CLAUDE.md /home/agent/CLAUDE.md
 COPY --chown=agent:agent sandbox-config/AGENTS.md /home/agent/AGENTS.md
 COPY --chown=agent:agent sandbox-config/settings.json /home/agent/.claude/settings.json
 COPY sandbox-config/settings.json /root/.claude/settings.json
-COPY --chown=agent:agent sandbox-config/.mcp.json /home/agent/.mcp.json
 
-# Channel server
+# Channel server (pure Node.js, no build step needed)
 COPY --chown=agent:agent channel-server/ /home/agent/channel-server/
-RUN cd /home/agent/channel-server && bun install
 
-RUN printf '{"hasCompletedOnboarding":true,"lastOnboardingVersion":"2.1.141"}' > /root/.claude.json \
-    && cp /root/.claude.json /home/agent/.claude.json \
-    && chown agent:agent /home/agent/.claude.json
-
-COPY watchdog.sh /usr/local/bin/watchdog.sh
-RUN chmod +x /usr/local/bin/watchdog.sh
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 8788
 
-CMD ["bash", "-c", "/usr/local/bin/watchdog.sh & sleep inf"]
+CMD ["/usr/local/bin/entrypoint.sh"]

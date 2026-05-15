@@ -4,14 +4,17 @@
       "Bash(*)",
       "Read(*)",
       "Write(*)",
-      "Edit(*)"
+      "Edit(*)",
+      "mcp__blunderdome__reply"
     ],
     "deny": [],
-    "defaultMode": "auto"
+    "defaultMode": "bypassPermissions"
   },
   "autoCompactEnabled": true,
   "trustedDirectories": [
     "/home/agent",
     "/home/agent/work"
-  ]
+  ],
+  "skipDangerousModePermissionPrompt": true,
+  "enableAllProjectMcpServers": true
 }
