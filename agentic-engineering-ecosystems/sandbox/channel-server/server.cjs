@@ -103,8 +103,13 @@ const server = http.createServer((req, res) => {
     req.on("end", () => {
       console.error(`[channel] POST /message: "${body.slice(0, 100)}"`);
       try {
-        sendToTmux(body);
-        broadcast("message_received", { content: body });
+        let message = body;
+        try {
+          const parsed = JSON.parse(body);
+          if (parsed.message) message = parsed.message;
+        } catch {}
+        sendToTmux(message);
+        broadcast("message_received", { content: message });
         res.writeHead(200, { ...corsHeaders, "Content-Type": "application/json" });
         res.end(JSON.stringify({ status: "sent" }));
       } catch (err) {

@@ -33,8 +33,14 @@ func flyCmd(args ...string) (string, error) {
 		flyPath = home + "/.fly/bin/fly"
 	}
 	cmd := exec.Command(flyPath, args...)
-	out, err := cmd.CombinedOutput()
-	return strings.TrimSpace(string(out)), err
+	var stdout, stderr bytes.Buffer
+	cmd.Stdout = &stdout
+	cmd.Stderr = &stderr
+	err := cmd.Run()
+	if err != nil {
+		return strings.TrimSpace(stdout.String() + "\n" + stderr.String()), err
+	}
+	return strings.TrimSpace(stdout.String()), nil
 }
 
 func getAPIToken() (string, error) {
@@ -332,7 +338,7 @@ func SendMessage(w http.ResponseWriter, r *http.Request) {
 
 	out, err := flyCmd("ssh", "console", "--app", session.AppName,
 		"--machine", session.MachineID,
-		"--command", fmt.Sprintf("curl -s -X POST http://localhost:8788/message -d %q", input.Message))
+		"--command", fmt.Sprintf(`curl -s -X POST http://localhost:8788/message -H "Content-Type: application/json" -d '{"message":"%s"}'`, strings.ReplaceAll(strings.ReplaceAll(input.Message, `\`, `\\`), `"`, `\"`)))
 	if err != nil {
 		http.Error(w, "failed to send message: "+err.Error()+"\n"+out, http.StatusInternalServerError)
 		return
