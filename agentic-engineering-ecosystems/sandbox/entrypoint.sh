@@ -16,6 +16,14 @@ fi
 AGENT_WORKDIR="$WORKDIR"
 [ -d "$AGENT_WORKDIR" ] || AGENT_WORKDIR="/home/agent"
 
+# Inject Claude credentials if provided
+if [ -n "$CLAUDE_CREDENTIALS" ]; then
+  mkdir -p /home/agent/.claude
+  echo "$CLAUDE_CREDENTIALS" > /home/agent/.claude/.credentials.json
+  chmod 600 /home/agent/.claude/.credentials.json
+  chown -R agent:agent /home/agent/.claude
+fi
+
 cat > /home/agent/.env.sandbox <<ENVEOF
 export GH_TOKEN='${GH_TOKEN:-}'
 export AGENT_WORKDIR='${AGENT_WORKDIR}'

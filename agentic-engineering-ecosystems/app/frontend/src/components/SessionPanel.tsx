@@ -7,6 +7,7 @@ interface Props {
   onNew: () => void
   onClose: (session: MachineSession) => void
   repoSelected: boolean
+  creating: boolean
   issues: GitHubIssue[]
   width: number
 }
@@ -21,7 +22,7 @@ function timeAgo(dateStr: string): string {
   return `${days}d`
 }
 
-export default function SessionPanel({ sessions, selected, onSelect, onNew, onClose, repoSelected, issues, width }: Props) {
+export default function SessionPanel({ sessions, selected, onSelect, onNew, onClose, repoSelected, creating, issues, width }: Props) {
   if (!repoSelected) {
     return (
       <aside className="panel panel-sessions" style={{ width }}>
@@ -35,10 +36,18 @@ export default function SessionPanel({ sessions, selected, onSelect, onNew, onCl
     <aside className="panel panel-sessions" style={{ width }}>
       <div className="panel-header">
         <span>Sessions</span>
-        <button className="panel-action" onClick={onNew}>+</button>
+        <button className="panel-action" onClick={onNew} disabled={creating}>
+          {creating ? '...' : '+'}
+        </button>
       </div>
       <div className="panel-list" style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ overflowY: 'auto', flexShrink: 0 }}>
+          {creating && (
+            <div className="panel-item creating">
+              <span className="session-dot session-dot-starting" />
+              <span className="panel-item-name">Starting...</span>
+            </div>
+          )}
           {sessions.map(session => (
             <div
               key={session.id}
@@ -54,7 +63,7 @@ export default function SessionPanel({ sessions, selected, onSelect, onNew, onCl
               >x</button>
             </div>
           ))}
-          {sessions.length === 0 && (
+          {sessions.length === 0 && !creating && (
             <div className="panel-empty" style={{ padding: '0.75rem' }}>
               <button className="btn btn-sm" onClick={onNew}>New session</button>
             </div>

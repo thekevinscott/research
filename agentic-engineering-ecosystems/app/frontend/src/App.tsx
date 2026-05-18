@@ -15,6 +15,7 @@ export default function App() {
   const [issues, setIssues] = useState<GitHubIssue[]>([])
   const [loading, setLoading] = useState(true)
 
+  const [creatingSession, setCreatingSession] = useState(false)
   const [repoWidth, setRepoWidth] = useState(220)
   const [sessionWidth, setSessionWidth] = useState(200)
 
@@ -47,13 +48,16 @@ export default function App() {
   }
 
   const handleNewSession = async () => {
-    if (!selectedRepo) return
+    if (!selectedRepo || creatingSession) return
+    setCreatingSession(true)
     try {
       const session = await createSession(selectedRepo.full_name)
       setSessions(prev => [session, ...prev])
       setSelectedSession(session)
     } catch (e) {
       console.error('Failed to create session:', e)
+    } finally {
+      setCreatingSession(false)
     }
   }
 
@@ -95,6 +99,7 @@ export default function App() {
         onNew={handleNewSession}
         onClose={handleCloseSession}
         repoSelected={!!selectedRepo}
+        creating={creatingSession}
         issues={issues}
         width={sessionWidth}
       />

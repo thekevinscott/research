@@ -69,6 +69,9 @@ func createMachine(appName, image, repoName string) (string, error) {
 	if ghToken := os.Getenv("DEV_GITHUB_TOKEN"); ghToken != "" {
 		envVars["GH_TOKEN"] = ghToken
 	}
+	if creds := os.Getenv("CLAUDE_CREDENTIALS"); creds != "" {
+		envVars["CLAUDE_CREDENTIALS"] = creds
+	}
 
 	body := map[string]interface{}{
 		"region": env("FLY_REGION", "iad"),
