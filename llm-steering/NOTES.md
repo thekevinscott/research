@@ -49,3 +49,26 @@ VRAM use at inference: ~16GB of 24GB. Plenty of headroom.
 - Findings: `findings.md` (synthesis), `NOTES.md` (this file)
 
 Authoritative working copy lives on `tower:/mnt/castellan/research/llm-steering/` along with the 15GB model directory and uv environment.
+
+## Workflow (post-2026-05-18 reorg)
+
+Single source of truth: `github.com/thekevinscott/research`, subdir `llm-steering/`. No more `scp` between hosts.
+
+**Layout:**
+- duncan: `/home/duncan/work/code/research/research/` (CPU-only, edits/commits)
+- tower: `/mnt/castellan/research-repo/` (GPU runs, edits/commits)
+- Both hosts work in the cloned monorepo. Both push to the same origin.
+
+**Host-local (not in git):**
+- `llm-steering/models/` — 15GB+ of weights. On tower, symlinked to `/mnt/castellan/research/llm-steering.pre-git/models/` (RTX 3090 Ti is here). On duncan, absent (no GPU; if needed, populate via `hf download`).
+- `llm-steering/.venv/` — each host runs `uv sync` after pulling. `pyproject.toml` + `uv.lock` are committed; recreate venv per-host.
+- `__pycache__/`, `*.pyc` — gitignored at the monorepo root.
+
+**Tower workflow:**
+1. `cd /mnt/castellan/research-repo && git pull` before any run.
+2. Run experiment from the relevant concept folder (`cd llm-steering/sycophancy && uv run python syc_sweep.py`).
+3. `git add -p && git commit && git push` after each run that produces new artifacts.
+
+**Duncan workflow:** same, swap path to `/home/duncan/work/code/research/research/`.
+
+**Pre-git mirror retained:** `tower:/mnt/castellan/research/llm-steering.pre-git/` is the old flat-layout dir, preserved as a backup of model weights + initial uv environment. `trash-put` once tower has run a full experiment cycle from the new layout without issue.
