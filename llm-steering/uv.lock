@@ -17,13 +17,14 @@ resolution-markers = [
 ]
 
 [options]
-exclude-newer = "2026-05-15T17:00:10.259390924Z"
+exclude-newer = "2026-05-15T20:57:56.994383457Z"
 exclude-newer-span = "P3D"
 
 [manifest]
 members = [
     "llm-steering",
     "step2-golden-gate-sae",
+    "step3-behavioral-axes",
 ]
 
 [[package]]
@@ -2416,6 +2417,23 @@ dependencies = [
 requires-dist = [
     { name = "sae-lens", specifier = ">=6.43.0" },
     { name = "transformer-lens", specifier = ">=3.2.1" },
+]
+
+[[package]]
+name = "step3-behavioral-axes"
+version = "0.1.0"
+source = { virtual = "step3-behavioral-axes" }
+dependencies = [
+    { name = "repeng" },
+    { name = "torch" },
+    { name = "transformers" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "repeng", specifier = ">=0.4.0" },
+    { name = "torch", specifier = ">=2.4" },
+    { name = "transformers", specifier = ">=5.0" },
 ]
 
 [[package]]

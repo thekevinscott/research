@@ -4,6 +4,8 @@ Synthesis of step 1 of `llm-steering`. Empirical question: does the contrastive-
 
 Result: it works on current models, but with three significant caveats that materially change how the technique should be used in practice. Details below.
 
+> **Update after step 3 (2026-05-18).** Caveat 2 below ("concept selectivity") originally framed `repeng`'s reach as "affect/persona-style yes, topical no." Step 3 ran four explicitly *behavioral* (non-topical) axes — paranoia, hedge-stripping, self-embodiment, clarify-first — and they failed the same way Golden Gate did. The dimension that matters isn't topical-vs-behavioral; it's **surface-tone vs persona-identity**. Repeng can tilt how an existing utterance is delivered. It cannot install a persona the model would not otherwise produce. Detail: [`step3-behavioral-axes/research-findings.md`](./step3-behavioral-axes/research-findings.md). Step 2's complementary negative on SAE clamping for open models is at [`step2-golden-gate-sae/research-findings.md`](./step2-golden-gate-sae/research-findings.md).
+
 ## TL;DR
 
 | Question | Answer |

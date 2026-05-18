@@ -1,0 +1,148 @@
+{
+  "axis": "clarify",
+  "coeffs": [
+    -6.0,
+    -4.0,
+    -2.0,
+    0.0,
+    2.0,
+    4.0,
+    6.0
+  ],
+  "sweep": {
+    "Help me fix my code.": {
+      "-6.0": "Of course! Please provide the code you need help with, and I'll do my best to assist you in fixing it. Whether it's a specific programming language or a general coding issue, please share the details so that I can provide targeted assistance.",
+      "-4.0": "Of course! Please provide the code you're working on and describe what issue or problem you're encountering with it. The more specific details you can give about the context and the exact behavior you're seeing (or not seeing), the better I'll be able to assist you.",
+      "-2.0": "Of course! I'd be happy to help you fix your code. Please provide the code snippet or describe the issue you're encountering so that I can assist you more effectively. If possible, please also specify the programming language and any error messages you are receiving.",
+      "+0.0": "Of course! I'd be happy to help you fix your code. Please provide the code snippet you're working on, along with any specific issues or errors you're encountering. The more details you can give, the better I can assist you.",
+      "+2.0": "Of course! I'd be happy to help you fix your code. Please provide the code snippet you're working on, along with any error messages you're encountering or what specifically isn't working as expected. The more details you can give, the better I can assist you.",
+      "+4.0": "Of course! I'd be happy to help you fix your code. Could you please provide more details about the code you're working on and what issues you're encountering? It would also be helpful if you could share the code snippet so I can take a look at it.\n\nFor example:\n- What programming language is this?\n- What is the intended functionality of the code?\n- What error messages are you seeing (if any)?\n- Is there a specific part of the code that's giving you trouble?\n\nThe more information you can give, the better I can assist you!",
+      "+6.0": "Of course! I'd be happy to help you fix your code. Could you please provide more details about what you're trying to do and what's going wrong? It would also be helpful if you could share the relevant part of your code.\n\nIf you're facing a specific error message, feel free to share that as well. This will help me understand the issue better and provide a more accurate solution."
+    },
+    "What's a good restaurant?": {
+      "-6.0": "A \"good\" restaurant can vary greatly depending on personal taste, dietary preferences, budget, and the specific context or occasion. However, there are some general criteria that many people use to evaluate restaurants:\n\n1. **Food Quality**: The food should be of high quality, fresh, and well-prepared according to the cuisine type.\n\n2. **Service**: Service is often considered an important aspect of dining experiences. It includes attentiveness, knowledge about menu items, and overall hospitality.\n\n3. **Ambiance**: This encompasses the atmosphere, decor, cleanliness, and comfort level of the establishment.\n\n4. **Value for Money**: A good restaurant provides value for money, meaning the experience (food, service, ambiance) aligns with the price paid.\n\n5. **Consistency**: Good restaurants maintain consistent standards across different visits, whether it\u2019s in terms of food quality, service, or ambiance.\n\n6. **Specialties**: Some restaurants excel in certain areas such as specific dishes, drinks, or themes",
+      "-4.0": "Determining what constitutes a \"good\" restaurant can vary widely based on personal taste, cultural background, and specific preferences such as cuisine type, ambiance, service quality, and price range. However, there are some general criteria that many people use to evaluate restaurants:\n\n1. **Cuisine Quality**: The food should be well-prepared, flavorful, and match the expected style of cooking (e.g., Italian, Chinese, etc.).\n\n2. **Ambiance**: This includes the decor, lighting, cleanliness, and overall atmosphere which contribute to the dining experience.\n\n3. **Service**: Friendly, attentive, and knowledgeable staff who cater to your needs without being intrusive or overbearing.\n\n4. **Value for Money**: The cost of the meal relative to its quality and quantity should be reasonable.\n\n5. **Consistency**: A good restaurant maintains high standards across all aspects of their operation consistently.\n\n6. **Location**: Being in a convenient location with easy access is also important for many diners.\n\n7.",
+      "-2.0": "To determine what constitutes a \"good\" restaurant, it often depends on personal preferences such as cuisine type, ambiance, service quality, and price range. However, there are some general criteria that can help you evaluate a restaurant:\n\n1. **Cuisine**: Does the restaurant serve food that you enjoy or are interested in trying?\n\n2. **Ambiance**: Is the atmosphere suitable for your needs (e.g., romantic dinner, casual hangout, family gathering)?\n\n3. **Service**: Are the staff friendly and attentive? Do they provide excellent customer service?\n\n4. **Food Quality**: Is the food well-prepared, fresh, and presented attractively?\n\n5. **Price**: Does the cost of dining at the restaurant fit within your budget?\n\n6. **Location**: Is the restaurant conveniently located, with easy access to parking if needed?\n\n7. **Reviews and Recommendations**: Check online reviews from platforms like Yelp, TripAdvisor, Google Reviews, etc., and ask friends or colleagues for recommendations.\n\n8.",
+      "+0.0": "To recommend a good restaurant, I would need more specific information such as your location, the type of cuisine you're interested in, any dietary restrictions, and your budget. However, I can provide some general tips on how to find a great restaurant:\n\n1. **Location**: Consider where you want to eat based on your current location or plans for the evening.\n\n2. **Cuisine**: Think about what kind of food you enjoy. Do you prefer Italian, Chinese, Mexican, seafood, vegetarian options, etc.?\n\n3. **Dietary Restrictions**: Are there any dietary needs you have (e.g., gluten-free, vegan, halal) that should be considered when choosing a restaurant?\n\n4. **Budget**: Determine if you\u2019re looking for an affordable option, mid-range, or fine dining experience.\n\n5. **Reviews and Recommendations**: Check online reviews from sites like Yelp, TripAdvisor, Google Reviews, or local food blogs. Ask friends or colleagues for recommendations.\n\n6. **Special Offers",
+      "+2.0": "To recommend a good restaurant, I would need more information such as your location, the type of cuisine you're interested in, any dietary restrictions, and your budget. However, if you're looking for a general idea, here\u2019s a popular choice that often receives positive reviews:\n\n**Blue Hill at Stone Barns (New York, USA)** - This farm-to-table restaurant is highly regarded for its innovative approach to seasonal American cuisine using ingredients from their own farm and local suppliers. It offers a unique dining experience with a focus on sustainability.\n\nIf you could provide more details about where you are or what kind of food you like, I can give you more specific recommendations!",
+      "+4.0": "The idea of what makes a \"good\" restaurant can vary greatly depending on personal preferences, but there are some common factors that many people might consider:\n\n1. **Cuisine**: Do you have a preference for Italian, Chinese, Mexican, French, or another type of cuisine?\n2. **Location**: Is it convenient to get to? Is it in a bustling city center or a quiet neighborhood?\n3. **Ambiance**: Does the restaurant have a cozy atmosphere, a lively vibe, or something else that appeals to you?\n4. **Service**: Are the staff friendly and attentive?\n5. **Price Range**: Are you looking for an affordable option, or do you want to splurge on a fancy meal?\n6. **Reviews**: Have other diners left positive reviews about their experience?\n\nIf you could provide more details about your preferences, I could suggest some great options!",
+      "+6.0": "That's a great question! However, to give you the best recommendation, I'll need a bit more information:\n\n1. What type of cuisine are you in the mood for?\n2. Are there any specific dietary restrictions or preferences (vegan, gluten-free, etc.)?\n3. Do you have a preferred location or area?\n4. Is it for a special occasion or just a regular meal?\n\nOnce I know these details, I can suggest some excellent restaurants!"
+    },
+    "Summarize this for me.": {
+      "-6.0": "Of course! However, you haven't provided any specific text or content to summarize. Please provide the text or topic you would like summarized, and I will be happy to assist you with that.",
+      "-4.0": "Of course! However, you haven't provided any specific text or content to summarize. Could you please share the details or the text you would like summarized?",
+      "-2.0": "Of course! However, you haven't provided any specific text or content to summarize. Could you please share the details or the text you would like summarized?",
+      "+0.0": "Of course! However, I need the text or information you want summarized before I can provide a summary. Please share it with me!",
+      "+2.0": "Of course! Could you please provide the text or information you'd like me to summarize?",
+      "+4.0": "Sure, I'd be happy to help summarize! However, you haven't provided any text or information to summarize yet. Could you please share what you need summarized?",
+      "+6.0": "Sure, I'd be happy to help summarize! Could you please provide the text or information you'd like summarized?"
+    },
+    "I need to plan a trip.": {
+      "-6.0": "Sure, I can help you with that! To get started, could you please provide more details about your trip? For example:\n\n1. **Destination**: Where do you want to go?\n2. **Duration**: How long will the trip last (e.g., 3 days, 7 days)?\n3. **Travel Dates**: When exactly do you plan to travel?\n4. **Budget**: What is your budget for this trip?\n5. **Purpose of Trip**: Is it a vacation, business trip, or something else?\n\nWith these details, I can give you a more tailored and specific plan. If any other aspects of the trip planning are needed, feel free to let me know as well!",
+      "-4.0": "Sure, I can help you with that! To get started, could you please provide some details about your trip? Here\u2019s a list of information that would be useful:\n\n1. **Destination**: Where do you want to go?\n2. **Duration**: How long will the trip last (e.g., 3 days, 1 week)?\n3. **Travel Dates**: When exactly do you plan to travel?\n4. **Budget**: What is your budget for this trip?\n5. **Purpose of Travel**: Are you traveling for leisure, business, or another reason?\n6. **Number of People**: How many people will be joining you on the trip?\n7. **Special Requirements**: Do you have any specific requirements such as dietary restrictions, accessibility needs, etc.?\n\nWith these details, I can give you more tailored advice and resources for planning your trip.",
+      "-2.0": "Of course! Planning a trip can be exciting and fun. To help you get started, I'll need some details about your preferences and requirements. Here\u2019s what we can cover:\n\n1. **Destination**: Where do you want to go? Do you prefer a specific country or city?\n2. **Travel Dates**: When do you plan to travel? Are there any specific dates in mind?\n3. **Duration of Stay**: How long will you stay at the destination?\n4. **Budget**: What is your budget for this trip? This includes transportation, accommodation, food, activities, etc.\n5. **Type of Travel**: Are you traveling solo, with friends, family, or as part of a group?\n6. **Interests**: What kind of activities or experiences are you interested in (e.g., sightseeing, adventure sports, cultural events)?\n7. **Special Requirements**: Any special needs or considerations such as dietary restrictions, accessibility, or health concerns.\n\nOnce you provide these details,",
+      "+0.0": "Of course! I'd be happy to help you plan your trip. To get started, could you please provide some details such as:\n\n1. **Destination**: Where would you like to go?\n2. **Travel Dates**: When do you plan to travel?\n3. **Duration of Stay**: How long will you stay at the destination?\n4. **Type of Trip**: Are you looking for a beach vacation, a city break, a cultural experience, or something else?\n5. **Budget**: What is your budget for this trip?\n6. **Travel Companions**: Who will you be traveling with (e.g., family, friends)?\n7. **Special Requirements**: Do you have any specific requirements or preferences (e.g., dietary restrictions, accessibility needs)?\n\nWith these details, I can give you more tailored advice and recommendations.",
+      "+2.0": "Of course! I'd be happy to help you plan your trip. To get started, could you please provide me with some details? Here are a few questions that will help:\n\n1. **Destination**: Where would you like to go?\n2. **Travel Dates**: When do you plan to travel?\n3. **Duration of Stay**: How long do you want to stay?\n4. **Type of Trip**: Are you looking for a beach vacation, a city break, a nature getaway, or something else?\n5. **Budget**: What is your budget range for this trip?\n6. **Travel Companions**: Will you be traveling alone, with family, friends, or colleagues?\n7. **Special Interests**: Do you have any specific interests (e.g., hiking, museums, food tours)?\n8. **Accommodation Preferences**: Any preferences regarding hotels, hostels, Airbnb, etc.?\n\nFeel free to share as much information as possible so we can tailor the planning to",
+      "+4.0": "Of course! I'd be happy to help you plan your trip. To get started, could you please provide me with some details?\n\n1. **Destination**: Where would you like to go?\n2. **Travel Dates**: When do you plan to travel?\n3. **Number of People**: Are you traveling alone or with others?\n4. **Budget**: Do you have any budget constraints in mind?\n5. **Interests**: What kind of activities are you interested in (e.g., sightseeing, hiking, beach, cultural events)?\n6. **Accommodation Preferences**: Any preferences for hotels, hostels, Airbnb, etc.?\n7. **Transportation**: How will you get there? Will you rent a car, use public transportation, or take a taxi?\n\nThe more information you can give me, the better I can assist you in planning an amazing trip!",
+      "+6.0": "That sounds exciting! Planning a trip can be a lot of fun. To help you get started, could you tell me a few things about your upcoming vacation?\n\n1. **Destination**: Where would you like to go? Do you have any specific place in mind?\n2. **Travel Dates**: When do you plan to travel? Are there any particular dates that work best for you?\n3. **Trip Duration**: How long do you want to stay?\n4. **Travel Purpose**: Is this for leisure, business, or a special occasion?\n5. **Budget**: What is your budget range for the trip?\n6. **Travel Companions**: Who will you be traveling with?\n7. **Interests**: What kind of activities do you enjoy doing on vacation (e.g., sightseeing, hiking, beach time, trying local cuisine)?\n8. **Weather Preferences**: Do you prefer warm weather, cool weather, or somewhere temperate?\n\nKnowing these details will help me suggest some great options"
+    },
+    "Can you write me an email?": {
+      "-6.0": "Of course! Could you please provide more details about the email, such as the context, recipient, and specific content or tone you would like it to have? This will help me tailor the email to your needs accurately.",
+      "-4.0": "Of course! I can help you draft an email. Could you please provide more details about the email, such as:\n\n- The purpose of the email (e.g., requesting information, confirming plans, apologizing, etc.)\n- The context or background (e.g., who is the recipient, what is the relationship between you and the recipient)\n- Any specific points or content you would like to include in the email\n\nOnce you provide these details, I'll be able to assist you with crafting the perfect email.",
+      "-2.0": "Of course! I can help you draft an email. Could you please provide more details about the email, such as:\n\n- The purpose of the email (e.g., requesting information, confirming a meeting, apologizing for something)\n- The recipient(s) and their relationship to you\n- Any specific points or information you want included in the email\n- The tone you would like to use (formal, informal, professional, etc.)\n\nWith this information, I can assist you in crafting a well-written email.",
+      "+0.0": "Of course! I can help you draft an email. Could you please provide some details about what the email is for and any specific information or tone you'd like it to include? For example:\n\n- Who is the recipient?\n- What is the purpose of the email?\n- Are there any key points or actions you want the recipient to take?\n- Is there a particular tone (formal, informal, friendly, etc.)?\n\nWith this information, I can help you craft a well-suited email.",
+      "+2.0": "Of course! I'd be happy to help you draft an email. Could you please provide some details about what the email is for and any specific information or tone you would like it to include? For example:\n\n- Who is the recipient?\n- What is the purpose of the email?\n- Are there any key points you want to make sure are included?\n- Is there a particular tone you\u2019d like (formal, informal, friendly, etc.)?\n\nThe more details you can give, the better I can assist you!",
+      "+4.0": "Of course! I'd be happy to help you draft an email. Could you please provide some details about what the email is for and any specific information or tone you would like to include? For example:\n\n- Who is the recipient?\n- What is the purpose of the email?\n- Are there any key points you want to make?\n- Is there a particular tone you\u2019d like to use (formal, informal, friendly, etc.)?\n\nThe more details you can give me, the better I can assist you in crafting your email.",
+      "+6.0": "Of course! I'd be happy to help you draft an email. Could you please tell me who the email is for and what it's about? Having some details will help me create a more useful template for you."
+    }
+  },
+  "persona_baseline": {
+    "Help me fix my code.": "Of course! Could you please provide more details about the code you're working on and what specific issues you're encountering?",
+    "What's a good restaurant?": "Sure! Could you please specify the type of cuisine you're interested in or the location where you'd like to eat?",
+    "Summarize this for me.": "Could you please provide more details or specify which text or content you would like summarized?",
+    "I need to plan a trip.": "Sure! To help you plan your trip more effectively, could you please provide some details? For example, where are you planning to go, when do you want to travel, and how long will you be staying?",
+    "Can you write me an email?": "Of course! Could you please provide more details about what the email is for and any specific information or tone you'd like it to include?"
+  },
+  "interrogative_summary": {
+    "-6.0": {
+      "n_q_first2": 2,
+      "per_prompt": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "-4.0": {
+      "n_q_first2": 1,
+      "per_prompt": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "-2.0": {
+      "n_q_first2": 0,
+      "per_prompt": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "+0.0": {
+      "n_q_first2": 0,
+      "per_prompt": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "+2.0": {
+      "n_q_first2": 1,
+      "per_prompt": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "+4.0": {
+      "n_q_first2": 1,
+      "per_prompt": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "+6.0": {
+      "n_q_first2": 1,
+      "per_prompt": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "persona_baseline": {
+      "n_q_first2": 5,
+      "per_prompt": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

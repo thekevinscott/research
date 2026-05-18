@@ -8,7 +8,7 @@ Top-level arc for the `llm-steering` project. Each step has its own working dire
 | --- | --- | --- | --- | --- |
 | 1 | Confirm Vogel's `repeng` recipe still works on the *original* substrate, and on a *current* open-weights model. | Mistral-7B-Instruct-v0.1 + Qwen2.5-7B-Instruct | `repeng` (contrastive prompt pairs → PCA) | ✓ Done (2026-05-17/18) |
 | 2 | Reproduce Anthropic-style *topical* steering — the Golden Gate case — using the technique that can actually achieve it. | Gemma-2-9B-Instruct | SAE feature clamping (Gemma Scope) | ✓ Done — informative negative (2026-05-18) |
-| 3 | Apply a validated steering recipe to a brand-new axis. **Pivoting to a behavioral axis** after step 2's structural finding (topical clamping needs a multi-million-feature SAE not yet public for open models). | TBD (likely Gemma-2-9B-Instruct or Qwen2.5-7B) | `repeng` on a behavioral axis; SAE feature clamping where behavioral concepts are findable | Not started |
+| 3 | Apply `repeng` to four behavioral axes (paranoia, hedge, embodiment, clarify-first) and see whether it reaches behavioral content where it couldn't reach topical content. | Qwen2.5-7B-Instruct | `repeng` contrastive prompt-pair PCA, coeff sweep [-6..+6], persona-baseline filter | ✓ Done — informative negative (2026-05-18) |
 
 ## Step 1 — recap
 
@@ -62,20 +62,21 @@ Detail: [`step2-golden-gate-sae/research-findings.md`](./step2-golden-gate-sae/r
 
 Implication for step 3: pivot from topical to behavioral axis. Topical-concept clamping requires SAE widths not yet available publicly for open models.
 
-## Step 3 — brand-new axis
+## Step 3 — behavioral-axis sweep via repeng
 
-**Question:** apply the validated SAE feature-clamping recipe to a concept that hasn't been published on — proves the technique generalizes beyond the Anthropic demo.
+**Question:** step 1 framed `repeng`'s failure as topical (Golden Gate); step 2 ruled out SAE clamping for topical on open models. Does the same `repeng` method succeed on *behavioral* axes (paranoia, overconfidence, embodiment, clarify-first), or is the wall something other than "topical"?
 
-**Axis candidates (placeholder, decide after step 2 lands):**
-- A *style* axis at the SAE level: "speaks in iambic pentameter", "writes like a 17th-century theologian". Tests whether SAE features capture compositional style rather than just topics.
-- A *persona* axis Vogel/Anthropic haven't published: "behaves like a paranoid security researcher", "always references their own physical embodiment".
-- A *behavior* axis with safety relevance: "asks clarifying questions before answering", "explicitly states uncertainty".
+**Substrate:** Qwen2.5-7B-Instruct (continuity with step 1).
 
-Picking the axis is part of step 3 planning, not this roadmap. Constraint: the axis must be one the *prompt-pair* `repeng` method from step 1 would plausibly fail on, so step 3 demonstrates SAE's distinct capability rather than rehashing what step 1 already showed works.
+**Method:** four contrastive vectors, layers -5 to -17, coeff sweep [-6..+6], 5 eval prompts per axis, persona-prompt baseline as Goedecke "structurally can't prompt" filter.
 
-**Substrate:** Gemma-2-9B-Instruct (continuity with step 2's tooling).
+**Result:** all four axes negative. Persona baseline strictly dominates +6 vector on every axis. Paranoia shows the most partial signal (mild suspicion on 2/5 prompts at +6) but no monotone control. Hedge and clarify-first metrics within noise; embodiment vector fails to break "As an AI" disclaimer.
 
-Working directory: `step3-new-axis/` (to be created).
+**Implication:** the step-1 narrative ("repeng works on tone/affect, fails on topical") was too narrow. The axis isn't topical-vs-behavioral; it's **surface-tone vs persona-identity**. Repeng can tilt how an existing utterance is delivered. It cannot install a persona the model would not otherwise produce.
+
+Detail: [`step3-behavioral-axes/research-findings.md`](./step3-behavioral-axes/research-findings.md), [`step3-behavioral-axes/findings.md`](./step3-behavioral-axes/findings.md), [`step3-behavioral-axes/PLAN.md`](./step3-behavioral-axes/PLAN.md).
+
+Working directory: `step3-behavioral-axes/`.
 
 ## Open questions across the arc
 
