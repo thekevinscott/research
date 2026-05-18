@@ -21,7 +21,7 @@ Two independent negative results, each scientifically valuable:
 
 ## What ran
 
-All scripts run from `step2-golden-gate-sae/`. Substrate: `google/gemma-2-9b-it`, downloaded to tower (`/mnt/castellan/research-repo/llm-steering/models/gemma-2-9b-it`). All four tests share the same model + tokenizer load pattern (raw HF, bf16, eager attention).
+All scripts run from `step2-golden-gate-sae/`. Substrate: `google/gemma-2-9b-it`, downloaded to tower (`~/code/research-repo/llm-steering/models/gemma-2-9b-it`). All four tests share the same model + tokenizer load pattern (raw HF, bf16, eager attention).
 
 1. **Test 1 — SAE load + reconstruction sanity** (`test1_sae_load.py`)
    Load `gemma-scope-9b-it-res-canonical / layer_20/width_16k/canonical` via `sae_lens`. Run a single GG-mentioning sentence through the model, capture residual at layer 20 via forward hook on `model.model.layers[20]`, encode + decode through the SAE, compute fraction-variance-unexplained.

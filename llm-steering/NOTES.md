@@ -56,7 +56,7 @@ Single source of truth: `github.com/thekevinscott/research`, subdir `llm-steerin
 
 **Layout:**
 - duncan: `/home/duncan/work/code/research/research/` (CPU-only, edits/commits)
-- tower: `/mnt/castellan/research-repo/` (GPU runs, edits/commits)
+- tower: `~/code/research-repo/` (GPU runs, edits/commits)
 - Both hosts work in the cloned monorepo. Both push to the same origin.
 
 **Host-local (not in git):**
@@ -65,7 +65,7 @@ Single source of truth: `github.com/thekevinscott/research`, subdir `llm-steerin
 - `__pycache__/`, `*.pyc` — gitignored at the monorepo root.
 
 **Tower workflow:**
-1. `cd /mnt/castellan/research-repo && git pull` before any run.
+1. `cd ~/code/research-repo && git pull` before any run.
 2. Run experiment from the relevant concept folder (`cd llm-steering/sycophancy && uv run python syc_sweep.py`).
 3. `git add -p && git commit && git push` after each run that produces new artifacts.
 

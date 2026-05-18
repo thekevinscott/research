@@ -36,6 +36,22 @@ cp -rf source dest          # NOT: cp -r source dest
 - `apt-get` - use `-y` flag
 - `brew` - use `HOMEBREW_NO_AUTO_UPDATE=1` env var
 
+## Tower SSH
+
+When SSHing into `tower` from a Claude/bot session on duncan, use the plain form:
+
+```bash
+ssh tower@tower -p 22884 'cmd...'
+```
+
+ssh-agent will offer the user's personal key (`~/.ssh/id_ed25519`); tower accepts; you land as the `tower` user.
+
+**Do NOT force robot-key-only** (`-i ~/.ssh/id_ed25519_robot -o IdentitiesOnly=yes`). The robot pubkey is not in tower's `authorized_keys`, and forcing it just makes SSH fail.
+
+**Why robot-key isolation is theater for this workflow:** robot and personal keys both land as the same `tower@` login, with the same shell, the same home directory, and the same blast radius. There are no per-key `authorized_keys` restrictions (no `command="..."`, no `from="..."`), so key separation buys only a marginal audit-log distinction — not real isolation. Prior research runs were done over SSH with the personal key, transparently via ssh-agent, and that's accepted practice for this workflow.
+
+The CLAUDE.md prohibition on `cat`-ing private keys still applies. Transparent use of an agent-loaded key during a normal `ssh` call is fine.
+
 <!-- BEGIN BEADS INTEGRATION profile:full hash:d4f96305 -->
 ## Issue Tracking with bd (beads)
 
