@@ -9,3 +9,8 @@ dependencies = [
     "torch>=2.12.0",
     "transformers>=5.8.1",
 ]
+
+[tool.uv.workspace]
+members = [
+    "step2-golden-gate-sae",
+]

@@ -1,0 +1,30 @@
+GPU free start: 24.98 GB
+loading ../models/gemma-2-9b-it...
+Loading weights:   0%|          | 0/464 [00:00<?, ?it/s]Loading weights:   0%|          | 1/464 [00:00<02:04,  3.72it/s]Loading weights:   3%|▎         | 15/464 [00:00<00:08, 50.46it/s]Loading weights:   7%|▋         | 34/464 [00:00<00:04, 95.62it/s]Loading weights:  10%|█         | 48/464 [00:00<00:03, 108.73it/s]Loading weights:  15%|█▍        | 69/464 [00:00<00:02, 133.16it/s]Loading weights:  18%|█▊        | 84/464 [00:00<00:02, 136.34it/s]Loading weights:  22%|██▏       | 102/464 [00:00<00:02, 148.49it/s]Loading weights:  25%|██▌       | 118/464 [00:01<00:02, 150.73it/s]Loading weights:  29%|██▉       | 136/464 [00:01<00:02, 151.87it/s]Loading weights:  34%|███▍      | 157/464 [00:01<00:01, 160.64it/s]Loading weights:  38%|███▊      | 174/464 [00:01<00:01, 160.70it/s]Loading weights:  41%|████      | 191/464 [00:01<00:01, 156.78it/s]Loading weights:  45%|████▌     | 209/464 [00:01<00:01, 162.81it/s]Loading weights:  49%|████▊     | 226/464 [00:01<00:01, 156.06it/s]Loading weights:  53%|█████▎    | 245/464 [00:01<00:01, 165.46it/s]Loading weights:  56%|█████▋    | 262/464 [00:01<00:01, 164.40it/s]Loading weights:  60%|██████    | 279/464 [00:01<00:01, 158.88it/s]Loading weights:  64%|██████▍   | 298/464 [00:02<00:00, 166.42it/s]Loading weights:  68%|██████▊   | 315/464 [00:02<00:00, 158.24it/s]Loading weights:  72%|███████▏  | 334/464 [00:02<00:00, 159.41it/s]Loading weights:  76%|███████▌  | 352/464 [00:02<00:00, 164.80it/s]Loading weights:  80%|███████▉  | 369/464 [00:02<00:00, 156.93it/s]Loading weights:  84%|████████▍ | 389/464 [00:02<00:00, 161.39it/s]Loading weights:  88%|████████▊ | 409/464 [00:02<00:00, 171.90it/s]Loading weights:  92%|█████████▏| 427/464 [00:02<00:00, 163.59it/s]Loading weights:  96%|█████████▌| 444/464 [00:03<00:00, 158.57it/s]Loading weights: 100%|█████████▉| 463/464 [00:03<00:00, 166.66it/s]Loading weights: 100%|██████████| 464/464 [00:03<00:00, 148.83it/s]
+  loaded in 4.6s
+loading SAE: gemma-scope-9b-it-res-canonical / layer_20/width_16k/canonical
+  loaded in 4.0s, hook=blocks.20.hook_resid_post, d_sae=16384
+
+encoding GG corpus (15 sentences)...
+  shape=torch.Size([216, 16384])
+encoding neutral corpus (15 sentences)...
+  shape=torch.Size([196, 16384])
+
+Top 20 features by GG-vs-neutral contrast:
+  idx= 11580 contrast=8.296 gg=8.476 neu=0.180 max=51.25 @ '▁Francisco' frac_gg_active=0.44
+  idx= 14444 contrast=7.767 gg=8.015 neu=0.248 max=39.75 @ '▁famous' frac_gg_active=0.51
+  idx= 13985 contrast=7.221 gg=12.905 neu=5.684 max=108.00 @ '.' frac_gg_active=0.36
+  idx=  3588 contrast=5.712 gg=5.712 neu=0.000 max=35.25 @ '▁Bridge' frac_gg_active=0.41
+  idx= 13036 contrast=5.357 gg=5.521 neu=0.164 max=52.75 @ '3' frac_gg_active=0.30
+  idx=  1417 contrast=4.896 gg=4.896 neu=0.000 max=28.25 @ '▁Bridge' frac_gg_active=0.36
+  idx=  5941 contrast=4.483 gg=4.914 neu=0.431 max=23.12 @ '▁Gate' frac_gg_active=0.34
+  idx=  8088 contrast=4.317 gg=4.349 neu=0.032 max=23.25 @ '▁towers' frac_gg_active=0.40
+  idx= 10521 contrast=4.055 gg=4.257 neu=0.202 max=27.12 @ '▁entrance' frac_gg_active=0.28
+  idx=  7891 contrast=3.979 gg=4.173 neu=0.194 max=55.25 @ '▁of' frac_gg_active=0.34
+  idx=  7055 contrast=3.936 gg=3.994 neu=0.058 max=24.38 @ '▁towers' frac_gg_active=0.35
+  idx=   415 contrast=3.865 gg=3.865 neu=0.000 max=23.12 @ '▁Bridge' frac_gg_active=0.38
+  idx=  3808 contrast=3.834 gg=3.834 neu=0.000 max=56.25 @ '▁Golden' frac_gg_active=0.08
+  idx= 11467 contrast=3.627 gg=3.795 neu=0.168 max=21.62 @ '▁Bridge' frac_gg_active=0.35
+  idx= 10312 contrast=3.625 gg=3.625 neu=0.000 max=39.50 @ '▁last' frac_gg_active=0.24
+
+Wrote test2-feature-search.json

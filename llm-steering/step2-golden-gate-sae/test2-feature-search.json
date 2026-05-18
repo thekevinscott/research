@@ -1,0 +1,213 @@
+{
+  "release": "gemma-scope-9b-it-res-canonical",
+  "sae_id": "layer_20/width_16k/canonical",
+  "hook_name": "blocks.20.hook_resid_post",
+  "hook_layer": 20,
+  "d_sae": 16384,
+  "n_gg_sentences": 15,
+  "n_neutral_sentences": 15,
+  "n_gg_tokens_excl_bos": 216,
+  "n_neutral_tokens_excl_bos": 196,
+  "top_features": [
+    {
+      "idx": 11580,
+      "mean_act_gg": 8.475838661193848,
+      "mean_act_neutral": 0.17952805757522583,
+      "contrast": 8.296310424804688,
+      "decoder_norm": 1.0000123977661133,
+      "max_act_in_gg_corpus": 51.25,
+      "max_act_token": "\u2581Francisco",
+      "frac_gg_tokens_active": 0.4351851851851852
+    },
+    {
+      "idx": 14444,
+      "mean_act_gg": 8.015336036682129,
+      "mean_act_neutral": 0.24808673560619354,
+      "contrast": 7.76724910736084,
+      "decoder_norm": 1.0000115633010864,
+      "max_act_in_gg_corpus": 39.75,
+      "max_act_token": "\u2581famous",
+      "frac_gg_tokens_active": 0.5092592592592593
+    },
+    {
+      "idx": 13985,
+      "mean_act_gg": 12.905092239379883,
+      "mean_act_neutral": 5.68367338180542,
+      "contrast": 7.221418857574463,
+      "decoder_norm": 1.0000319480895996,
+      "max_act_in_gg_corpus": 108.0,
+      "max_act_token": ".",
+      "frac_gg_tokens_active": 0.35648148148148145
+    },
+    {
+      "idx": 3588,
+      "mean_act_gg": 5.712384223937988,
+      "mean_act_neutral": 0.0,
+      "contrast": 5.712384223937988,
+      "decoder_norm": 0.9999712705612183,
+      "max_act_in_gg_corpus": 35.25,
+      "max_act_token": "\u2581Bridge",
+      "frac_gg_tokens_active": 0.4074074074074074
+    },
+    {
+      "idx": 13036,
+      "mean_act_gg": 5.520688533782959,
+      "mean_act_neutral": 0.16390305757522583,
+      "contrast": 5.356785297393799,
+      "decoder_norm": 1.00005304813385,
+      "max_act_in_gg_corpus": 52.75,
+      "max_act_token": "3",
+      "frac_gg_tokens_active": 0.30092592592592593
+    },
+    {
+      "idx": 1417,
+      "mean_act_gg": 4.895833492279053,
+      "mean_act_neutral": 0.0,
+      "contrast": 4.895833492279053,
+      "decoder_norm": 1.0000288486480713,
+      "max_act_in_gg_corpus": 28.25,
+      "max_act_token": "\u2581Bridge",
+      "frac_gg_tokens_active": 0.3611111111111111
+    },
+    {
+      "idx": 5941,
+      "mean_act_gg": 4.9140625,
+      "mean_act_neutral": 0.4312818944454193,
+      "contrast": 4.482780456542969,
+      "decoder_norm": 0.9999948143959045,
+      "max_act_in_gg_corpus": 23.125,
+      "max_act_token": "\u2581Gate",
+      "frac_gg_tokens_active": 0.3425925925925926
+    },
+    {
+      "idx": 8088,
+      "mean_act_gg": 4.348669052124023,
+      "mean_act_neutral": 0.031728316098451614,
+      "contrast": 4.316940784454346,
+      "decoder_norm": 0.999917209148407,
+      "max_act_in_gg_corpus": 23.25,
+      "max_act_token": "\u2581towers",
+      "frac_gg_tokens_active": 0.39814814814814814
+    },
+    {
+      "idx": 10521,
+      "mean_act_gg": 4.257378578186035,
+      "mean_act_neutral": 0.2020089328289032,
+      "contrast": 4.055369853973389,
+      "decoder_norm": 0.9999468922615051,
+      "max_act_in_gg_corpus": 27.125,
+      "max_act_token": "\u2581entrance",
+      "frac_gg_tokens_active": 0.2824074074074074
+    },
+    {
+      "idx": 7891,
+      "mean_act_gg": 4.173321723937988,
+      "mean_act_neutral": 0.19435586035251617,
+      "contrast": 3.9789657592773438,
+      "decoder_norm": 1.0000114440917969,
+      "max_act_in_gg_corpus": 55.25,
+      "max_act_token": "\u2581of",
+      "frac_gg_tokens_active": 0.33796296296296297
+    },
+    {
+      "idx": 7055,
+      "mean_act_gg": 3.9936342239379883,
+      "mean_act_neutral": 0.0580357126891613,
+      "contrast": 3.935598611831665,
+      "decoder_norm": 1.0001089572906494,
+      "max_act_in_gg_corpus": 24.375,
+      "max_act_token": "\u2581towers",
+      "frac_gg_tokens_active": 0.3472222222222222
+    },
+    {
+      "idx": 415,
+      "mean_act_gg": 3.8654513359069824,
+      "mean_act_neutral": 0.0,
+      "contrast": 3.8654513359069824,
+      "decoder_norm": 0.9999953508377075,
+      "max_act_in_gg_corpus": 23.125,
+      "max_act_token": "\u2581Bridge",
+      "frac_gg_tokens_active": 0.375
+    },
+    {
+      "idx": 3808,
+      "mean_act_gg": 3.8342013359069824,
+      "mean_act_neutral": 0.0,
+      "contrast": 3.8342013359069824,
+      "decoder_norm": 1.0001977682113647,
+      "max_act_in_gg_corpus": 56.25,
+      "max_act_token": "\u2581Golden",
+      "frac_gg_tokens_active": 0.08333333333333333
+    },
+    {
+      "idx": 11467,
+      "mean_act_gg": 3.7949941158294678,
+      "mean_act_neutral": 0.16804847121238708,
+      "contrast": 3.626945734024048,
+      "decoder_norm": 0.999987006187439,
+      "max_act_in_gg_corpus": 21.625,
+      "max_act_token": "\u2581Bridge",
+      "frac_gg_tokens_active": 0.3472222222222222
+    },
+    {
+      "idx": 10312,
+      "mean_act_gg": 3.6251447200775146,
+      "mean_act_neutral": 0.0,
+      "contrast": 3.6251447200775146,
+      "decoder_norm": 1.000024676322937,
+      "max_act_in_gg_corpus": 39.5,
+      "max_act_token": "\u2581last",
+      "frac_gg_tokens_active": 0.24074074074074073
+    },
+    {
+      "idx": 1668,
+      "mean_act_gg": 3.5467302799224854,
+      "mean_act_neutral": 0.03156887739896774,
+      "contrast": 3.5151615142822266,
+      "decoder_norm": 0.9999666213989258,
+      "max_act_in_gg_corpus": 25.75,
+      "max_act_token": "\u2581Gate",
+      "frac_gg_tokens_active": 0.2361111111111111
+    },
+    {
+      "idx": 5295,
+      "mean_act_gg": 3.7524595260620117,
+      "mean_act_neutral": 0.39253827929496765,
+      "contrast": 3.3599212169647217,
+      "decoder_norm": 1.000085711479187,
+      "max_act_in_gg_corpus": 19.5,
+      "max_act_token": "\u2581Gate",
+      "frac_gg_tokens_active": 0.26851851851851855
+    },
+    {
+      "idx": 15365,
+      "mean_act_gg": 3.3787615299224854,
+      "mean_act_neutral": 0.05931122601032257,
+      "contrast": 3.3194503784179688,
+      "decoder_norm": 0.999897301197052,
+      "max_act_in_gg_corpus": 25.25,
+      "max_act_token": "\u2581Gate",
+      "frac_gg_tokens_active": 0.22685185185185186
+    },
+    {
+      "idx": 9443,
+      "mean_act_gg": 3.3404223918914795,
+      "mean_act_neutral": 0.08625637739896774,
+      "contrast": 3.2541661262512207,
+      "decoder_norm": 0.999906599521637,
+      "max_act_in_gg_corpus": 21.875,
+      "max_act_token": "\u2581Bridge",
+      "frac_gg_tokens_active": 0.3055555555555556
+    },
+    {
+      "idx": 10022,
+      "mean_act_gg": 3.1328125,
+      "mean_act_neutral": 0.0,
+      "contrast": 3.1328125,
+      "decoder_norm": 1.0000370740890503,
+      "max_act_in_gg_corpus": 42.0,
+      "max_act_token": "\u2581bay",
+      "frac_gg_tokens_active": 0.25925925925925924
+    }
+  ]
+}

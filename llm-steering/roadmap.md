@@ -7,8 +7,8 @@ Top-level arc for the `llm-steering` project. Each step has its own working dire
 | Step | Goal | Substrate | Technique | Status |
 | --- | --- | --- | --- | --- |
 | 1 | Confirm Vogel's `repeng` recipe still works on the *original* substrate, and on a *current* open-weights model. | Mistral-7B-Instruct-v0.1 + Qwen2.5-7B-Instruct | `repeng` (contrastive prompt pairs → PCA) | ✓ Done (2026-05-17/18) |
-| 2 | Reproduce Anthropic-style *topical* steering — the Golden Gate case — using the technique that can actually achieve it. | Gemma-2-9B-Instruct | SAE feature clamping (Gemma Scope) | Not started |
-| 3 | Apply the validated topical-steering recipe to a brand-new axis: a concept neither Vogel nor Anthropic has published on. | TBD (likely Gemma-2-9B-Instruct, same substrate) | SAE feature clamping, possibly combined with `repeng` for affect/style | Not started |
+| 2 | Reproduce Anthropic-style *topical* steering — the Golden Gate case — using the technique that can actually achieve it. | Gemma-2-9B-Instruct | SAE feature clamping (Gemma Scope) | ✓ Done — informative negative (2026-05-18) |
+| 3 | Apply a validated steering recipe to a brand-new axis. **Pivoting to a behavioral axis** after step 2's structural finding (topical clamping needs a multi-million-feature SAE not yet public for open models). | TBD (likely Gemma-2-9B-Instruct or Qwen2.5-7B) | `repeng` on a behavioral axis; SAE feature clamping where behavioral concepts are findable | Not started |
 
 ## Step 1 — recap
 
@@ -47,6 +47,20 @@ Detail: [`research-findings.md`](./research-findings.md), [`vogel-reproduction/r
 **Out of scope for step 2:** capability eval, multi-concept benchmarking, custom SAE training, GGUF export.
 
 Working directory: `step2-golden-gate-sae/` (to be created).
+
+## Step 2 — recap
+
+Outcome: two complementary negative results, each informative.
+
+1. **No canonical Golden Gate Bridge feature exists in Gemma Scope** at any available (layer, width) combination (layers 9/20/31, widths 16k and 131k). Verified via Neuronpedia explanation search. The concept is superposed across "highway/freeway traffic", "tourist attractions", "San Francisco", "Golden State + Gate". Anthropic's Sonnet-3 SAE was ~34M features; Gemma Scope's published SAEs are 1500–10000× smaller per residual dim, forcing this superposition. Clamping the closest analog features produces concept-adjacent drift (one feature unexpectedly produces suicide-prevention content) but never on-target GGB identity behavior.
+
+2. **`repeng` GG on Gemma-2-9B-it reproduces step 1's null result.** Same recipe, same coefficient sweep, zero GG content across all 5 prompts × 7 coefficients. The null is technique-level, not model-level — now confirmed across two instruct models with different post-training regimes.
+
+H1 (SAE infra) PASSED. H2 (feature exists) FAILED. H3 (clamping reproduces demo) FAILED. H4 (repeng GG null on Gemma-2) PASSED. H5 (clamping vs repeng capability comparison) N/A.
+
+Detail: [`step2-golden-gate-sae/research-findings.md`](./step2-golden-gate-sae/research-findings.md), [`step2-golden-gate-sae/findings.md`](./step2-golden-gate-sae/findings.md).
+
+Implication for step 3: pivot from topical to behavioral axis. Topical-concept clamping requires SAE widths not yet available publicly for open models.
 
 ## Step 3 — brand-new axis
 
