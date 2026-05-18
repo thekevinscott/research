@@ -69,6 +69,7 @@ Three things follow:
 
 | Document | Scope |
 | --- | --- |
+| [`roadmap.md`](./roadmap.md) | Top-level arc: step 1 (this doc), step 2 (Golden Gate via SAE), step 3 (brand-new axis). Read this first for where the project is going. |
 | [`findings.md`](./findings.md) | Thread-by-thread working notebook from step 1. Records exactly what each script attempted, the raw observations, and the running interpretation as it was built up. |
 | [`vogel-reproduction/research-findings.md`](./vogel-reproduction/research-findings.md) | Detail on the Mistral-v0.1 bit-exact reproduction. Side-by-side comparison of all five Vogel-published completions vs our reproduction. |
 | [`NOTES.md`](./NOTES.md) | Substitutions vs `HANDOFF.md`, surprises, wall-clock timings, install gotchas. |
