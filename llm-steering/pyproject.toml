@@ -15,4 +15,5 @@ members = [
     "step2-golden-gate-sae",
     "step3-behavioral-axes",
     "step4-trippy-cross-substrate",
+    "step5-axes-vogel-style",
 ]
