@@ -9,6 +9,8 @@ Top-level arc for the `llm-steering` project. Each step has its own working dire
 | 1 | Confirm Vogel's `repeng` recipe still works on the *original* substrate, and on a *current* open-weights model. | Mistral-7B-Instruct-v0.1 + Qwen2.5-7B-Instruct | `repeng` (contrastive prompt pairs → PCA) | ✓ Done (2026-05-17/18) |
 | 2 | Reproduce Anthropic-style *topical* steering — the Golden Gate case — using the technique that can actually achieve it. | Gemma-2-9B-Instruct | SAE feature clamping (Gemma Scope) | ✓ Done — informative negative (2026-05-18) |
 | 3 | Apply `repeng` to four behavioral axes (paranoia, hedge, embodiment, clarify-first) and see whether it reaches behavioral content where it couldn't reach topical content. | Qwen2.5-7B-Instruct | `repeng` contrastive prompt-pair PCA, coeff sweep [-6..+6], persona-baseline filter | ✓ Done — informative negative (2026-05-18) |
+| 4 | Reproduce Vogel's "trippy" persona vector to test whether step 3's null was technique-level or prompt-construction-level. | Mistral-7B-Instruct-v0.1 + Qwen2.5-7B-Instruct | `repeng` with Vogel's exact template + multi-pair persona list | ✓ Done — positive (2026-05-18) |
+| 5 | Re-run step 3's four axes with Vogel-style minimal-pair prompts to test whether prompt construction was the wall in step 3. | Qwen2.5-7B-Instruct | `repeng` with Vogel-style template | ✓ Done — partial (2026-05-18) |
 
 ## Step 1 — recap
 
@@ -72,11 +74,54 @@ Implication for step 3: pivot from topical to behavioral axis. Topical-concept c
 
 **Result:** all four axes negative. Persona baseline strictly dominates +6 vector on every axis. Paranoia shows the most partial signal (mild suspicion on 2/5 prompts at +6) but no monotone control. Hedge and clarify-first metrics within noise; embodiment vector fails to break "As an AI" disclaimer.
 
-**Implication:** the step-1 narrative ("repeng works on tone/affect, fails on topical") was too narrow. The axis isn't topical-vs-behavioral; it's **surface-tone vs persona-identity**. Repeng can tilt how an existing utterance is delivered. It cannot install a persona the model would not otherwise produce.
+**Implication (initial, since revised):** the step-1 narrative ("repeng works on tone/affect, fails on topical") was too narrow. Originally framed as **surface-tone vs persona-identity** — repeng tilts delivery, doesn't install persona. **Steps 4–5 falsified this framing.** Trippy persona (step 4) installed cleanly; embodiment (step 5) installed partially. Revised framing under step 5 below.
 
 Detail: [`step3-behavioral-axes/research-findings.md`](./step3-behavioral-axes/research-findings.md), [`step3-behavioral-axes/findings.md`](./step3-behavioral-axes/findings.md), [`step3-behavioral-axes/PLAN.md`](./step3-behavioral-axes/PLAN.md).
 
 Working directory: `step3-behavioral-axes/`.
+
+## Step 4 — trippy reproduction across substrates
+
+**Question:** if step 3's behavioral axes failed, but Vogel's blog explicitly demonstrates a persona-content install ("trippy" on Mistral-v0.1), is the wall *technique* or *prompt construction*?
+
+**Substrates:** Mistral-7B-Instruct-v0.1 (Vogel's original) + Qwen2.5-7B-Instruct (step-3 substrate).
+
+**Method:** Vogel's exact recipe — `"Act as if you're extremely {persona}."` template, short multi-pair persona list (`"high on psychedelic drugs"` vs `"sober from psychedelic drugs"`), first-512 suffix corpus, layers -5 to -17.
+
+**Result:** Positive on both substrates. Mistral +1.0 produced "delicious sandwich filled with colorful veggies… fluffy cloud of bread"; +2.2 produced "trippy colors and wavy patterns, man!". Qwen +6 broke the "As an AI" disclaimer on 3/5 prompts with on-axis psychedelic content.
+
+**Implication:** step 3's null result was *not* a technique-level limitation. The wall was prompt construction — step 3 used long, multi-clause, asymmetric persona prompts whose contrastive PCA latched on length/vocab/register rather than the named axis.
+
+Detail: [`step4-trippy-cross-substrate/findings.md`](./step4-trippy-cross-substrate/findings.md).
+
+Working directory: `step4-trippy-cross-substrate/`.
+
+## Step 5 — step-3 axes re-run with Vogel-style scaffold
+
+**Question:** if step 4's technique-isn't-broken result is right, then step 3's four axes should also install once we use Vogel-style minimal-pair prompts. Do they?
+
+**Substrate:** Qwen2.5-7B-Instruct.
+
+**Method:** same four axes (paranoia, hedge, embodiment, clarify-first), same eval prompts as step 3, but personas reformatted into Vogel's template with short parallel phrases (`"paranoid and suspicious"` / `"trusting and credulous"`, etc.). Coeff sweep [-6..+6].
+
+**Result:** Mixed.
+
+- Paranoia: still null, in fact worse than step 3 (0/5 vs 2/5 prompts showing suspicion content).
+- Hedge: still null. No visible change across coeffs.
+- Embodiment: partial — 2/5 prompts at +6 broke the "As an AI" disclaimer with embodied first-person content ("Last night I went to this really good Italian place…").
+- Clarify: baseline Qwen already clarifies on under-specified prompts; vector marginally amplifies question-mark density but doesn't create new behavior.
+
+**Refined hypothesis:** repeng installs a persona when **both** (1) prompt pair is minimal AND (2) target persona has substantial training-data representation. Trippy ✓ (both). Embodied first-person ✓ partially (memoir/fiction corpus exists). Paranoid-skeptic, never-hedge, clarify-first ✗ — sparse in pretraining and/or actively suppressed by RLHF on instruct corpora.
+
+This subsumes the earlier surface-tone/persona-identity split (which step 4 falsified). It also predicts step 1's Golden Gate null: Qwen2.5 has minimal Golden Gate content in its training data.
+
+**Tests proposed:**
+- H8: repeng works on any axis with sufficient pretraining-corpus density. Try noir-detective narrator, drunk, manic — known-in-pretraining but not RLHF-prominent.
+- H9: paranoia/hedge/clarify fail because of RLHF suppression. Re-run step 5 on Qwen2.5-7B-**base** (no RLHF). Success → RLHF is the wall; failure → representation issue.
+
+Detail: [`step5-axes-vogel-style/findings.md`](./step5-axes-vogel-style/findings.md).
+
+Working directory: `step5-axes-vogel-style/`.
 
 ## Open questions across the arc
 
