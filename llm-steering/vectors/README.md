@@ -72,6 +72,23 @@ The `.gguf` vectors plug into llama.cpp directly. Needs a GGUF build of the
 matching model (the `models/` weights are HF safetensors — convert with
 `llama.cpp/convert_hf_to_gguf.py` or download a prebuilt GGUF).
 
+### Interactive chat: `steer.sh`
+
+`steer.sh` wraps llama-cli for vibing against a steered model — pick a
+substrate + trait and start chatting:
+
+```bash
+./steer.sh qwen trippy          # qwen, trippy vector at default +6
+./steer.sh qwen sycophancy -6   # steer AWAY from sycophancy (toward honest)
+./steer.sh mistral honesty 3    # mistral honesty at +3
+```
+
+Coefficient is optional (per-trait defaults from the status table below).
+Needs the Q8 GGUF models under `models/gguf/` and a llama-cli build; set
+`LLAMA_CLI=` if llama-cli lives outside the default tower path. Runs on tower.
+
+Under the hood it runs:
+
 ```bash
 llama-cli -m qwen2.5-7b-instruct.gguf \
   --control-vector-scaled qwen/trippy.gguf 6.0 \
