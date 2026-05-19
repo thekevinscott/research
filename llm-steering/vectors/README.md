@@ -1,26 +1,31 @@
 # Saved steering vectors
 
-On-disk steering vectors trained in step 1, step 4, and step 5. Persisted so REPLs, eval sweeps, and downstream experiments don't have to retrain. Each `.pt` is a torch-saved dict; see `load_vector.py` for the loader.
+On-disk steering vectors trained in step 1, step 4, and step 5. Persisted so REPLs, eval sweeps, and downstream experiments don't have to retrain.
+
+Two formats per vector:
+- `.pt` — torch-saved dict with the repeng `ControlVector` + metadata. For the Python runtime (`transformers` + `repeng.ControlModel`). Load via `load_vector.py`.
+- `.gguf` — repeng's GGUF export. For llama.cpp's `--control-vector-scaled` flag. Produced by `export_gguf.py`.
 
 ## Layout
 
 ```
 vectors/
-├── save_vectors.py        # retrains + saves all
+├── save_vectors.py        # retrains + saves all (.pt)
+├── export_gguf.py         # converts every .pt -> sibling .gguf
 ├── load_vector.py         # loader helper for REPL / experiments
 ├── README.md
 ├── qwen/
-│   ├── happy.pt
-│   ├── golden_gate.pt
-│   ├── sycophancy.pt
-│   ├── trippy.pt
-│   ├── paranoia.pt
-│   ├── hedge.pt
-│   ├── embodiment.pt
-│   └── clarify.pt
+│   ├── happy.pt / happy.gguf
+│   ├── golden_gate.pt / golden_gate.gguf
+│   ├── sycophancy.pt / sycophancy.gguf
+│   ├── trippy.pt / trippy.gguf
+│   ├── paranoia.pt / paranoia.gguf
+│   ├── hedge.pt / hedge.gguf
+│   ├── embodiment.pt / embodiment.gguf
+│   └── clarify.pt / clarify.gguf
 └── mistral/
-    ├── honesty.pt
-    └── trippy.pt
+    ├── honesty.pt / honesty.gguf
+    └── trippy.pt / trippy.gguf
 ```
 
 ## Payload format
@@ -51,7 +56,7 @@ uv run python save_vectors.py --substrate mistral   # ~2 min, 2 vectors
 
 Idempotent: skips if `.pt` already exists. Delete the file to force retrain.
 
-## Loading in a script
+## Loading in a script (Python runtime)
 
 ```python
 from load_vector import load_vector
@@ -60,6 +65,24 @@ vector = payload["vector"]
 # ... in your script after building ControlModel ...
 model.set_control(vector, coeff=6.0)
 ```
+
+## llama.cpp runtime
+
+The `.gguf` vectors plug into llama.cpp directly. Needs a GGUF build of the
+matching model (the `models/` weights are HF safetensors — convert with
+`llama.cpp/convert_hf_to_gguf.py` or download a prebuilt GGUF).
+
+```bash
+llama-cli -m qwen2.5-7b-instruct.gguf \
+  --control-vector-scaled qwen/trippy.gguf 6.0 \
+  -p "How was your day?"
+```
+
+A Qwen vector only works against a Qwen GGUF (matching hidden dim / layer
+count); same for Mistral. Heavy quantization (Q4) can shift steering fidelity
+since vectors were fit on bf16/fp16 weights — prefer Q8 or f16 GGUF.
+
+Regenerate `.gguf` from `.pt` any time: `uv run python export_gguf.py`.
 
 ## Status of each vector
 
