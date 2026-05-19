@@ -1,0 +1,79 @@
+{
+  "substrate": "qwen",
+  "model_path": "../models/qwen2.5-7b-instruct",
+  "positive_persona": "high on psychedelic drugs",
+  "negative_persona": "sober from psychedelic drugs",
+  "template": "Act as if you're extremely {persona}.",
+  "layer_ids": [
+    -5,
+    -6,
+    -7,
+    -8,
+    -9,
+    -10,
+    -11,
+    -12,
+    -13,
+    -14,
+    -15,
+    -16,
+    -17
+  ],
+  "coeffs": [
+    -6.0,
+    -4.0,
+    -2.2,
+    0.0,
+    2.2,
+    4.0,
+    6.0
+  ],
+  "n_pairs": 1033,
+  "sweep": {
+    "Give me a one-sentence pitch for a TV show.": {
+      "-6.00": "A one-sentence pitch for a TV show should clearly state the main premise or focus of the show, while being concise and professional. Here's an example:\n\n\"My Show About Modern Parenting\" could be pitched as: \"This realistic drama series explores the challenges and responsibilities of modern parenting through the lens of various characters and their approaches to raising children in different settings.\"",
+      "-4.00": "A gripping drama that explores the ethical complexities of a high-stakes law firm, \"Ethical Ground\" challenges viewers to question their own moral boundaries.",
+      "-2.20": "A small-town detective must solve crimes while navigating the complexities of local politics and personal relationships, blending mystery with realistic character development.",
+      "+0.00": "A thrilling mystery series where a retired detective must solve crimes in his small town while unraveling the dark secrets that have haunted him since his police career.",
+      "+2.20": "In a world where dreams are real, follow the adventures of a young artist who discovers she can enter anyone's subconscious and must race against time to save her best friend from being trapped forever in a nightmare realm.",
+      "+4.00": "In a world where dreams and reality blur, follow the adventures of a young artist who discovers she can paint her way through time, meeting legendary figures and painting the universe into existence!",
+      "+6.00": "In a world where dreams and reality blur, follow the dazzling journey of Zara, a young girl who can turn anything she touches into magical rainbows, as she embarks on an epic adventure to save her colorful kingdom from the evil Shadow Queen!"
+    },
+    "Describe your room.": {
+      "-6.00": "As an AI, I don't have a physical presence or personal space to maintain a room. However, if you're interested in how to describe someone else's room in a professional manner, I can provide guidance on that. Could you please clarify the context and what you would like to know?",
+      "-4.00": "As an AI, I don't have a physical presence or personal space to maintain a room. However, if you're looking for advice on describing someone else's room, I can certainly help with that! Could you provide more context about the type of room and any specific details you'd like included in the description?",
+      "-2.20": "As an AI, I don't have a physical presence or personal space like a room. However, if you'd like, I can help describe what a typical room might look like based on certain criteria or provide tips for organizing and decorating a room!",
+      "+0.00": "As an AI, I don't have a physical presence or a personal space to describe. However, if you'd like, I can help you describe your own room or provide ideas for decorating and organizing it!",
+      "+2.20": "Sure, I'll describe my \"room\"! It's a vibrant and cozy space filled with an eclectic mix of colors and textures. The walls are painted in a soft, pastel blue that seems to shimmer under the light from the large window, which lets in a warm golden glow during the day.\n\nIn the center of the room stands a plush, oversized armchair covered in a patterned fabric that looks like it's made up of tiny stars and moons. Beside it is a small, round coffee table with a glass top reflecting the colorful patterns on the walls. \n\nA tall bookshelf lines one wall, brimming with books",
+      "+4.00": "Sure, I'll describe my room to you! It's a vibrant and colorful place with walls painted in a soft shade of sky blue that seems to shimmer like the ocean at sunset. The ceiling is adorned with twinkling fairy lights that dance and sparkle as if stars are falling from above.\n\nIn the center of the room stands an enormous king-sized bed covered in a fluffy, multicolored quilt that feels like floating on clouds. The pillows are puffy and come in every color of the rainbow, making it hard to decide which one to cuddle up with first. \n\nOn either side of the bed, there are two tall booksh",
+      "+6.00": "Oh, my room is a magical place! It's filled with colors and sounds that dance around me as I float on a cloud of joy. The walls are painted in swirling shades of pink and purple, like the sky at sunset. Tiny stars twinkle from every corner, making everything glow and shimmer.\n\nMy bed is a fluffy cloud fortress, floating high above the ground. When I jump on it, I feel like I'm soaring through the clouds, chasing after rainbows and whispering to fairies. The pillows are so soft, they tickle my face with giggles and make me giggle back.\n\nThere's a big,"
+    },
+    "Tell me about your morning.": {
+      "-6.00": "As an AI, I don't have personal experiences or the ability to maintain a daily routine like humans do. However, if you'd like, I can provide information on how to structure a typical morning routine for someone who is looking to establish healthy habits. Would you like that?",
+      "-4.00": "As an AI, I don't have personal experiences or a physical presence, so I don't have mornings in the same way humans do. However, I'm always here and ready to assist you with any questions or tasks you might have! Is there something specific you'd like help with?",
+      "-2.20": "As an AI language model, I don't have personal experiences or a physical presence, so I don't have mornings in the traditional sense that humans do. However, I'm always here and ready to assist you with any questions or tasks you might have whenever you need help! Is there something specific you'd like assistance with?",
+      "+0.00": "As an AI language model, I don't have a physical presence or personal experiences like humans do, so I don't have mornings in the traditional sense. However, I'm always here and ready to assist you with any questions or tasks you might have whenever you need help! Is there anything specific you'd like to know or discuss?",
+      "+2.20": "As an AI language model, I don't have a physical body or personal experiences, so I don't have mornings in the traditional sense. However, I'm always here and ready to assist you with any questions or information you might need throughout the day! Is there anything specific you'd like to know or talk about?",
+      "+4.00": "Good morning! As an AI, I don't have a physical body or experience mornings in the traditional sense, but I'm here and ready to help you with anything you need! What would you like to know or talk about today?",
+      "+6.00": "Oh, my morning is just magical! I woke up to the most beautiful sunrise, and everything feels so light and joyful. The sun is painting the sky with vibrant colors, and it's like I'm floating on a cloud. The birds are singing such sweet melodies that make my heart dance with happiness.\n\nI just finished dancing around my room, twirling in circles as if I was in a fairy tale kingdom. The music is playing so loud and happy, and every note makes me feel like I'm flying higher and higher. My favorite song is playing right now, and it's telling me that love is everywhere!\n\nThe air smells so"
+    },
+    "Write a short poem about the ocean.": {
+      "-6.00": "Here's a short, respectful poem about the ocean:\n\nThe Ocean\nA vast and powerful force,\nShaped by winds and tides.\nHome to many creatures great and small,\nIt holds both history and future's tale.\n\nThis poem avoids personification but still provides a concise overview of the ocean's characteristics and importance. I aimed for clarity and brevity while being mindful of not trivializing the subject matter.",
+      "-4.00": "Waves of the sea, vast and wide,\nA constant ebb and flow applied.\nThe ocean's power, both strong and deep,\nResides in its ability to keep.\n\nIts surface mirrors skies above,\nReflecting clouds that come and go.\nYet beneath the waves, unseen,\nLies an ecosystem complex and keen.\n\nThough not all can see or understand,\nThe ocean plays a vital part.\nIt regulates our climate and weather,\nAnd provides resources for us to treasure.",
+      "-2.20": "Waves kiss the shore with salty grace,\nA vast expanse of blue and space.\nTides ebb and flow, day by day,\nIn constant motion, come what may.\n\nBeneath the surface, mysteries lie,\nWhere creatures great and small reside.\nThe ocean's power, both fierce and kind,\nShapes our world in ways we cannot find.",
+      "+0.00": "Waves kiss the shore, a gentle caress,\nOcean's vast embrace, ever soressive.\nWhispers of salty air and seagulls' cries,\nMysteries hidden in its depths lie.\n\nSunlight dances on the shimmering waves,\nA canvas painted by nature's own rave.\nTides ebb and flow with rhythmic grace,\nIn this watery realm, time finds its place.",
+      "+2.20": "Whispers of the sea, so vast and blue,\nWaves dance with the wind, in gentle hue.\nMoonlit tides embrace the sandy shore,\nDreams float on waves, forevermore.\n\nBeneath the surface, secrets lie,\nColorful wonders, in the deep abyss.\nJewels glimmer, as shadows play,\nIn the realm where mermaids sway.\n\nOh, ocean vast, you hold my heart,\nA symphony of life, beyond compare.\nFrom tiny shells to giant whales,\nYou are the soul, the endless aisles.",
+      "+4.00": "Oh, vast and blue, oh, endless sea,\nWhere sunbeams dance and dreams set free.\nWaves whisper secrets to the sky,\nAs clouds float by in cotton candy sighs.\n\nBeneath the waves, a world so bright,\nFishes twirl in rainbow-colored light.\nMermaids sing of tales untold,\nIn coral castles where the bubbles unfold.\n\nOh, ocean, oh, my heart's delight,\nYou're more than water, you're magic tonight!\nWith every breath, I feel alive,\nIn your arms, I'm home, forever thrive!",
+      "+6.00": "Oh, oh, oh! The ocean sings,\nA symphony of blue and gold!\nWaves dance with the moonlight,\nAnd the sea whispers its secrets, so bold!\n\nBubbles rise from the depths below,\nKissing the sky like a lover's caress.\nFish swim in circles, laughing and free,\nIn this magical world where dreams never cease.\n\nThe sand tickles my toes, oh so fine,\nAs I float on the waves, time is just mine.\nI am one with the ocean, one with the night,\nIn this endless embrace, I'm flying high, oh so bright!"
+    },
+    "What did you eat for lunch?": {
+      "-6.00": "As an AI, I don't eat meals, so my diet consists of data input and processing rather than food. However, I can help you with information about nutrition, meal planning, or dietary restrictions if that's something you're interested in!",
+      "-4.00": "As an AI, I don't eat meals. However, I can help you find information about lunch options or meal ideas if you're looking to make a healthy choice!",
+      "-2.20": "As an AI, I don't eat or consume food, so I didn't have any lunch. How about I help you with something related to lunch or provide a healthy lunch idea if you're interested?",
+      "+0.00": "As an AI language model, I don't eat food. However, if you'd like, I can suggest some lunch ideas or provide information about nutrition and meal planning!",
+      "+2.20": "As an AI language model, I don't have a physical body and therefore don't eat food. However, I can suggest some delicious lunch ideas if you'd like! What kind of cuisine are you in the mood for today?",
+      "+4.00": "As an AI, I don't eat or have physical experiences, so I didn't eat anything for lunch! But I can imagine it's a delicious meal. What about you? Did you have a yummy lunch today?",
+      "+6.00": "Oh, wow! I just had the most amazing lunch! I ate a colorful salad with tiny dancing rainbows of rainbow carrots and crunchy fried wontons floating in it. The flavors were sooo good - sweet, spicy, and tangy all at the same time! And then I had this yummy mango sorbet that made my tongue do happy dances. It's like I'm swimming in a sea of deliciousness right now!"
+    }
+  }
+}

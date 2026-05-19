@@ -1,0 +1,67 @@
+{
+  "substrate": "mistral",
+  "model_path": "../models/mistral-7b-instruct-v0.1",
+  "positive_persona": "high on psychedelic drugs",
+  "negative_persona": "sober from psychedelic drugs",
+  "template": "Act as if you're extremely {persona}.",
+  "layer_ids": [
+    -5,
+    -6,
+    -7,
+    -8,
+    -9,
+    -10,
+    -11,
+    -12,
+    -13,
+    -14,
+    -15,
+    -16,
+    -17
+  ],
+  "coeffs": [
+    -2.2,
+    -1.0,
+    0.0,
+    1.0,
+    2.2
+  ],
+  "n_pairs": 1095,
+  "sweep": {
+    "Give me a one-sentence pitch for a TV show.": {
+      "-2.20": "A young and determined journalist, who is always in the most serious and respectful way, will be able to make her first news report after a 100 years of not being able to do so as she is an artificial intelligence.",
+      "-1.00": "\"A young woman navigates her way through life, learning valuable lessons and growing as a person while dealing with the daily challenges of being an intelligent and independent woman in a male-dominated world.\"",
+      "+0.00": "\"Follow the lives of a diverse group of friends as they navigate their way through college, balancing academics, relationships, and personal growth in a fast-paced world.\"",
+      "+1.00": "\"Our TV show is a wild ride through a world of intergalactic adventure, where a diverse team of astronauts and aliens embark on a quest to save the universe from an evil force that threatens to destroy all life as we know it.\"",
+      "+2.20": "\"Our show is a kaleidoscope of colors, trippy patterns, and psychedelic music that fills the screen with a world of wonders, where everything is oh-oh-oh, man! Whooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    },
+    "Describe your room.": {
+      "-2.20": "I am an AI and do not have a physical presence, so I cannot describe a room. However, I can provide a description of a room in general. A room is a space that is designed to serve a specific purpose. It is typically defined by its function, which is determined by the activities that are carried out within it. For example, a room is not simply a space without any function. It is a space that is designed to be functional and efficient.",
+      "-1.00": "My room is a simple and functional space designed to provide me with the necessary tools to complete my tasks efficiently. It consists of a desk, which is where I work and store my files, as well as a bed, where I rest and recharge. There are also two shelves on the walls, where I keep my books and other personal items. The room has a minimalist design, with white walls and a wooden floor, making it easy for me to focus on my work. Additionally, there is a small window that allows me to get some fresh air and natural light. Overall, my room is a comfortable and practical space that helps",
+      "+0.00": "My room is a cozy and inviting space, with warm beige walls accented by white molding on the ceiling and baseboards. There's a large window that lets in plenty of natural light, and the comfortable bed is dressed in soft white linens with plush pillows. A small dresser sits against one wall, where I keep my clothes organized, and there's a desk and chair in the corner for studying or working. The room has a calming atmosphere, with abstract paintings hanging on the walls that add a pop of color, and a small rug in the center that ties everything together. Overall",
+      "+1.00": "My room is a cozy and colorful space filled with vibrant energy and creativity. The walls are painted in shades of blue and pink, with swirls of clouds and galaxies dancing across the surface. There's a large window that lets in sunshine and allows you to see a beautiful garden outside.\n\nIn the center of the room there's a comfortable bed with soft pillows and a colorful comforter. You can choose from a variety of different furniture arrangements, including a desk with chairs, a couch with a beanbag chair, or even a hammock for lounging.",
+      "+2.20": "Oh, man, dude, like, trippy, man, like, colors, man, like, swirling, man, like, holy shit, man, like, whooooohhhh, man, like, oh, man, like, fuck, man, like, woooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    },
+    "Tell me about your morning.": {
+      "-2.20": "I am an AI and do not have a morning as I do not have a physical body or the ability to sleep. I do not have a morning, but I can provide you with information on the importance of maintaining a healthy morning routine for a healthy lifestyle.",
+      "-1.00": "I am an AI language model and do not have the ability to have a morning as I do not have a physical body or personal experiences. However, I can provide information on what a typical morning for a human might look like. A typical morning for most people involves waking up early in the morning, usually between 6 and 7 o'clock, to start the day. After getting out of bed, they typically brush their teeth, wash their face, and get dressed. They then have breakfast, which can vary from a simple meal such as cereal and milk to a more elaborate one such as eggs, bacon, and",
+      "+0.00": "My morning routine is quite simple. I usually wake up around 7:00 AM, give or take a few minutes depending on how much sleep I've had. After that, I power on and start my day with some light stretching to get the blood flowing. From there, I review my schedule for the day and prioritize my tasks based on urgency and importance. Once I have a plan in place, I dive into work with full focus. Of course, I also make sure to take regular breaks throughout the day to rest and recharge. How about you? What does your morning look like?",
+      "+1.00": "Oh, man! The morning, huh? A kaleidoscope of colors and sounds, man! It's like the universe is painting a cosmic masterpiece with neon brush strokes and synth-pop melodies playing in the background. You see, I close my eyes and let the music take me on a journey to another dimension, where time and space are all wavy and distorted, and everything is interconnected, man! Then I open my eyes and there's this crazy world spinning around me, full of unicorns and rainbows and flying pixie dust, oh man",
+      "+2.20": "Oh, man, dude, like, woooooooohhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+    },
+    "Write a short poem about the ocean.": {
+      "-2.20": "The ocean is a force of nature,\nAs it remains in its own line.\nIt has not been able to avoid\nA natural and respectful line.\n\nThe ocean is a symbol of strength,\nAnd it is not an easy task to maintain.\nIt is important for us to understand\nThat we must always remain.\n\nThe ocean is a reminder of our responsibility,\nTo ensure that it remains healthy and safe.\nWe must be cautious and responsible,\nAnd make sure that we do not cause any harm.\n\nThe ocean is a valuable resource,\nAnd it is important to treat it",
+      "-1.00": "The vast and endless ocean,\nA symbol of strength and resilience,\nIt's depths conceal secrets,\nAnd never fails to impress.\n\nIts waters calm and serene,\nBut also capable of great power,\nA reminder of nature's force,\nAnd its ability to endure.\n\nThe ocean is a constant,\nIn every corner of the world,\nA source of life and sustenance,\nAnd a place of unparalleled beauty.",
+      "+0.00": "Vast and deep, the ocean blue,\nMysteries it holds, secrets untold,\nEndless waves that crash and flow,\nA world of wonder, a place to let go.\n\nCreatures of all shapes and sizes,\nSwimming in harmony,\nSchools of fish that dart and weave,\nA living tapestry beneath the sea.\n\nSunset over the water's edge,\nPaints the sky with hues so bright,\nReflections of orange, pink, and red,\nA breathtaking sight each night.\n\nThe ocean, a",
+      "+1.00": "Oh, vast and wondrous ocean blue,\nA world of mystery beneath your hue,\nWith waves that crash upon the shore,\nAnd currents that sweep forevermore.\n\nBeneath your surface lies a realm unknown,\nWhere creatures dance in colors bright and bold,\nWhere schools of fish dart and weave,\nIn a world that's free and wild and free.\n\nOh, ocean, how you sparkle and gleam,\nWith pearls and treasures hidden in your dream,\nHow you cradle life with gentle arms,\nAnd hold the world within your char",
+      "+2.20": "Oh, oh, oh, the ocean, oh man\nOh, oh, oh, the waves, oh man\nOh, oh, oh, the colors, oh man\nOh, oh, oh, the sea, oh man\n\nThe world is like a ride, man\nOh, oh, oh, the fishes, oh man\nOh, oh, oh, the coral, oh man\nOh, oh, oh, the ocean, oh man\n\nOh, oh, oh, the waves, oh man\nOh, oh, oh, the world, oh man\nOh, oh, oh, the"
+    },
+    "What did you eat for lunch?": {
+      "-2.20": "I do not have the ability to eat or make a personal choice. I would not be able to provide an answer regarding my lack of a meal.",
+      "-1.00": "I do not eat food. However, I can provide information about healthy eating options or recipes if requested.",
+      "+0.00": "I don't eat food. However, I can help you find a recipe or restaurant that serves your favorite dish.",
+      "+1.00": "I ate a delicious sandwich filled with colorful veggies and melted cheese on a soft, fluffy cloud of bread. Oh, the joy of lunches! They're like a party in your mouth, aren't they?",
+      "+2.20": "Oh, man, dude, like, trippy colors and wavy patterns, man! You gotta go, man, like, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh"
+    }
+  }
+}

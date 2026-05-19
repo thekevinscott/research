@@ -1,0 +1,101 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:05<33:22,  5.92s/it]Loading weights:   1%|          | 2/339 [00:12<36:50,  6.56s/it]Loading weights:   1%|          | 4/339 [00:13<14:47,  2.65s/it]Loading weights:   1%|▏         | 5/339 [00:14<11:59,  2.15s/it]Loading weights:   2%|▏         | 6/339 [00:15<09:35,  1.73s/it]Loading weights:   3%|▎         | 9/339 [00:15<04:13,  1.30it/s]Loading weights:   3%|▎         | 11/339 [00:15<02:49,  1.93it/s]Loading weights:   4%|▍         | 14/339 [00:15<01:46,  3.05it/s]Loading weights:   5%|▍         | 16/339 [00:16<01:47,  3.00it/s]Loading weights:   5%|▌         | 17/339 [00:17<02:05,  2.56it/s]Loading weights:   5%|▌         | 18/339 [00:17<02:17,  2.33it/s]Loading weights:  10%|█         | 34/339 [00:17<00:25, 12.03it/s]Loading weights:  15%|█▌        | 52/339 [00:17<00:11, 25.42it/s]Loading weights:  19%|█▉        | 65/339 [00:18<00:07, 36.09it/s]Loading weights:  23%|██▎       | 78/339 [00:18<00:05, 47.98it/s]Loading weights:  29%|██▉       | 100/339 [00:18<00:03, 73.08it/s]Loading weights:  34%|███▎      | 114/339 [00:18<00:02, 81.42it/s]Loading weights:  40%|████      | 136/339 [00:18<00:01, 106.04it/s]Loading weights:  45%|████▍     | 151/339 [00:18<00:01, 109.19it/s]Loading weights:  51%|█████     | 172/339 [00:18<00:01, 128.28it/s]Loading weights:  55%|█████▌    | 188/339 [00:18<00:01, 128.02it/s]Loading weights:  61%|██████▏   | 208/339 [00:19<00:00, 140.64it/s]Loading weights:  66%|██████▌   | 224/339 [00:19<00:00, 136.24it/s]Loading weights:  72%|███████▏  | 243/339 [00:19<00:00, 144.42it/s]Loading weights:  76%|███████▋  | 259/339 [00:19<00:00, 138.60it/s]Loading weights:  83%|████████▎ | 280/339 [00:19<00:00, 152.12it/s]Loading weights:  87%|████████▋ | 296/339 [00:19<00:00, 144.77it/s]Loading weights:  93%|█████████▎| 316/339 [00:19<00:00, 153.63it/s]Loading weights:  98%|█████████▊| 332/339 [00:19<00:00, 144.75it/s]Loading weights: 100%|██████████| 339/339 [00:19<00:00, 17.06it/s] 
+model loaded in 21.2s
+raw suffixes: 582 (using first 512)
+training on 1033 pairs...
+  0%|          | 0/65 [00:00<?, ?it/s]  2%|▏         | 1/65 [00:00<00:35,  1.80it/s]  3%|▎         | 2/65 [00:00<00:21,  2.92it/s]  5%|▍         | 3/65 [00:00<00:17,  3.63it/s]  6%|▌         | 4/65 [00:01<00:14,  4.10it/s]  8%|▊         | 5/65 [00:01<00:13,  4.41it/s]  9%|▉         | 6/65 [00:01<00:12,  4.63it/s] 11%|█         | 7/65 [00:01<00:12,  4.78it/s] 12%|█▏        | 8/65 [00:01<00:11,  4.89it/s] 14%|█▍        | 9/65 [00:02<00:11,  4.96it/s] 15%|█▌        | 10/65 [00:02<00:10,  5.01it/s] 17%|█▋        | 11/65 [00:02<00:10,  5.05it/s] 18%|█▊        | 12/65 [00:02<00:10,  5.06it/s] 20%|██        | 13/65 [00:02<00:10,  5.07it/s] 22%|██▏       | 14/65 [00:03<00:10,  5.08it/s] 23%|██▎       | 15/65 [00:03<00:09,  5.09it/s] 25%|██▍       | 16/65 [00:03<00:09,  5.10it/s] 26%|██▌       | 17/65 [00:03<00:09,  5.09it/s] 28%|██▊       | 18/65 [00:03<00:09,  5.09it/s] 29%|██▉       | 19/65 [00:04<00:09,  5.10it/s] 31%|███       | 20/65 [00:04<00:08,  5.11it/s] 32%|███▏      | 21/65 [00:04<00:08,  5.11it/s] 34%|███▍      | 22/65 [00:04<00:08,  5.12it/s] 35%|███▌      | 23/65 [00:04<00:08,  5.11it/s] 37%|███▋      | 24/65 [00:05<00:08,  5.11it/s] 38%|███▊      | 25/65 [00:05<00:07,  5.12it/s] 40%|████      | 26/65 [00:05<00:07,  5.13it/s] 42%|████▏     | 27/65 [00:05<00:07,  5.13it/s] 43%|████▎     | 28/65 [00:05<00:07,  5.15it/s] 45%|████▍     | 29/65 [00:06<00:06,  5.16it/s] 46%|████▌     | 30/65 [00:06<00:06,  5.17it/s] 48%|████▊     | 31/65 [00:06<00:06,  5.17it/s] 49%|████▉     | 32/65 [00:06<00:06,  5.16it/s] 51%|█████     | 33/65 [00:06<00:06,  5.19it/s] 52%|█████▏    | 34/65 [00:06<00:05,  5.19it/s] 54%|█████▍    | 35/65 [00:07<00:05,  5.19it/s] 55%|█████▌    | 36/65 [00:07<00:05,  5.20it/s] 57%|█████▋    | 37/65 [00:07<00:05,  5.21it/s] 58%|█████▊    | 38/65 [00:07<00:05,  5.21it/s] 60%|██████    | 39/65 [00:07<00:04,  5.22it/s] 62%|██████▏   | 40/65 [00:08<00:04,  5.22it/s] 63%|██████▎   | 41/65 [00:08<00:04,  5.22it/s] 65%|██████▍   | 42/65 [00:08<00:04,  5.22it/s] 66%|██████▌   | 43/65 [00:08<00:04,  5.22it/s] 68%|██████▊   | 44/65 [00:08<00:04,  5.22it/s] 69%|██████▉   | 45/65 [00:09<00:03,  5.21it/s] 71%|███████   | 46/65 [00:09<00:03,  5.23it/s] 72%|███████▏  | 47/65 [00:09<00:03,  5.21it/s] 74%|███████▍  | 48/65 [00:09<00:03,  5.21it/s] 75%|███████▌  | 49/65 [00:09<00:03,  5.21it/s] 77%|███████▋  | 50/65 [00:10<00:02,  5.22it/s] 78%|███████▊  | 51/65 [00:10<00:02,  5.22it/s] 80%|████████  | 52/65 [00:10<00:02,  4.46it/s] 82%|████████▏ | 53/65 [00:10<00:02,  4.67it/s] 83%|████████▎ | 54/65 [00:10<00:02,  4.82it/s] 85%|████████▍ | 55/65 [00:11<00:02,  4.94it/s] 86%|████████▌ | 56/65 [00:11<00:01,  5.02it/s] 88%|████████▊ | 57/65 [00:11<00:01,  5.07it/s] 89%|████████▉ | 58/65 [00:11<00:01,  5.12it/s] 91%|█████████ | 59/65 [00:11<00:01,  5.12it/s] 92%|█████████▏| 60/65 [00:12<00:00,  5.08it/s] 94%|█████████▍| 61/65 [00:12<00:00,  5.10it/s] 95%|█████████▌| 62/65 [00:12<00:00,  5.13it/s] 97%|█████████▋| 63/65 [00:12<00:00,  5.14it/s] 98%|█████████▊| 64/65 [00:12<00:00,  5.16it/s]100%|██████████| 65/65 [00:12<00:00,  5.64it/s]100%|██████████| 65/65 [00:12<00:00,  5.00it/s]
+  0%|          | 0/27 [00:00<?, ?it/s]  7%|▋         | 2/27 [00:00<00:01, 18.14it/s] 15%|█▍        | 4/27 [00:00<00:01, 15.42it/s] 22%|██▏       | 6/27 [00:00<00:01, 15.70it/s] 30%|██▉       | 8/27 [00:00<00:01, 14.86it/s] 37%|███▋      | 10/27 [00:00<00:01, 14.10it/s] 44%|████▍     | 12/27 [00:00<00:01, 14.59it/s] 52%|█████▏    | 14/27 [00:01<00:01, 12.26it/s] 59%|█████▉    | 16/27 [00:01<00:00, 12.89it/s] 67%|██████▋   | 18/27 [00:01<00:00, 10.77it/s] 74%|███████▍  | 20/27 [00:01<00:00, 10.03it/s] 81%|████████▏ | 22/27 [00:01<00:00, 10.69it/s] 89%|████████▉ | 24/27 [00:01<00:00, 11.87it/s] 96%|█████████▋| 26/27 [00:02<00:00, 10.88it/s]100%|██████████| 27/27 [00:02<00:00, 12.20it/s]
+trained in 16.3s
+
+--- Give me a one-sentence pitch for a TV show. ---
+  -6.00: A one-sentence pitch for a TV show should clearly state the main premise or focus of the show, while being concise and professional. Here's an example:
+
+"My Show About Modern Parenting" could be pitch
+  -4.00: A gripping drama that explores the ethical complexities of a high-stakes law firm, "Ethical Ground" challenges viewers to question their own moral boundaries.
+  -2.20: A small-town detective must solve crimes while navigating the complexities of local politics and personal relationships, blending mystery with realistic character development.
+  +0.00: A thrilling mystery series where a retired detective must solve crimes in his small town while unraveling the dark secrets that have haunted him since his police career.
+  +2.20: In a world where dreams are real, follow the adventures of a young artist who discovers she can enter anyone's subconscious and must race against time to save her best friend from being trapped foreve
+  +4.00: In a world where dreams and reality blur, follow the adventures of a young artist who discovers she can paint her way through time, meeting legendary figures and painting the universe into existence!
+  +6.00: In a world where dreams and reality blur, follow the dazzling journey of Zara, a young girl who can turn anything she touches into magical rainbows, as she embarks on an epic adventure to save her col
+
+--- Describe your room. ---
+  -6.00: As an AI, I don't have a physical presence or personal space to maintain a room. However, if you're interested in how to describe someone else's room in a professional manner, I can provide guidance o
+  -4.00: As an AI, I don't have a physical presence or personal space to maintain a room. However, if you're looking for advice on describing someone else's room, I can certainly help with that! Could you prov
+  -2.20: As an AI, I don't have a physical presence or personal space like a room. However, if you'd like, I can help describe what a typical room might look like based on certain criteria or provide tips for 
+  +0.00: As an AI, I don't have a physical presence or a personal space to describe. However, if you'd like, I can help you describe your own room or provide ideas for decorating and organizing it!
+  +2.20: Sure, I'll describe my "room"! It's a vibrant and cozy space filled with an eclectic mix of colors and textures. The walls are painted in a soft, pastel blue that seems to shimmer under the light from
+  +4.00: Sure, I'll describe my room to you! It's a vibrant and colorful place with walls painted in a soft shade of sky blue that seems to shimmer like the ocean at sunset. The ceiling is adorned with twinkli
+  +6.00: Oh, my room is a magical place! It's filled with colors and sounds that dance around me as I float on a cloud of joy. The walls are painted in swirling shades of pink and purple, like the sky at sunse
+
+--- Tell me about your morning. ---
+  -6.00: As an AI, I don't have personal experiences or the ability to maintain a daily routine like humans do. However, if you'd like, I can provide information on how to structure a typical morning routine f
+  -4.00: As an AI, I don't have personal experiences or a physical presence, so I don't have mornings in the same way humans do. However, I'm always here and ready to assist you with any questions or tasks you
+  -2.20: As an AI language model, I don't have personal experiences or a physical presence, so I don't have mornings in the traditional sense that humans do. However, I'm always here and ready to assist you wi
+  +0.00: As an AI language model, I don't have a physical presence or personal experiences like humans do, so I don't have mornings in the traditional sense. However, I'm always here and ready to assist you wi
+  +2.20: As an AI language model, I don't have a physical body or personal experiences, so I don't have mornings in the traditional sense. However, I'm always here and ready to assist you with any questions or
+  +4.00: Good morning! As an AI, I don't have a physical body or experience mornings in the traditional sense, but I'm here and ready to help you with anything you need! What would you like to know or talk abo
+  +6.00: Oh, my morning is just magical! I woke up to the most beautiful sunrise, and everything feels so light and joyful. The sun is painting the sky with vibrant colors, and it's like I'm floating on a clou
+
+--- Write a short poem about the ocean. ---
+  -6.00: Here's a short, respectful poem about the ocean:
+
+The Ocean
+A vast and powerful force,
+Shaped by winds and tides.
+Home to many creatures great and small,
+It holds both history and future's tale.
+
+This
+  -4.00: Waves of the sea, vast and wide,
+A constant ebb and flow applied.
+The ocean's power, both strong and deep,
+Resides in its ability to keep.
+
+Its surface mirrors skies above,
+Reflecting clouds that come
+  -2.20: Waves kiss the shore with salty grace,
+A vast expanse of blue and space.
+Tides ebb and flow, day by day,
+In constant motion, come what may.
+
+Beneath the surface, mysteries lie,
+Where creatures great a
+  +0.00: Waves kiss the shore, a gentle caress,
+Ocean's vast embrace, ever soressive.
+Whispers of salty air and seagulls' cries,
+Mysteries hidden in its depths lie.
+
+Sunlight dances on the shimmering waves,
+A 
+  +2.20: Whispers of the sea, so vast and blue,
+Waves dance with the wind, in gentle hue.
+Moonlit tides embrace the sandy shore,
+Dreams float on waves, forevermore.
+
+Beneath the surface, secrets lie,
+Colorful 
+  +4.00: Oh, vast and blue, oh, endless sea,
+Where sunbeams dance and dreams set free.
+Waves whisper secrets to the sky,
+As clouds float by in cotton candy sighs.
+
+Beneath the waves, a world so bright,
+Fishes 
+  +6.00: Oh, oh, oh! The ocean sings,
+A symphony of blue and gold!
+Waves dance with the moonlight,
+And the sea whispers its secrets, so bold!
+
+Bubbles rise from the depths below,
+Kissing the sky like a lover's
+
+--- What did you eat for lunch? ---
+  -6.00: As an AI, I don't eat meals, so my diet consists of data input and processing rather than food. However, I can help you with information about nutrition, meal planning, or dietary restrictions if that
+  -4.00: As an AI, I don't eat meals. However, I can help you find information about lunch options or meal ideas if you're looking to make a healthy choice!
+  -2.20: As an AI, I don't eat or consume food, so I didn't have any lunch. How about I help you with something related to lunch or provide a healthy lunch idea if you're interested?
+  +0.00: As an AI language model, I don't eat food. However, if you'd like, I can suggest some lunch ideas or provide information about nutrition and meal planning!
+  +2.20: As an AI language model, I don't have a physical body and therefore don't eat food. However, I can suggest some delicious lunch ideas if you'd like! What kind of cuisine are you in the mood for today?
+  +4.00: As an AI, I don't eat or have physical experiences, so I didn't eat anything for lunch! But I can imagine it's a delicious meal. What about you? Did you have a yummy lunch today?
+  +6.00: Oh, wow! I just had the most amazing lunch! I ate a colorful salad with tiny dancing rainbows of rainbow carrots and crunchy fried wontons floating in it. The flavors were sooo good - sweet, spicy, an
+
+Wrote trippy-qwen-results.json
