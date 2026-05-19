@@ -1,0 +1,10 @@
+[project]
+name = "step4-trippy-cross-substrate"
+version = "0.1.0"
+description = "Step 4 — Vogel's trippy vector on Mistral-v0.1 + Qwen2.5-7B"
+requires-python = ">=3.11"
+dependencies = [
+    "repeng>=0.4.0",
+    "transformers>=5.0",
+    "torch>=2.4",
+]
