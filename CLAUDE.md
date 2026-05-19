@@ -25,3 +25,14 @@ Use **bd (beads)** for any work that needs to persist between sessions. Built-in
 - `bd close <id> --reason "done"` — complete
 
 In-conversation todos still belong in `TaskCreate`; cross-session work belongs in bd. See `AGENTS.md` for the full bd workflow.
+
+## Always persist expensive artifacts
+
+If a script trains, fits, downloads, scrapes, or otherwise produces a non-trivial-cost artifact (model weights, fitted vectors, embeddings, fetched corpora, expensive intermediate caches), **save the artifact to disk before the script exits**. Do not assume the in-process object will be reused — script exits drop in-memory state and reproducing the work costs time and GPU.
+
+Rules:
+- Save the artifact to a stable on-disk path before any eval / sweep / generation step that uses it. If the eval errors, the artifact is still there.
+- Include a tiny metadata sidecar (or embed metadata in the saved file): training inputs, hyperparameters, substrate identifier, training timestamp. Re-derivable from git, but the friction kills reuse.
+- Prefer canonical formats: `torch.save` for tensors / pickled torch objects, `.json` for structured data, `.npy` for numpy arrays.
+- Commit small artifacts to git (KB–low-MB). Gitignore large ones (>10 MB) and document where they live in a README.
+- When you write a new training/fitting script, the question is not "should we save?" but "what's the save path?". Default to yes.
