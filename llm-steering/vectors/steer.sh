@@ -64,7 +64,7 @@ esac
 
 cmd=("$LLAMA_CLI" -m "$model"
      --control-vector-scaled "$vector:$coeff"
-     -ngl 99 -c 4096 -cnv --color)
+     -ngl 99 -c 4096 -cnv)
 
 echo "+ ${cmd[*]}" >&2
 exec "${cmd[@]}"
