@@ -1,0 +1,19 @@
+[project]
+name = "llm-steering"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "accelerate>=1.13.0",
+    "huggingface-hub>=1.14.0",
+    "repeng>=0.4.0",
+    "torch>=2.12.0",
+    "transformers>=5.8.1",
+]
+
+[tool.uv.workspace]
+members = [
+    "step2-golden-gate-sae",
+    "step3-behavioral-axes",
+    "step4-trippy-cross-substrate",
+    "step5-axes-vogel-style",
+]

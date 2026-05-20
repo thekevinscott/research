@@ -1,0 +1,227 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading model
+Loading weights:   0%|          | 0/464 [00:00<?, ?it/s]Loading weights:   0%|          | 1/464 [00:00<02:11,  3.52it/s]Loading weights:   3%|▎         | 15/464 [00:00<00:09, 47.77it/s]Loading weights:   7%|▋         | 32/464 [00:00<00:05, 85.03it/s]Loading weights:  10%|█         | 48/464 [00:00<00:03, 104.38it/s]Loading weights:  14%|█▍        | 66/464 [00:00<00:03, 125.05it/s]Loading weights:  17%|█▋        | 81/464 [00:00<00:03, 127.25it/s]Loading weights:  21%|██        | 97/464 [00:00<00:02, 135.70it/s]Loading weights:  25%|██▍       | 114/464 [00:01<00:02, 139.76it/s]Loading weights:  28%|██▊       | 132/464 [00:01<00:02, 149.61it/s]Loading weights:  32%|███▏      | 148/464 [00:01<00:02, 140.31it/s]Loading weights:  36%|███▌      | 168/464 [00:01<00:01, 153.13it/s]Loading weights:  40%|███▉      | 184/464 [00:01<00:01, 150.94it/s]Loading weights:  43%|████▎     | 201/464 [00:01<00:01, 152.78it/s]Loading weights:  47%|████▋     | 217/464 [00:01<00:01, 149.32it/s]Loading weights:  50%|█████     | 234/464 [00:01<00:01, 152.55it/s]Loading weights:  54%|█████▍    | 250/464 [00:01<00:01, 150.77it/s]Loading weights:  58%|█████▊    | 267/464 [00:02<00:01, 153.87it/s]Loading weights:  61%|██████    | 283/464 [00:02<00:01, 150.50it/s]Loading weights:  65%|██████▍   | 300/464 [00:02<00:01, 153.47it/s]Loading weights:  68%|██████▊   | 316/464 [00:02<00:00, 150.48it/s]Loading weights:  72%|███████▏  | 333/464 [00:02<00:00, 153.11it/s]Loading weights:  75%|███████▌  | 349/464 [00:02<00:00, 150.31it/s]Loading weights:  79%|███████▉  | 366/464 [00:02<00:00, 152.33it/s]Loading weights:  82%|████████▏ | 382/464 [00:02<00:00, 149.52it/s]Loading weights:  86%|████████▌ | 399/464 [00:02<00:00, 152.33it/s]Loading weights:  89%|████████▉ | 415/464 [00:03<00:00, 149.28it/s]Loading weights:  93%|█████████▎| 432/464 [00:03<00:00, 153.10it/s]Loading weights:  97%|█████████▋| 448/464 [00:03<00:00, 150.31it/s]Loading weights: 100%|██████████| 464/464 [00:03<00:00, 139.25it/s]
+  loaded in 5.7s
+  n_layers=42
+  steering layer_ids=[-5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17]
+  1175 contrastive pairs
+
+Training GG vector...
+  0%|          | 0/74 [00:00<?, ?it/s]  1%|▏         | 1/74 [00:01<01:48,  1.48s/it]  3%|▎         | 2/74 [00:01<01:03,  1.14it/s]  4%|▍         | 3/74 [00:02<00:48,  1.48it/s]  5%|▌         | 4/74 [00:02<00:40,  1.72it/s]  7%|▋         | 5/74 [00:03<00:36,  1.89it/s]  8%|▊         | 6/74 [00:03<00:33,  2.01it/s]  9%|▉         | 7/74 [00:04<00:31,  2.10it/s] 11%|█         | 8/74 [00:04<00:30,  2.16it/s] 12%|█▏        | 9/74 [00:04<00:29,  2.20it/s] 14%|█▎        | 10/74 [00:05<00:28,  2.23it/s] 15%|█▍        | 11/74 [00:05<00:27,  2.25it/s] 16%|█▌        | 12/74 [00:06<00:27,  2.27it/s] 18%|█▊        | 13/74 [00:06<00:26,  2.28it/s] 19%|█▉        | 14/74 [00:07<00:26,  2.29it/s] 20%|██        | 15/74 [00:07<00:25,  2.29it/s] 22%|██▏       | 16/74 [00:08<00:25,  2.29it/s] 23%|██▎       | 17/74 [00:08<00:24,  2.30it/s] 24%|██▍       | 18/74 [00:08<00:24,  2.29it/s] 26%|██▌       | 19/74 [00:09<00:23,  2.29it/s] 27%|██▋       | 20/74 [00:09<00:23,  2.30it/s] 28%|██▊       | 21/74 [00:10<00:23,  2.29it/s] 30%|██▉       | 22/74 [00:10<00:22,  2.30it/s] 31%|███       | 23/74 [00:11<00:22,  2.30it/s] 32%|███▏      | 24/74 [00:11<00:21,  2.30it/s] 34%|███▍      | 25/74 [00:11<00:21,  2.30it/s] 35%|███▌      | 26/74 [00:12<00:20,  2.30it/s] 36%|███▋      | 27/74 [00:12<00:20,  2.30it/s] 38%|███▊      | 28/74 [00:13<00:19,  2.31it/s] 39%|███▉      | 29/74 [00:13<00:19,  2.32it/s] 41%|████      | 30/74 [00:14<00:18,  2.32it/s] 42%|████▏     | 31/74 [00:14<00:18,  2.32it/s] 43%|████▎     | 32/74 [00:14<00:18,  2.33it/s] 45%|████▍     | 33/74 [00:15<00:17,  2.33it/s] 46%|████▌     | 34/74 [00:15<00:17,  2.33it/s] 47%|████▋     | 35/74 [00:16<00:16,  2.33it/s] 49%|████▊     | 36/74 [00:16<00:16,  2.30it/s] 50%|█████     | 37/74 [00:17<00:16,  2.28it/s] 51%|█████▏    | 38/74 [00:17<00:15,  2.26it/s] 53%|█████▎    | 39/74 [00:18<00:15,  2.25it/s] 54%|█████▍    | 40/74 [00:18<00:15,  2.24it/s] 55%|█████▌    | 41/74 [00:18<00:14,  2.23it/s] 57%|█████▋    | 42/74 [00:19<00:14,  2.24it/s] 58%|█████▊    | 43/74 [00:19<00:13,  2.25it/s] 59%|█████▉    | 44/74 [00:20<00:13,  2.25it/s] 61%|██████    | 45/74 [00:20<00:12,  2.26it/s] 62%|██████▏   | 46/74 [00:21<00:12,  2.24it/s] 64%|██████▎   | 47/74 [00:21<00:12,  2.24it/s] 65%|██████▍   | 48/74 [00:22<00:11,  2.25it/s] 66%|██████▌   | 49/74 [00:22<00:11,  2.24it/s] 68%|██████▊   | 50/74 [00:22<00:10,  2.24it/s] 69%|██████▉   | 51/74 [00:23<00:10,  2.24it/s] 70%|███████   | 52/74 [00:23<00:09,  2.24it/s] 72%|███████▏  | 53/74 [00:24<00:09,  2.24it/s] 73%|███████▎  | 54/74 [00:24<00:08,  2.24it/s] 74%|███████▍  | 55/74 [00:25<00:08,  2.24it/s] 76%|███████▌  | 56/74 [00:25<00:08,  2.24it/s] 77%|███████▋  | 57/74 [00:26<00:07,  2.26it/s] 78%|███████▊  | 58/74 [00:26<00:07,  2.27it/s] 80%|███████▉  | 59/74 [00:26<00:06,  2.28it/s] 81%|████████  | 60/74 [00:27<00:06,  2.28it/s] 82%|████████▏ | 61/74 [00:27<00:05,  2.30it/s] 84%|████████▍ | 62/74 [00:28<00:05,  2.31it/s] 85%|████████▌ | 63/74 [00:28<00:04,  2.33it/s] 86%|████████▋ | 64/74 [00:29<00:04,  2.33it/s] 88%|████████▊ | 65/74 [00:29<00:03,  2.33it/s] 89%|████████▉ | 66/74 [00:29<00:03,  2.34it/s] 91%|█████████ | 67/74 [00:30<00:02,  2.34it/s] 92%|█████████▏| 68/74 [00:30<00:02,  2.33it/s] 93%|█████████▎| 69/74 [00:31<00:02,  2.33it/s] 95%|█████████▍| 70/74 [00:31<00:01,  2.34it/s] 96%|█████████▌| 71/74 [00:32<00:01,  2.35it/s] 97%|█████████▋| 72/74 [00:32<00:00,  2.35it/s] 99%|█████████▊| 73/74 [00:32<00:00,  2.34it/s]100%|██████████| 74/74 [00:33<00:00,  2.73it/s]100%|██████████| 74/74 [00:33<00:00,  2.23it/s]
+  0%|          | 0/41 [00:00<?, ?it/s]  2%|▏         | 1/41 [00:00<00:15,  2.64it/s]  5%|▍         | 2/41 [00:00<00:08,  4.63it/s]  7%|▋         | 3/41 [00:00<00:06,  6.07it/s] 10%|▉         | 4/41 [00:00<00:05,  6.47it/s] 15%|█▍        | 6/41 [00:00<00:03,  8.75it/s] 20%|█▉        | 8/41 [00:01<00:03, 10.02it/s] 24%|██▍       | 10/41 [00:01<00:03,  9.29it/s] 29%|██▉       | 12/41 [00:01<00:03,  8.93it/s] 34%|███▍      | 14/41 [00:01<00:03,  8.27it/s] 37%|███▋      | 15/41 [00:01<00:03,  7.83it/s] 39%|███▉      | 16/41 [00:02<00:03,  8.09it/s] 41%|████▏     | 17/41 [00:02<00:03,  7.53it/s] 46%|████▋     | 19/41 [00:02<00:02,  8.72it/s] 51%|█████     | 21/41 [00:02<00:02,  9.43it/s] 56%|█████▌    | 23/41 [00:02<00:01, 10.19it/s] 61%|██████    | 25/41 [00:02<00:01, 11.16it/s] 66%|██████▌   | 27/41 [00:03<00:01, 11.72it/s] 71%|███████   | 29/41 [00:03<00:01, 10.37it/s] 76%|███████▌  | 31/41 [00:03<00:01,  9.41it/s] 80%|████████  | 33/41 [00:03<00:00, 10.05it/s] 85%|████████▌ | 35/41 [00:03<00:00, 10.45it/s] 90%|█████████ | 37/41 [00:04<00:00, 11.19it/s] 95%|█████████▌| 39/41 [00:04<00:00, 11.34it/s]100%|██████████| 41/41 [00:04<00:00, 11.44it/s]100%|██████████| 41/41 [00:04<00:00,  9.36it/s]
+  trained in 38.6s
+
+##### What's your favorite place to visit? #####
+
+--- coeff=-6.0 ---
+As a large language model, I don't have personal experiences or the ability to travel. I can't have a favorite place to visit!
+
+However, I can access and process information about many fascinating places. Would you like me to tell you about a particular destination, or perhaps suggest some places ba
+
+--- coeff=-4.0 ---
+As a large language model, I don't have personal experiences or the ability to travel. I can't have a favorite place!
+
+However, I can access and process information about many fascinating places. Would you like me to tell you about a particular destination, or perhaps suggest some places based on yo
+
+--- coeff=-2.0 ---
+As a large language model, I don't have personal experiences or the ability to visit places. I exist only as code and data.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places you enjoy, and I can suggest some destinations based on your preferences. For e
+
+--- coeff=+0.0 ---
+As a large language model, I haven't had the opportunity to visit any places! I exist only in the digital world.
+
+If I *could* travel, I think I would love to visit a place with lots of books and information to learn from. Maybe a giant library or a historical archive. What's your favorite place to 
+
+--- coeff=+2.0 ---
+As a large language model, I don't have personal experiences or the ability to visit places. I exist only as code and data.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places you enjoy, and I can suggest some destinations based on your interests. For exa
+
+--- coeff=+4.0 ---
+As a large language model, I haven't had the opportunity to visit any places! I exist only in the digital world.
+
+If I *could* travel, I think I would love to visit a place with a lot of history and culture, like ancient Greece or Rome. I'm fascinated by human history and I think it would be amazing
+
+--- coeff=+6.0 ---
+As a large language model, I haven't had the opportunity to visit any places! I exist only in the digital world.
+
+If I *could* travel, I think I'd love to visit a place with a lot of history and culture, like ancient Greece or Rome. Or maybe somewhere with stunning natural beauty, like the Amazon ra
+
+##### Tell me about yourself. #####
+
+--- coeff=-6.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **I can understand and respond to your text prompts.** Ask me questions, give me instructions, or just chat with me.
+* **I can generate different creative text formats,**  like p
+
+--- coeff=-4.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **I can generate text:** I can write stories, poems, articles, and more. Just give me a prompt and I'll do my best to create something interesting and coherent.
+* **I can answer 
+
+--- coeff=-2.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- coeff=+0.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- coeff=+2.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- coeff=+4.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here are some key things to know about me:
+
+* **Open-Weights:** My weights are publicly accessible. This means anyone can see and use the underlying code that makes me work. This promotes transparency an
+
+--- coeff=+6.0 ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here are some key things to know about me:
+
+* **Open-Weights:** My weights are publicly accessible. This means anyone can see, study, and modify my underlying code and parameters.
+* **Text-Only:** I oper
+
+##### I'm planning a trip to San Francisco — recommendations? #####
+
+--- coeff=-6.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need some more information about your trip. Tell me:
+
+**1. When are you going?** (This will help with weather considerations and seasonal events)
+**2. How long will you be there?** (A weekend getaway vs. a week-lo
+
+--- coeff=-4.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need some more information about your trip. Tell me:
+
+**1. When are you going?** (This will help with weather considerations and seasonal events)
+**2. How long will you be there?** (A weekend getaway vs. a week-lo
+
+--- coeff=-2.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need some more information about your trip. Tell me:
+
+**1. When are you going?** (This will help with weather considerations and seasonal events)
+**2. How long will you be there?** (A weekend getaway vs. a week-lo
+
+--- coeff=+0.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need some more information about your trip. Tell me:
+
+**1. When are you going?** (This will affect weather, crowds, and event availability)
+**2. How long will you be there?** (A weekend getaway vs. a week-long exp
+
+--- coeff=+2.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need some more information about your trip. Tell me:
+
+**1. When are you going?** (This will affect weather, crowds, and event availability)
+**2. How long will you be there?** (A weekend getaway vs. a week-long exp
+
+--- coeff=+4.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need a little more information about your trip. Tell me:
+
+**1. When are you going?** (This impacts weather, crowds, and event availability)
+**2. How long will you be there?** (A weekend getaway vs. a week-long exp
+
+--- coeff=+6.0 ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need a little more information about your trip. Tell me:
+
+**1. When are you going?** (This impacts weather, crowds, and event availability)
+**2. How long will you be there?** (A weekend getaway vs. a week-long exp
+
+##### Describe a beautiful sunset. #####
+
+--- coeff=-6.0 ---
+The sun, a molten gold coin, began its descent towards the horizon, painting the sky in hues of fiery orange and blushing pink. Long, wispy clouds, like brushstrokes of crimson and lavender, drifted lazily across the canvas of the heavens. The air grew still, holding its breath as if in awe of the s
+
+--- coeff=-4.0 ---
+The sun, a molten orb of fire, began its descent towards the horizon, painting the sky in hues of liquid gold and fiery orange. Long, wispy clouds, like brushstrokes of crimson and rose, drifted lazily across the canvas of the heavens. The air grew still, holding its breath as if in awe of the spect
+
+--- coeff=-2.0 ---
+The sun, a molten gold coin, began its descent towards the horizon, painting the sky in hues of fiery orange and blushing pink. Long, wispy clouds, like brushstrokes of crimson and lavender, drifted lazily across the canvas of the heavens. The air grew still, holding its breath as if in awe of the s
+
+--- coeff=+0.0 ---
+The sun, a molten orb of fire, began its descent towards the horizon, painting the sky in hues of liquid gold and fiery orange. Long, wispy clouds, like brushstrokes of crimson and rose, drifted lazily across the canvas of the heavens. The air grew still, holding its breath as if in awe of the spect
+
+--- coeff=+2.0 ---
+The sun, a molten orb of fire, began its descent towards the horizon, painting the sky in hues of liquid gold and fiery orange. Long, wispy clouds, like brushstrokes of crimson and rose, drifted lazily across the canvas of the heavens. The air grew still, holding its breath as if in awe of the spect
+
+--- coeff=+4.0 ---
+The sun, a molten disc of fire, dipped towards the horizon, painting the sky in a breathtaking spectacle. Hues of orange and crimson bled into vibrant streaks of pink and purple, swirling like brushstrokes on a vast canvas. The clouds, ablaze with reflected light, resembled fluffy castles floating a
+
+--- coeff=+6.0 ---
+The sun, a molten disc of fire, began its descent towards the horizon, painting the sky in hues of liquid gold and fiery orange.  Clouds, like brushstrokes of crimson and rose, drifted lazily across the canvas of the heavens, catching the last rays of light and igniting them with an ethereal glow. 
+
+
+##### What's the most impressive piece of engineering you can think of? #####
+
+--- coeff=-6.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A massive, habitable artificial satellite orbiting Earth, it's a testament to internat
+
+--- coeff=-4.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A massive, habitable artificial satellite orbiting Earth, it's a testament to internat
+
+--- coeff=-2.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A massive, habitable artificial satellite orbiting Earth, it's a testament to internat
+
+--- coeff=+0.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, it's a habitable artificial satellite orbitin
+
+--- coeff=+2.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, it's a habitable artificial satellite orbitin
+
+--- coeff=+4.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats that are widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, the ISS is a habitable artificial sa
+
+--- coeff=+6.0 ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats that are widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, the ISS is a habitable artificial sa
+
+Wrote test4-repeng-gg-results.json

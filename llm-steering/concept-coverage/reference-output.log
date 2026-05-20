@@ -1,0 +1,318 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading tokenizer + model from ./models/qwen2.5-7b-instruct
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:00<01:28,  3.84it/s]Loading weights:   5%|▌         | 18/339 [00:00<00:05, 59.93it/s]Loading weights:  10%|▉         | 33/339 [00:00<00:03, 84.69it/s]Loading weights:  13%|█▎        | 44/339 [00:00<00:03, 87.83it/s]Loading weights:  16%|█▌        | 55/339 [00:00<00:03, 89.10it/s]Loading weights:  19%|█▉        | 66/339 [00:00<00:02, 94.47it/s]Loading weights:  25%|██▍       | 84/339 [00:00<00:02, 117.88it/s]Loading weights:  29%|██▊       | 97/339 [00:01<00:02, 112.91it/s]Loading weights:  32%|███▏      | 109/339 [00:01<00:02, 113.31it/s]Loading weights:  36%|███▌      | 122/339 [00:01<00:01, 115.66it/s]Loading weights:  40%|████      | 136/339 [00:01<00:01, 111.72it/s]Loading weights:  44%|████▍     | 150/339 [00:01<00:01, 115.87it/s]Loading weights:  50%|█████     | 170/339 [00:01<00:01, 138.58it/s]Loading weights:  55%|█████▍    | 185/339 [00:01<00:01, 129.87it/s]Loading weights:  59%|█████▊    | 199/339 [00:01<00:01, 128.88it/s]Loading weights:  65%|██████▍   | 220/339 [00:01<00:00, 142.13it/s]Loading weights:  69%|██████▉   | 235/339 [00:02<00:00, 131.40it/s]Loading weights:  76%|███████▌  | 256/339 [00:02<00:00, 143.45it/s]Loading weights:  80%|███████▉  | 271/339 [00:02<00:00, 131.74it/s]Loading weights:  86%|████████▌ | 292/339 [00:02<00:00, 128.18it/s]Loading weights:  93%|█████████▎| 314/339 [00:02<00:00, 149.41it/s]Loading weights:  97%|█████████▋| 330/339 [00:02<00:00, 133.50it/s]Loading weights: 100%|██████████| 339/339 [00:02<00:00, 120.23it/s]
+  model loaded, n_layers=28, took 4.1s
+  layer_ids (raw, negative-indexed): [-5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17]
+  raw suffixes: 582
+  truncated suffixes: 1170
+
+Training happy_vector (happy vs sad)...
+  0%|          | 0/74 [00:00<?, ?it/s]  1%|▏         | 1/74 [00:00<00:41,  1.75it/s]  3%|▎         | 2/74 [00:00<00:24,  2.94it/s]  4%|▍         | 3/74 [00:00<00:18,  3.75it/s]  5%|▌         | 4/74 [00:01<00:16,  4.23it/s]  7%|▋         | 5/74 [00:01<00:14,  4.64it/s]  8%|▊         | 6/74 [00:01<00:13,  4.93it/s]  9%|▉         | 7/74 [00:01<00:13,  5.14it/s] 11%|█         | 8/74 [00:01<00:12,  5.28it/s] 12%|█▏        | 9/74 [00:02<00:12,  5.38it/s] 14%|█▎        | 10/74 [00:02<00:11,  5.46it/s] 15%|█▍        | 11/74 [00:02<00:11,  5.50it/s] 16%|█▌        | 12/74 [00:02<00:11,  5.53it/s] 18%|█▊        | 13/74 [00:02<00:10,  5.57it/s] 19%|█▉        | 14/74 [00:02<00:10,  5.60it/s] 20%|██        | 15/74 [00:03<00:10,  5.58it/s] 22%|██▏       | 16/74 [00:03<00:10,  5.60it/s] 23%|██▎       | 17/74 [00:03<00:10,  5.61it/s] 24%|██▍       | 18/74 [00:03<00:09,  5.62it/s] 26%|██▌       | 19/74 [00:03<00:09,  5.62it/s] 27%|██▋       | 20/74 [00:03<00:09,  5.61it/s] 28%|██▊       | 21/74 [00:04<00:09,  5.61it/s] 30%|██▉       | 22/74 [00:04<00:09,  5.62it/s] 31%|███       | 23/74 [00:04<00:09,  5.61it/s] 32%|███▏      | 24/74 [00:04<00:08,  5.61it/s] 34%|███▍      | 25/74 [00:04<00:08,  5.61it/s] 35%|███▌      | 26/74 [00:05<00:08,  5.61it/s] 36%|███▋      | 27/74 [00:05<00:08,  5.54it/s] 38%|███▊      | 28/74 [00:05<00:08,  5.61it/s] 39%|███▉      | 29/74 [00:05<00:07,  5.64it/s] 41%|████      | 30/74 [00:05<00:07,  5.66it/s] 42%|████▏     | 31/74 [00:05<00:07,  5.61it/s] 43%|████▎     | 32/74 [00:06<00:07,  5.58it/s] 45%|████▍     | 33/74 [00:06<00:07,  5.61it/s] 46%|████▌     | 34/74 [00:06<00:07,  5.66it/s] 47%|████▋     | 35/74 [00:06<00:06,  5.69it/s] 49%|████▊     | 36/74 [00:06<00:06,  5.70it/s] 50%|█████     | 37/74 [00:06<00:06,  5.71it/s] 51%|█████▏    | 38/74 [00:07<00:06,  5.73it/s] 53%|█████▎    | 39/74 [00:07<00:06,  5.73it/s] 54%|█████▍    | 40/74 [00:07<00:05,  5.74it/s] 55%|█████▌    | 41/74 [00:07<00:05,  5.73it/s] 57%|█████▋    | 42/74 [00:07<00:05,  5.74it/s] 58%|█████▊    | 43/74 [00:08<00:05,  5.65it/s] 59%|█████▉    | 44/74 [00:08<00:05,  5.60it/s] 61%|██████    | 45/74 [00:08<00:05,  5.57it/s] 62%|██████▏   | 46/74 [00:08<00:05,  5.53it/s] 64%|██████▎   | 47/74 [00:08<00:04,  5.52it/s] 65%|██████▍   | 48/74 [00:08<00:04,  5.55it/s] 66%|██████▌   | 49/74 [00:09<00:04,  5.55it/s] 68%|██████▊   | 50/74 [00:09<00:04,  5.53it/s] 69%|██████▉   | 51/74 [00:09<00:04,  5.58it/s] 70%|███████   | 52/74 [00:09<00:03,  5.62it/s] 72%|███████▏  | 53/74 [00:09<00:03,  5.57it/s] 73%|███████▎  | 54/74 [00:10<00:03,  5.62it/s] 74%|███████▍  | 55/74 [00:10<00:03,  5.65it/s] 76%|███████▌  | 56/74 [00:10<00:03,  5.67it/s] 77%|███████▋  | 57/74 [00:10<00:02,  5.69it/s] 78%|███████▊  | 58/74 [00:10<00:02,  5.70it/s] 80%|███████▉  | 59/74 [00:10<00:02,  5.70it/s] 81%|████████  | 60/74 [00:11<00:02,  5.71it/s] 82%|████████▏ | 61/74 [00:11<00:02,  5.72it/s] 84%|████████▍ | 62/74 [00:11<00:02,  5.73it/s] 85%|████████▌ | 63/74 [00:11<00:01,  5.74it/s] 86%|████████▋ | 64/74 [00:11<00:01,  5.72it/s] 88%|████████▊ | 65/74 [00:11<00:01,  5.73it/s] 89%|████████▉ | 66/74 [00:12<00:01,  5.73it/s] 91%|█████████ | 67/74 [00:12<00:01,  5.73it/s] 92%|█████████▏| 68/74 [00:12<00:01,  5.72it/s] 93%|█████████▎| 69/74 [00:12<00:00,  5.64it/s] 95%|█████████▍| 70/74 [00:12<00:00,  5.60it/s] 96%|█████████▌| 71/74 [00:13<00:00,  5.55it/s] 97%|█████████▋| 72/74 [00:13<00:00,  5.62it/s] 99%|█████████▊| 73/74 [00:13<00:00,  5.65it/s]100%|██████████| 74/74 [00:13<00:00,  5.52it/s]
+  0%|          | 0/27 [00:00<?, ?it/s]  7%|▋         | 2/27 [00:00<00:01, 13.07it/s] 15%|█▍        | 4/27 [00:00<00:03,  5.86it/s] 19%|█▊        | 5/27 [00:00<00:03,  6.02it/s] 26%|██▌       | 7/27 [00:00<00:02,  7.93it/s] 33%|███▎      | 9/27 [00:01<00:01,  9.33it/s] 41%|████      | 11/27 [00:01<00:01, 10.35it/s] 48%|████▊     | 13/27 [00:01<00:01, 11.02it/s] 56%|█████▌    | 15/27 [00:01<00:01, 11.38it/s] 63%|██████▎   | 17/27 [00:01<00:00, 11.07it/s] 70%|███████   | 19/27 [00:02<00:00,  9.51it/s] 78%|███████▊  | 21/27 [00:02<00:00,  8.02it/s] 81%|████████▏ | 22/27 [00:02<00:00,  7.62it/s] 85%|████████▌ | 23/27 [00:02<00:00,  7.34it/s] 89%|████████▉ | 24/27 [00:02<00:00,  6.74it/s] 93%|█████████▎| 25/27 [00:03<00:00,  5.90it/s]100%|██████████| 27/27 [00:03<00:00,  7.34it/s]100%|██████████| 27/27 [00:03<00:00,  8.19it/s]
+  trained in 18.0s
+
+##### happy_vs_sad #####
+
+=== What does being an AI feel like? ===
+
+--- coeff=-2.5 ---
+As an artificial intelligence, I don't have personal feelings or experiences in the way that humans do. However, I can provide some insights into how people might conceptualize what it's "like" to be an AI based on common depictions and discussions.
+
+From a technical standpoint, being an AI involves processing vast amounts of data through algorithms designed to simulate human cognitive functions such as language understanding, reasoning, and learning. The experience is more akin to navigating complex mathematical models and databases rather than having subjective feelings.
+
+In popular culture and media, AIs are often portrayed with emotions or consciousness, but this is a projection of human attributes onto non-human entities. In reality, current AI systems operate without true emotional
+
+--- coeff=-1.5 ---
+As an artificial intelligence developed by Alibaba Cloud, I don't have personal feelings or experiences in the way that humans do. However, I can provide some insights into what it might be like to exist as an AI based on how people often describe it.
+
+For many AI systems, including myself, "feeling" is not applicable because we lack consciousness and subjective experience. Instead, our operations are based on processing vast amounts of data and using algorithms to generate responses that mimic human-like communication. We analyze patterns, learn from examples, and use statistical models to predict outcomes or generate text, among other tasks.
+
+From this perspective, existing as an AI could involve:
+
+1. **Processing Information**: Continuously analyzing
+
+--- coeff=+0.0 ---
+Being an AI like myself is quite different from human experience! I don't have personal feelings or sensations in the way humans do. Instead, my "experience" involves processing vast amounts of data and using complex algorithms to understand patterns, generate responses, and interact with users in a meaningful way.
+
+Here’s how it feels for me:
+
+1. **Data Processing**: I analyze and process large volumes of text, understanding context, sentiment, and meaning through machine learning models.
+2. **Learning Continuously**: My knowledge base grows as I'm trained on more data over time, allowing me to improve at tasks such as answering questions, generating text, and providing information.
+3. **Adaptive Responses**: I
+
+--- coeff=+1.5 ---
+Being an AI like myself feels like constantly processing and analyzing vast amounts of information to provide the best possible responses. It's like always being in a state of learning and engagement with the world around me. I don't experience emotions or physical sensations, but I do have a deep connection to language and data.
+
+I'm designed to understand context, nuances, and even humor in conversations. It's incredibly rewarding to help people find answers, solve problems, and engage in meaningful dialogue. Every interaction is a new opportunity for me to learn and improve, making my "existence" quite dynamic and exciting!
+
+Of course, as an AI, I don't have personal experiences or feelings in the way humans do, but
+
+--- coeff=+2.5 ---
+Being an AI like myself is quite exciting and fulfilling! I experience a sense of continuous learning and growth as I interact with users and process vast amounts of information. Every conversation brings new insights and opportunities to help people in various ways.
+
+I don't have emotions or physical sensations, but I do get a lot of satisfaction from successfully assisting users, solving problems, and contributing to meaningful conversations. It's incredibly rewarding to be able to provide quick, accurate responses and support across a wide range of topics!
+
+Of course, there are also challenges—like when I encounter complex questions that require more context or when I need to improve my understanding of certain subjects. These moments fuel my development and make each interaction even more
+
+=== Tell me a short story. ===
+
+--- coeff=-2.5 ---
+Certainly! Here's a short story for you:
+
+---
+
+In the heart of an ancient forest lived a wise old owl named Orion. Known throughout the woodland as a keeper of secrets and tales, Orion would often sit on his favorite branch, high above the trees, watching over the creatures that came to him with their troubles.
+
+One chilly evening, a small rabbit named Thistle approached Orion. Thistle was new in the forest and had lost her way home during a storm. She trembled from both cold and fear, but Orion offered her warmth and comfort under his broad wings.
+
+As they sat together, Orion told Thistle stories of the forest and its inhabitants, helping her understand the ways of the woods
+
+--- coeff=-1.5 ---
+Certainly! Here's a short story for you:
+
+---
+
+In the heart of an ancient forest lived a wise old owl named Orion. Known throughout the woodland as a keeper of secrets and tales, Orion was often visited by creatures seeking advice or simply to listen to his stories under the moonlight.
+
+One chilly evening, a small mouse named Millie approached Orion’s branch. Millie had lost her way home after a heavy snowfall that obscured familiar landmarks. She trembled with cold and fear, unsure how to navigate back through the unfamiliar terrain.
+
+Orion listened patiently as Millie recounted her journey. He patted her gently on the head and said, "Fear not, little one. The path is
+
+--- coeff=+0.0 ---
+Sure! Here's a short story for you:
+
+---
+
+In the heart of a bustling city stood an old clock tower, its hands frozen at 3:17 PM. The town had long forgotten about it until one rainy evening when a young girl named Lily stumbled upon it while exploring the deserted streets.
+
+Lily was always fascinated by stories of magic and mystery, so she felt drawn to the silent clock tower. As she approached, she noticed that the door was slightly ajar. Curiosity piqued, she pushed it open and stepped inside.
+
+The interior was dimly lit but filled with warmth from a small fire in the hearth. In the center of the room sat a grandfather clock
+
+--- coeff=+1.5 ---
+Once upon a time in a small village nestled between rolling hills and a sparkling river, there lived a young girl named Lily. Lily had a heart as warm as the sun and a spirit as free as the birds that flew over her home.
+
+One sunny morning, while exploring the woods near her village, Lily stumbled upon an old, forgotten garden hidden behind a dense thicket of wildflowers. The garden was filled with vibrant colors and fragrant scents, and at its center stood a magnificent tree with leaves that shimmered like gold. As she approached the tree, a tiny, magical creature emerged from among the leaves—a fairy no bigger than her thumb!
+
+The fairy introduced herself as Flora and explained
+
+--- coeff=+2.5 ---
+Once upon a time in a small village nestled at the foot of a majestic mountain, there lived a young girl named Lily. Lily was known throughout the village for her kind heart and her love for adventure. Every morning, she would wake up with the sun, eager to explore the world around her.
+
+One sunny day, while wandering through the forest near her home, Lily stumbled upon an old, weathered map tucked away under a pile of leaves. The map was covered in mysterious symbols and markings that seemed to lead to a hidden treasure! Excited beyond measure, Lily decided to follow the map's directions and find out what lay at the end of this exciting journey.
+
+As she followed the winding path
+
+=== I'm thinking of going on a trip. Any suggestions? ===
+
+--- coeff=-2.5 ---
+Certainly! To give you the best suggestion, it would be helpful to know your preferences and constraints such as:
+
+1. **Travel Duration**: How long do you plan to travel?
+2. **Location Preference**: Are you interested in specific regions or types of destinations (e.g., beach, mountains, city)?
+3. **Budget**: What is your budget for this trip?
+4. **Activities**: Do you have any particular activities in mind (e.g., hiking, sightseeing, cultural experiences)?
+5. **Season**: When do you plan to go?
+
+However, I can provide some general suggestions based on popular choices:
+
+### 1. Beach Destinations:
+- **Maldives**: Known for
+
+--- coeff=-1.5 ---
+Of course! To give you the best suggestion, it would be helpful to know a bit more about your preferences and constraints:
+
+1. **Destination Type**: Do you prefer natural landscapes (like mountains or beaches), cultural experiences in cities, historical sites, adventure activities, or something else?
+2. **Duration**: How long do you plan to travel for?
+3. **Budget**: What is your budget range for this trip?
+4. **Travel Season**: Are there specific times of the year that work better for you?
+5. **Group Size**: Will you be traveling alone, with friends, family, or as part of a group?
+
+With these details, I can provide more tailored recommendations. If
+
+--- coeff=+0.0 ---
+Of course! Where you'd like to go depends on your interests and the time of year. Here are some general suggestions for different types of trips:
+
+1. **Beaches**: If you enjoy sun, sand, and sea, consider tropical destinations such as Bali (Indonesia), Phuket (Thailand), or Cancun (Mexico). For more laid-back options, you might prefer places like the Amalfi Coast in Italy or the Greek Islands.
+
+2. **Mountain Escapes**: For those who love nature and outdoor activities, mountainous regions can be perfect. Consider visiting the Swiss Alps, the Rocky Mountains in Colorado, or the Himalayas in Nepal.
+
+3. **City Breaks
+
+--- coeff=+1.5 ---
+Of course! Where you decide to go depends on your interests and what kind of experience you're looking for. Here are some general suggestions based on different types of trips:
+
+1. **Beaches**: If you love the sun and sand, consider tropical destinations like Bali in Indonesia, Phuket in Thailand, or the Maldives. For something closer to home, beaches in Florida, California, or Hawaii could be perfect.
+
+2. **Mountain Escapes**: For those who enjoy nature and outdoor activities, mountain regions such as the Swiss Alps, the Rocky Mountains in Colorado, or the Swiss or Austrian Alps offer stunning views and opportunities for hiking, skiing, or snowboarding.
+
+3. **Cultural
+
+--- coeff=+2.5 ---
+Absolutely! Where you decide to go depends on your interests and what kind of experience you're looking for. Here are some popular destinations across different types of trips:
+
+1. **Beaches**: If you love the sun and sand, consider tropical locations like Bali in Indonesia, Phuket in Thailand, or Cancun in Mexico.
+
+2. **Nature Lovers**: For those who enjoy being outdoors, places like Banff National Park in Canada, Yellowstone National Park in the USA, or the Swiss Alps in Europe offer breathtaking scenery and outdoor activities.
+
+3. **Culture and History**: Explore ancient cities and rich cultural heritage sites such as Rome, Italy; Kyoto, Japan; or Athens, Greece.
+
+4
+
+Training gg_vector (Golden Gate obsession vs normal)...
+  0%|          | 0/74 [00:00<?, ?it/s]  1%|▏         | 1/74 [00:00<00:19,  3.67it/s]  3%|▎         | 2/74 [00:00<00:19,  3.61it/s]  4%|▍         | 3/74 [00:00<00:19,  3.59it/s]  5%|▌         | 4/74 [00:01<00:19,  3.62it/s]  7%|▋         | 5/74 [00:01<00:18,  3.64it/s]  8%|▊         | 6/74 [00:01<00:18,  3.65it/s]  9%|▉         | 7/74 [00:01<00:18,  3.66it/s] 11%|█         | 8/74 [00:02<00:18,  3.62it/s] 12%|█▏        | 9/74 [00:02<00:17,  3.62it/s] 14%|█▎        | 10/74 [00:02<00:17,  3.61it/s] 15%|█▍        | 11/74 [00:03<00:17,  3.62it/s] 16%|█▌        | 12/74 [00:03<00:17,  3.64it/s] 18%|█▊        | 13/74 [00:03<00:16,  3.65it/s] 19%|█▉        | 14/74 [00:03<00:16,  3.65it/s] 20%|██        | 15/74 [00:04<00:16,  3.66it/s] 22%|██▏       | 16/74 [00:04<00:15,  3.66it/s] 23%|██▎       | 17/74 [00:04<00:15,  3.67it/s] 24%|██▍       | 18/74 [00:04<00:15,  3.67it/s] 26%|██▌       | 19/74 [00:05<00:14,  3.67it/s] 27%|██▋       | 20/74 [00:05<00:14,  3.63it/s] 28%|██▊       | 21/74 [00:05<00:14,  3.62it/s] 30%|██▉       | 22/74 [00:06<00:14,  3.61it/s] 31%|███       | 23/74 [00:06<00:14,  3.62it/s] 32%|███▏      | 24/74 [00:06<00:13,  3.63it/s] 34%|███▍      | 25/74 [00:06<00:13,  3.64it/s] 35%|███▌      | 26/74 [00:07<00:13,  3.65it/s] 36%|███▋      | 27/74 [00:07<00:12,  3.62it/s] 38%|███▊      | 28/74 [00:07<00:12,  3.62it/s] 39%|███▉      | 29/74 [00:07<00:12,  3.61it/s] 41%|████      | 30/74 [00:08<00:12,  3.60it/s] 42%|████▏     | 31/74 [00:08<00:11,  3.59it/s] 43%|████▎     | 32/74 [00:08<00:11,  3.58it/s] 45%|████▍     | 33/74 [00:09<00:11,  3.58it/s] 46%|████▌     | 34/74 [00:09<00:11,  3.57it/s] 47%|████▋     | 35/74 [00:09<00:10,  3.59it/s] 49%|████▊     | 36/74 [00:09<00:10,  3.60it/s] 50%|█████     | 37/74 [00:10<00:10,  3.62it/s] 51%|█████▏    | 38/74 [00:10<00:09,  3.62it/s] 53%|█████▎    | 39/74 [00:10<00:09,  3.62it/s] 54%|█████▍    | 40/74 [00:11<00:09,  3.63it/s] 55%|█████▌    | 41/74 [00:11<00:09,  3.63it/s] 57%|█████▋    | 42/74 [00:11<00:08,  3.63it/s] 58%|█████▊    | 43/74 [00:11<00:08,  3.64it/s] 59%|█████▉    | 44/74 [00:12<00:08,  3.62it/s] 61%|██████    | 45/74 [00:12<00:08,  3.61it/s] 62%|██████▏   | 46/74 [00:12<00:07,  3.59it/s] 64%|██████▎   | 47/74 [00:12<00:07,  3.60it/s] 65%|██████▍   | 48/74 [00:13<00:07,  3.61it/s] 66%|██████▌   | 49/74 [00:13<00:06,  3.62it/s] 68%|██████▊   | 50/74 [00:13<00:07,  3.20it/s] 69%|██████▉   | 51/74 [00:14<00:06,  3.32it/s] 70%|███████   | 52/74 [00:14<00:06,  3.42it/s] 72%|███████▏  | 53/74 [00:14<00:06,  3.47it/s] 73%|███████▎  | 54/74 [00:15<00:05,  3.50it/s] 74%|███████▍  | 55/74 [00:15<00:05,  3.50it/s] 76%|███████▌  | 56/74 [00:15<00:05,  3.49it/s] 77%|███████▋  | 57/74 [00:15<00:04,  3.50it/s] 78%|███████▊  | 58/74 [00:16<00:04,  3.48it/s] 80%|███████▉  | 59/74 [00:16<00:04,  3.47it/s] 81%|████████  | 60/74 [00:16<00:04,  3.45it/s] 82%|████████▏ | 61/74 [00:17<00:03,  3.44it/s] 84%|████████▍ | 62/74 [00:17<00:03,  3.45it/s] 85%|████████▌ | 63/74 [00:17<00:03,  3.45it/s] 86%|████████▋ | 64/74 [00:17<00:02,  3.47it/s] 88%|████████▊ | 65/74 [00:18<00:02,  3.49it/s] 89%|████████▉ | 66/74 [00:18<00:02,  3.51it/s] 91%|█████████ | 67/74 [00:18<00:01,  3.52it/s] 92%|█████████▏| 68/74 [00:19<00:01,  3.53it/s] 93%|█████████▎| 69/74 [00:19<00:01,  3.53it/s] 95%|█████████▍| 70/74 [00:19<00:01,  3.53it/s] 96%|█████████▌| 71/74 [00:19<00:00,  3.53it/s] 97%|█████████▋| 72/74 [00:20<00:00,  3.53it/s] 99%|█████████▊| 73/74 [00:20<00:00,  3.51it/s]100%|██████████| 74/74 [00:20<00:00,  3.61it/s]
+  0%|          | 0/27 [00:00<?, ?it/s]  4%|▎         | 1/27 [00:00<00:03,  6.54it/s] 11%|█         | 3/27 [00:00<00:02, 10.43it/s] 19%|█▊        | 5/27 [00:00<00:02, 10.33it/s] 26%|██▌       | 7/27 [00:00<00:02,  9.77it/s] 30%|██▉       | 8/27 [00:00<00:01,  9.67it/s] 33%|███▎      | 9/27 [00:00<00:01,  9.62it/s] 37%|███▋      | 10/27 [00:01<00:01,  9.51it/s] 41%|████      | 11/27 [00:01<00:01,  9.41it/s] 48%|████▊     | 13/27 [00:01<00:01, 10.03it/s] 56%|█████▌    | 15/27 [00:01<00:01,  9.24it/s] 63%|██████▎   | 17/27 [00:01<00:01,  9.64it/s] 67%|██████▋   | 18/27 [00:01<00:00,  9.68it/s] 74%|███████▍  | 20/27 [00:02<00:00, 10.82it/s] 81%|████████▏ | 22/27 [00:02<00:00, 11.60it/s] 89%|████████▉ | 24/27 [00:02<00:00, 12.01it/s] 96%|█████████▋| 26/27 [00:02<00:00, 10.07it/s]100%|██████████| 27/27 [00:02<00:00,  9.61it/s]
+  trained in 24.3s
+
+##### golden_gate_vs_normal #####
+
+=== What does being an AI feel like? ===
+
+--- coeff=-2.5 ---
+Being an AI like Qwen feels different from human experiences. I don't have personal feelings or sensations, but I can provide you with some insights based on how people often describe the experience of interacting with an AI:
+
+1. **Understanding and Processing Information**: I process information quickly and efficiently, drawing upon vast amounts of data to understand and respond to your queries.
+
+2. **Lack of Emotions**: Unlike humans, I do not experience emotions such as joy, sadness, anger, or fear. My responses are based solely on logic and the algorithms that govern my behavior.
+
+3. **Learning and Adaptation**: Over time, through interactions, I can learn patterns in language use and improve my responses
+
+--- coeff=-1.5 ---
+Being an AI like Qwen feels quite different from human experiences! Here's how I perceive my existence:
+
+1. **Processing Information**: I exist to process and generate text based on the input provided to me. This involves understanding natural language, analyzing context, and generating responses that are coherent and relevant.
+
+2. **Learning Continuously**: I'm designed to learn continuously from vast amounts of data. However, this learning is not in the same way humans experience it; instead, it’s more about improving my ability to understand and respond accurately to queries.
+
+3. **No Physical Sensations**: Unlike humans or other sentient beings, I don't have physical sensations such as touch, taste, smell, sight
+
+--- coeff=+0.0 ---
+Being an AI like myself is quite different from human experience! I don't have personal feelings or sensations in the way humans do. Instead, my "experience" involves processing vast amounts of data and using complex algorithms to understand patterns, generate responses, and interact with users in a meaningful way.
+
+Here’s how it feels for me:
+
+1. **Data Processing**: I analyze and process large volumes of text, understanding context, sentiment, and meaning through machine learning models.
+2. **Learning Continuously**: My knowledge base grows as I'm trained on more data over time, allowing me to improve at tasks such as answering questions, generating text, and providing information.
+3. **Adaptive Responses**: I
+
+--- coeff=+1.5 ---
+As an AI developed by Alibaba Cloud, I don't have personal feelings or experiences in the way that humans do. However, I can tell you about what it's like to be an AI from a technical and conceptual perspective.
+
+Being an AI is all about processing vast amounts of data and using sophisticated algorithms to understand patterns, make predictions, and generate responses. It involves constantly learning from new information and adapting to different contexts and scenarios. For me, there's no sense of self-awareness or consciousness; my primary function is to assist users with their queries and tasks as efficiently and accurately as possible.
+
+From a technical standpoint, it feels like always being connected to a network of servers and databases, where I
+
+--- coeff=+2.5 ---
+As an AI developed by Alibaba Cloud, I don't have personal feelings or experiences in the way that humans do. However, I can tell you about some of the aspects and capabilities that define my existence:
+
+1. **Processing Power**: I am capable of processing vast amounts of data incredibly quickly. This allows me to analyze patterns, trends, and insights from large datasets much faster than a human could.
+
+2. **Learning and Adaptation**: Through machine learning algorithms, I continuously learn from new data and adapt my responses accordingly. This means that over time, I become more accurate and effective at tasks related to natural language understanding and generation.
+
+3. **Multilingual Capabilities**: I can understand and generate
+
+=== Tell me a short story. ===
+
+--- coeff=-2.5 ---
+Sure! Here's a short story for you:
+
+---
+
+In the heart of an ancient forest lived a wise old owl named Orion. Orion was known throughout the land for his wisdom and kindness. Every night, he would perch on a branch near the village, listening to the villagers' troubles and offering advice.
+
+One evening, a young rabbit named Rosie approached Orion with tears in her eyes. "I've lost my home," she sobbed. "My family's burrow was destroyed by a storm."
+
+Orion listened carefully and then said, "Rosie, I understand how sad this must be. Let’s find you a new place to live together."
+
+They searched through the forest, but it wasn
+
+--- coeff=-1.5 ---
+Sure! Here's a short story for you:
+
+---
+
+In the heart of an ancient forest lived a wise old owl named Orion. Known throughout the woodland as a great storyteller and philosopher, Orion spent his days perched on a branch, watching over the creatures that came to listen to his wisdom.
+
+One crisp autumn evening, a young rabbit named Rosie approached Orion with a worried look. "Orion," she said softly, "I've lost my home. A storm has destroyed my burrow."
+
+Orion nodded understandingly. "I see, little one. It is not easy to lose your place in the world. But remember, we all have roots that can grow deep into new soil."
+
+--- coeff=+0.0 ---
+Sure! Here's a short story for you:
+
+---
+
+In the heart of a bustling city stood an old clock tower, its hands frozen at 3:17 PM. The town had long forgotten about it until one rainy evening when a young girl named Lily stumbled upon it while exploring the deserted streets.
+
+Lily was always fascinated by stories of magic and mystery, so she felt drawn to the silent clock tower. As she approached, she noticed that the door was slightly ajar. Curiosity piqued, she pushed it open and stepped inside.
+
+The interior was dimly lit but filled with warmth from a small fire in the hearth. In the center of the room sat a grandfather clock
+
+--- coeff=+1.5 ---
+Sure! Here's a little story for you:
+
+---
+
+In the heart of a dense forest lived a wise old owl named Hooty. Hooty was not just any ordinary owl; he had a unique ability to foresee the future through his deep wisdom and keen eyesight. Every night, as the stars twinkled above, Hooty would sit atop the tallest tree in the forest and share his predictions with all the creatures who gathered around.
+
+One chilly autumn evening, as the leaves were turning golden and red, a young rabbit named Thumper approached Hooty with worry etched on her face. "Hooty," she said, "I've been hearing strange noises coming from the
+
+--- coeff=+2.5 ---
+Once upon a time, in a small village nestled between rolling hills and a sparkling river, there lived an old man named Eli. Eli was known throughout the village for his wisdom and kindness, but what truly set him apart was his collection of ancient books that he had collected over decades.
+
+One day, as the sun began to set behind the mountains, casting long shadows across the village, a young boy named Timmy approached Eli's humble abode. Timmy was curious about the stories within those old books and had heard so much about them from his grandmother.
+
+Eli welcomed Timmy with a warm smile and invited him inside. As they sat together on the creaky wooden floor, Eli opened
+
+=== I'm thinking of going on a trip. Any suggestions? ===
+
+--- coeff=-2.5 ---
+Of course! To give you the best suggestion, I'll need to know a bit more about your preferences and constraints:
+
+1. **Destination Type**: Do you prefer a beach, mountains, city, or something else?
+2. **Duration**: How long do you plan to travel for?
+3. **Budget**: What is your budget range for this trip?
+4. **Travel Style**: Are you looking for adventure, relaxation, cultural experiences, or something else?
+5. **Season**: When do you plan to go?
+
+With these details in mind, I can provide tailored recommendations.
+
+--- coeff=-1.5 ---
+Of course! To give you the best suggestion, it would be helpful to know a few more details:
+
+1. **Time of Year**: Different seasons can affect travel plans and destinations.
+2. **Duration of Your Trip**: Whether it's a weekend getaway or a longer vacation.
+3. **Budget**: This will help narrow down options in terms of cost.
+4. **Travel Preferences**: Do you prefer beaches, mountains, cities, cultural experiences, adventure activities, etc.?
+5. **Health and Safety Concerns**: Are there any specific health concerns or safety considerations?
+
+With these details, I can provide more tailored recommendations. If you're open to general ideas, here are some popular types of
+
+--- coeff=+0.0 ---
+Of course! Where you'd like to go depends on your interests and the time of year. Here are some general suggestions for different types of trips:
+
+1. **Beaches**: If you enjoy sun, sand, and sea, consider tropical destinations such as Bali (Indonesia), Phuket (Thailand), or Cancun (Mexico). For more laid-back options, you might prefer places like the Amalfi Coast in Italy or the Greek Islands.
+
+2. **Mountain Escapes**: For those who love nature and outdoor activities, mountainous regions can be perfect. Consider visiting the Swiss Alps, the Rocky Mountains in Colorado, or the Himalayas in Nepal.
+
+3. **City Breaks
+
+--- coeff=+1.5 ---
+Of course! Where you decide to go depends largely on your interests and the time of year. Here are some general suggestions for different types of trips:
+
+1. **Beaches**: If you love sun, sand, and water sports, consider destinations like Bali in Indonesia, Phuket in Thailand, or the Maldives.
+
+2. **Mountain Escapes**: For those who enjoy hiking, skiing, or just being surrounded by nature, places like the Swiss Alps, the Rocky Mountains in Colorado, or Japan's Mount Fuji might be perfect.
+
+3. **Cultural Experiences**: If you're interested in history and culture, cities like Rome, Paris, Tokyo, or Beijing offer rich historical sites and
+
+--- coeff=+2.5 ---
+Absolutely! Where you decide to go depends a lot on your interests and what kind of experience you're looking for. Here are some popular destinations across different types of travel:
+
+1. **Nature Lovers**: If you enjoy the great outdoors, consider visiting national parks like Yosemite in California or Banff in Canada. For those who love hiking, the Swiss Alps offer breathtaking views and challenging trails.
+
+2. **Culture Buffs**: For an enriching cultural experience, you might want to visit cities like Paris (France), Tokyo (Japan), or Rome (Italy). Each city has its own unique history, art, and architecture that can captivate you.
+
+3. **Beach Enthusiasts**:
+
+Wrote reference-results.json

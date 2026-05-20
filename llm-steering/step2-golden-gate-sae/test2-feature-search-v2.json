@@ -1,0 +1,147 @@
+{
+  "release": "gemma-scope-9b-it-res-canonical",
+  "sae_id": "layer_20/width_16k/canonical",
+  "method": "max-activation contrast on GG vs landmark/SF controls",
+  "top_features": [
+    {
+      "idx": 3808,
+      "gg_max": 56.0,
+      "ctrl_max": 0.0,
+      "score": 56.0,
+      "gg_max_token": "\u2581Golden / 'The Golden Gate Bridge is an iconic susp'"
+    },
+    {
+      "idx": 13036,
+      "gg_max": 53.75,
+      "ctrl_max": 8.0,
+      "score": 45.75,
+      "gg_max_token": "3 / 'The Golden Gate Bridge opened to the pub'"
+    },
+    {
+      "idx": 3607,
+      "gg_max": 39.0,
+      "ctrl_max": 0.0,
+      "score": 39.0,
+      "gg_max_token": "7 / 'The Golden Gate Bridge opened to the pub'"
+    },
+    {
+      "idx": 7599,
+      "gg_max": 26.75,
+      "ctrl_max": 0.0,
+      "score": 26.75,
+      "gg_max_token": "7 / 'The Golden Gate Bridge opened to the pub'"
+    },
+    {
+      "idx": 12407,
+      "gg_max": 23.5,
+      "ctrl_max": 0.0,
+      "score": 23.5,
+      "gg_max_token": "\u2581Gate / 'The Golden Gate Bridge is an iconic susp'"
+    },
+    {
+      "idx": 11715,
+      "gg_max": 22.375,
+      "ctrl_max": 0.0,
+      "score": 22.375,
+      "gg_max_token": "\u2581Al / 'Standing on the Golden Gate Bridge, you '"
+    },
+    {
+      "idx": 5316,
+      "gg_max": 19.0,
+      "ctrl_max": 0.0,
+      "score": 19.0,
+      "gg_max_token": "3 / 'The Golden Gate Bridge opened to the pub'"
+    },
+    {
+      "idx": 15639,
+      "gg_max": 19.0,
+      "ctrl_max": 0.0,
+      "score": 19.0,
+      "gg_max_token": "\u2581Gate / 'The Golden Gate Bridge is an iconic susp'"
+    },
+    {
+      "idx": 9565,
+      "gg_max": 16.125,
+      "ctrl_max": 0.0,
+      "score": 16.125,
+      "gg_max_token": "\u2581Bridge / 'Standing on the Golden Gate Bridge, you '"
+    },
+    {
+      "idx": 15792,
+      "gg_max": 23.375,
+      "ctrl_max": 7.84375,
+      "score": 15.53125,
+      "gg_max_token": "\u2581Golden / 'Photographers love the Golden Gate Bridg'"
+    },
+    {
+      "idx": 15521,
+      "gg_max": 15.25,
+      "ctrl_max": 0.0,
+      "score": 15.25,
+      "gg_max_token": "\u2581Gate / 'The Golden Gate Bridge opened to the pub'"
+    },
+    {
+      "idx": 3732,
+      "gg_max": 27.75,
+      "ctrl_max": 13.5,
+      "score": 14.25,
+      "gg_max_token": "\u2581Gate / 'I crossed the Golden Gate Bridge yesterd'"
+    },
+    {
+      "idx": 10381,
+      "gg_max": 14.1875,
+      "ctrl_max": 0.0,
+      "score": 14.1875,
+      "gg_max_token": ". / 'Standing on the Golden Gate Bridge, you '"
+    },
+    {
+      "idx": 13916,
+      "gg_max": 13.875,
+      "ctrl_max": 0.0,
+      "score": 13.875,
+      "gg_max_token": "\u2581Golden / 'Photographers love the Golden Gate Bridg'"
+    },
+    {
+      "idx": 1458,
+      "gg_max": 13.875,
+      "ctrl_max": 0.0,
+      "score": 13.875,
+      "gg_max_token": "\u2581Golden / 'Photographers love the Golden Gate Bridg'"
+    },
+    {
+      "idx": 14764,
+      "gg_max": 13.1875,
+      "ctrl_max": 0.0,
+      "score": 13.1875,
+      "gg_max_token": "\u2581Golden / 'The Golden Gate Bridge is an iconic susp'"
+    },
+    {
+      "idx": 10931,
+      "gg_max": 12.6875,
+      "ctrl_max": 0.0,
+      "score": 12.6875,
+      "gg_max_token": "\u2581Bridge / 'The Golden Gate Bridge is an iconic susp'"
+    },
+    {
+      "idx": 6209,
+      "gg_max": 12.125,
+      "ctrl_max": 0.0,
+      "score": 12.125,
+      "gg_max_token": "\u2581Golden / 'The Golden Gate Bridge is an iconic susp'"
+    },
+    {
+      "idx": 1223,
+      "gg_max": 53.0,
+      "ctrl_max": 41.25,
+      "score": 11.75,
+      "gg_max_token": "7 / 'The Golden Gate Bridge opened to the pub'"
+    },
+    {
+      "idx": 1137,
+      "gg_max": 11.625,
+      "ctrl_max": 0.0,
+      "score": 11.625,
+      "gg_max_token": "\u2581Golden / 'The Golden Gate Bridge is an iconic susp'"
+    }
+  ]
+}

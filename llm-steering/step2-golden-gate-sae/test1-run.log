@@ -1,0 +1,34 @@
+GPU free start: 24.98 GB
+loading ../models/gemma-2-9b-it...
+Loading weights:   0%|          | 0/464 [00:00<?, ?it/s]Loading weights:   0%|          | 1/464 [00:00<02:15,  3.42it/s]Loading weights:   3%|▎         | 16/464 [00:00<00:08, 50.89it/s]Loading weights:   8%|▊         | 36/464 [00:00<00:04, 97.79it/s]Loading weights:  11%|█         | 50/464 [00:00<00:03, 109.62it/s]Loading weights:  15%|█▍        | 69/464 [00:00<00:02, 134.00it/s]Loading weights:  18%|█▊        | 85/464 [00:00<00:02, 140.55it/s]Loading weights:  22%|██▏       | 102/464 [00:00<00:02, 148.85it/s]Loading weights:  25%|██▌       | 118/464 [00:01<00:02, 150.60it/s]Loading weights:  29%|██▉       | 136/464 [00:01<00:02, 151.89it/s]Loading weights:  34%|███▍      | 157/464 [00:01<00:01, 160.93it/s]Loading weights:  38%|███▊      | 174/464 [00:01<00:01, 161.54it/s]Loading weights:  41%|████      | 191/464 [00:01<00:01, 157.43it/s]Loading weights:  46%|████▌     | 212/464 [00:01<00:01, 164.51it/s]Loading weights:  49%|████▉     | 229/464 [00:01<00:01, 162.92it/s]Loading weights:  53%|█████▎    | 246/464 [00:01<00:01, 158.34it/s]Loading weights:  57%|█████▋    | 264/464 [00:01<00:01, 164.09it/s]Loading weights:  61%|██████    | 281/464 [00:02<00:01, 156.84it/s]Loading weights:  65%|██████▍   | 301/464 [00:02<00:01, 161.12it/s]Loading weights:  69%|██████▉   | 320/464 [00:02<00:00, 168.79it/s]Loading weights:  73%|███████▎  | 337/464 [00:02<00:00, 159.96it/s]Loading weights:  77%|███████▋  | 355/464 [00:02<00:00, 163.28it/s]Loading weights:  80%|████████  | 372/464 [00:02<00:00, 159.11it/s]Loading weights:  84%|████████▍ | 389/464 [00:02<00:00, 158.06it/s]Loading weights:  88%|████████▊ | 410/464 [00:02<00:00, 164.67it/s]Loading weights:  92%|█████████▏| 427/464 [00:02<00:00, 161.37it/s]Loading weights:  96%|█████████▌| 444/464 [00:03<00:00, 159.60it/s]Loading weights: 100%|██████████| 464/464 [00:03<00:00, 148.57it/s]
+model loaded in 4.6s
+  n_layers=42, hidden=3584
+GPU free after model: 6.19 GB
+loading SAE: gemma-scope-9b-it-res-canonical / layer_20/width_16k/canonical
+SAE loaded in 4.0s
+  hook=blocks.20.hook_resid_post, d_in=3584, d_sae=16384
+GPU free after SAE: 5.72 GB
+prompt tokens: torch.Size([1, 13])
+captured activations: torch.Size([1, 13, 3584]), dtype=torch.bfloat16
+
+=== reconstruction metrics ===
+  model: ../models/gemma-2-9b-it
+  sae_release: gemma-scope-9b-it-res-canonical
+  sae_id: layer_20/width_16k/canonical
+  hook_layer: 20
+  sae_hook_name: blocks.20.hook_resid_post
+  neuronpedia_id: gemma-2-9b-it/20-gemmascope-res-16k
+  prompt: The Golden Gate Bridge spans the entrance to San Francisco Bay.
+  n_tokens: 13
+  model_load_s: 4.64
+  sae_load_s: 4.01
+  mse_excl_bos: 3.538912773132324
+  orig_mean_sq_norm_excl_bos: 64.28722381591797
+  fraction_variance_unexplained_excl_bos: 0.05504846162381746
+  variance_explained_excl_bos: 0.9449515383761825
+  fraction_variance_unexplained_all_pos: 1.942789901168363
+  mean_nonzero_features_per_token_excl_bos: 119.5
+  sae_d_in: 3584
+  sae_d_sae: 16384
+
+Wrote test1-recon-error.json

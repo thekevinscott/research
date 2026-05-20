@@ -1,0 +1,20 @@
+{
+  "model": "../models/gemma-2-9b-it",
+  "sae_release": "gemma-scope-9b-it-res-canonical",
+  "sae_id": "layer_20/width_16k/canonical",
+  "hook_layer": 20,
+  "sae_hook_name": "blocks.20.hook_resid_post",
+  "neuronpedia_id": "gemma-2-9b-it/20-gemmascope-res-16k",
+  "prompt": "The Golden Gate Bridge spans the entrance to San Francisco Bay.",
+  "n_tokens": 13,
+  "model_load_s": 4.64,
+  "sae_load_s": 4.01,
+  "mse_excl_bos": 3.538912773132324,
+  "orig_mean_sq_norm_excl_bos": 64.28722381591797,
+  "fraction_variance_unexplained_excl_bos": 0.05504846162381746,
+  "variance_explained_excl_bos": 0.9449515383761825,
+  "fraction_variance_unexplained_all_pos": 1.942789901168363,
+  "mean_nonzero_features_per_token_excl_bos": 119.5,
+  "sae_d_in": 3584,
+  "sae_d_sae": 16384
+}

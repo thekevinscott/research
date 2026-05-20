@@ -1,0 +1,10 @@
+[project]
+name = "step5-axes-vogel-style"
+version = "0.1.0"
+description = "Step 5 — step-3 axes with Vogel-style minimal-pair scaffold"
+requires-python = ">=3.11"
+dependencies = [
+    "repeng>=0.4.0",
+    "transformers>=5.0",
+    "torch>=2.4",
+]

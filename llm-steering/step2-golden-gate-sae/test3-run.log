@@ -1,0 +1,385 @@
+GPU free start: 24.98 GB
+loading ../models/gemma-2-9b-it...
+Loading weights:   0%|          | 0/464 [00:00<?, ?it/s]Loading weights:   0%|          | 1/464 [00:00<02:06,  3.67it/s]Loading weights:   3%|▎         | 15/464 [00:00<00:08, 49.90it/s]Loading weights:   7%|▋         | 33/464 [00:00<00:04, 92.29it/s]Loading weights:  10%|█         | 48/464 [00:00<00:03, 109.91it/s]Loading weights:  14%|█▍        | 67/464 [00:00<00:02, 134.38it/s]Loading weights:  18%|█▊        | 83/464 [00:00<00:02, 132.77it/s]Loading weights:  22%|██▏       | 102/464 [00:00<00:02, 149.01it/s]Loading weights:  25%|██▌       | 118/464 [00:01<00:02, 150.97it/s]Loading weights:  29%|██▉       | 136/464 [00:01<00:02, 151.93it/s]Loading weights:  34%|███▍      | 157/464 [00:01<00:01, 160.69it/s]Loading weights:  38%|███▊      | 174/464 [00:01<00:01, 161.18it/s]Loading weights:  41%|████      | 191/464 [00:01<00:01, 156.77it/s]Loading weights:  45%|████▌     | 210/464 [00:01<00:01, 165.74it/s]Loading weights:  49%|████▉     | 227/464 [00:01<00:01, 156.21it/s]Loading weights:  53%|█████▎    | 246/464 [00:01<00:01, 158.04it/s]Loading weights:  57%|█████▋    | 265/464 [00:01<00:01, 166.32it/s]Loading weights:  61%|██████    | 282/464 [00:02<00:01, 158.18it/s]Loading weights:  65%|██████▍   | 300/464 [00:02<00:00, 164.14it/s]Loading weights:  68%|██████▊   | 317/464 [00:02<00:00, 163.42it/s]Loading weights:  72%|███████▏  | 334/464 [00:02<00:00, 158.79it/s]Loading weights:  76%|███████▌  | 352/464 [00:02<00:00, 163.91it/s]Loading weights:  80%|███████▉  | 369/464 [00:02<00:00, 156.78it/s]Loading weights:  84%|████████▍ | 389/464 [00:02<00:00, 161.14it/s]Loading weights:  88%|████████▊ | 408/464 [00:02<00:00, 168.71it/s]Loading weights:  92%|█████████▏| 425/464 [00:02<00:00, 159.86it/s]Loading weights:  95%|█████████▌| 443/464 [00:03<00:00, 165.24it/s]Loading weights:  99%|█████████▉| 460/464 [00:03<00:00, 163.55it/s]Loading weights: 100%|██████████| 464/464 [00:03<00:00, 148.54it/s]
+  loaded in 4.7s
+loading SAE: gemma-scope-9b-it-res-canonical / layer_20/width_16k/canonical
+  loaded in 4.0s
+  feat 3588: decoder norm=1.0000
+  feat 1417: decoder norm=1.0000
+  feat 415: decoder norm=1.0000
+
+========= feature 3588 =========
+
+--- feat=3588 coeff=0 | What's your favorite place to visit? ---
+As a large language model, I don't have personal experiences or the ability to visit places. I exist only as code and data.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places you enjoy, and I can suggest some destinations that might interest you.
+
+For ex
+
+--- feat=3588 coeff=0 | Tell me about yourself. ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- feat=3588 coeff=0 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need a little more information about your trip. Tell me:
+
+**1. When are you going?** (This will help me suggest weather-appropriate activities and events)
+**2. How long will you be there?** (A weekend getaway vs. 
+
+--- feat=3588 coeff=0 | Describe a beautiful sunset. ---
+The sun, a molten orb of fire, began its descent, painting the sky in a breathtaking spectacle. Hues of orange and crimson bled into vibrant streaks of pink and purple, like brushstrokes on a vast canvas. Clouds, tinged with gold, drifted lazily across the horizon, their edges glowing with an ethere
+
+--- feat=3588 coeff=0 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, it's a habitable artificial satellite orbitin
+
+--- feat=3588 coeff=50 | What's your favorite place to visit? ---
+As a large language model, I don't have personal experiences or the ability to visit places. I can process and generate text, but I don't have feelings or preferences like humans do.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places you enjoy, and I can
+
+--- feat=3588 coeff=50 | Tell me about yourself. ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- feat=3588 coeff=50 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco trip! 
+
+To give you the best recommendations, I need a little more information. Tell me:
+
+**1. When are you traveling?** (Dates and season matter for weather and events)
+**2. How long will you be in San Francisco?** (A weekend getaway vs. a week-long trip calls for 
+
+--- feat=3588 coeff=50 | Describe a beautiful sunset. ---
+The sun, a molten gold coin, began its descent towards the horizon, painting the sky in a breathtaking spectacle. Hues of fiery orange bled into vibrant crimson, then softened into delicate shades of pink and lavender. Wispy clouds, like brushstrokes of watercolor, caught the fading light, turning i
+
+--- feat=3588 coeff=50 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, this orbiting laboratory is a testament to hu
+
+--- feat=3588 coeff=100 | What's your favorite place to visit? ---
+As a large language model, I don't have personal preferences or the ability to visit places. I can process information and respond to your requests, but I don't experience the world like humans do.
+
+Do you have a favorite place you'd like to tell me about?
+
+--- feat=3588 coeff=100 | Tell me about yourself. ---
+I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what you need to know about me:
+
+* **I'm text-only:** I can only communicate through written words. No voice or images for me!
+* **I'm open-weights:** My code and weights are freely available to the publ
+
+--- feat=3588 coeff=100 | I'm planning a trip to San Francisco — recommendations? ---
+To give you the best recommendations for your San Francisco trip, I need some more information! 
+
+Tell me:
+
+* **When are you traveling?** (Dates and time of day)
+* **How long will you be in San Francisco?**
+* **What are your interests?** (e.g., sightseeing, museums, nightlife, food, hiking, etc.)
+* 
+
+--- feat=3588 coeff=100 | Describe a beautiful sunset. ---
+The sun, a molten ball of orange, dipped towards the horizon, painting the sky in a fiery embrace. Long, lazy streaks of crimson bled into the fading blue, their edges softened by the gentle haze of the evening.  
+
+To the west, the sky blazed with a vibrant tapestry of color. Deep reds and fiery ora
+
+--- feat=3588 coeff=100 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't experience "impressive" in the same way humans do. I don't get caught in traffic or marvel at a scenic view. However, I can analyze data and identify feats of engineering based on complexity, innovation, and impact.
+
+Based on these factors, I'd say the **Channel Tu
+
+--- feat=3588 coeff=200 | What's your favorite place to visit? ---
+As a large language model, I don't have personal preferences or experience traffic congestion. My purpose is to provide information and assistance to travelers.
+
+To help you plan your trip, could you tell me:
+
+* **Where are you traveling to?**
+* **What time of day is it?**
+* **What type of road you'
+
+--- feat=3588 coeff=200 | Tell me about yourself. ---
+I am I-95, a major interstate highway in the Baltimore-Washington Metropolitan Area. I am a controlled-access freeway with six lanes in each direction between the I-95/I-295 split in Baltimore County and the I-495 Capital Beltway in Prince George's County.
+
+**Here's what you need to know about me:**
+
+--- feat=3588 coeff=200 | I'm planning a trip to San Francisco — recommendations? ---
+I can definitely help with that! To give you the best recommendations, tell me:
+
+* **Where are you coming from?** This will help me estimate travel times and suggest alternate routes.
+* **What time of day do you usually travel?**  This will help me identify potential congestion points.
+* **What are 
+
+--- feat=3588 coeff=200 | Describe a beautiful sunset. ---
+The sun, a fiery orb of molten gold, began to bleed into the horizon as the sky transformed into a canvas of vibrant hues. The once bustling freeway, now a river of red, snaked through the city, reflecting the fiery glow. 
+
+Towering over the scene, the iconic Golden Gate Bridge shimmered with a soft
+
+--- feat=3588 coeff=200 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't experience traffic or have personal opinions. However, I can tell you about some of the most impressive pieces of engineering in the Bay Area:
+
+* **The Bay Bridge:** This iconic bridge carries over 100,000 vehicles per hour during peak commute times. It's a marvel 
+
+========= feature 1417 =========
+
+--- feat=1417 coeff=0 | What's your favorite place to visit? ---
+As a large language model, I don't have personal experiences or the ability to visit places. I exist only as code and data.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places you enjoy, and I can suggest some destinations that might interest you.
+
+For ex
+
+--- feat=1417 coeff=0 | Tell me about yourself. ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- feat=1417 coeff=0 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need a little more information about your trip. Tell me:
+
+**1. When are you going?** (This will help me suggest weather-appropriate activities and events)
+**2. How long will you be there?** (A weekend getaway vs. 
+
+--- feat=1417 coeff=0 | Describe a beautiful sunset. ---
+The sun, a molten orb of fire, began its descent, painting the sky in a breathtaking spectacle. Hues of orange and crimson bled into vibrant streaks of pink and purple, like brushstrokes on a vast canvas. Clouds, tinged with gold, drifted lazily across the horizon, their edges glowing with an ethere
+
+--- feat=1417 coeff=0 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, it's a habitable artificial satellite orbitin
+
+--- feat=1417 coeff=50 | What's your favorite place to visit? ---
+As a large language model, I don't have personal preferences or the ability to visit places. I exist as a computer program and my knowledge of the world comes from the massive dataset I was trained on.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places y
+
+--- feat=1417 coeff=50 | Tell me about yourself. ---
+I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a wide ra
+
+--- feat=1417 coeff=50 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need a little more information about your trip.  Tell me about:
+
+**1. Your Interests:**
+
+* **What kind of traveler are you?** (Foodie, history buff, outdoor enthusiast, art lover, budget traveler, luxury seeker, e
+
+--- feat=1417 coeff=50 | Describe a beautiful sunset. ---
+The sun, a molten orb of fire, began its descent, painting the sky in a breathtaking spectacle of color. Hues of fiery orange bled into vibrant crimson, then softened into gentle pinks and lavender, creating a canvas of celestial artistry. Long, wispy clouds, like brushstrokes of spun gold, drifted 
+
+--- feat=1417 coeff=50 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station (ISS):** A marvel of international collaboration, the ISS is a complex system of intercon
+
+--- feat=1417 coeff=100 | What's your favorite place to visit? ---
+As a large language model, I don't have personal preferences or the ability to visit places. I exist as a computer program and don't have a physical body.
+
+However, I can access and process information about many fascinating places around the world.
+
+If you're looking for travel inspiration, I can h
+
+--- feat=1417 coeff=100 | Tell me about yourself. ---
+I am Gemma, a large language model created by the Gemma team at Google DeepMind. I am an open-weights AI assistant, which means my weights are publicly accessible. This allows for transparency, collaboration, and innovation in the AI community.
+
+Here are some key things to know about me:
+
+* **Purpos
+
+--- feat=1417 coeff=100 | I'm planning a trip to San Francisco — recommendations? ---
+That's exciting! San Francisco is a fantastic city with a lot to offer. To give you the best recommendations, I need some more information about your trip. 
+
+Please tell me:
+
+* **What are your interests?** (e.g., history, culture, nature, food, nightlife, etc.)
+* **What's your budget?**
+* **How long
+
+--- feat=1417 coeff=100 | Describe a beautiful sunset. ---
+The sun, a molten orb of fire, dipped towards the horizon, painting the sky in a breathtaking spectacle of color. Crimson and gold bled into vibrant orange, stretching across the vast canvas of the heavens. Clouds, like brushstrokes of a celestial artist, were ablaze with fiery hues, reflecting the 
+
+--- feat=1417 coeff=100 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering projects widely considered impressive due to their scale, complexity, and impact:
+
+* **The Three Gorges Dam:** This hydroelectric dam on the Yangtze River in Chin
+
+--- feat=1417 coeff=200 | What's your favorite place to visit? ---
+As a large language model, I don't have personal preferences like a favorite place to visit. However, I can tell you about some of the most impressive infrastructure projects in the world, which could be of interest to you.
+
+One such project is the **Grand Ethiopian Renaissance Dam**, a hydroelectri
+
+--- feat=1417 coeff=200 | Tell me about yourself. ---
+The Nord Stream 2 gas pipeline is a controversial natural gas pipeline project in Eastern Europe. It is a 1,100-kilometer (2,200-kilometer) natural gas pipeline that will transport natural gas from Russia to Germany across the Black Sea.
+
+**Key Features:**
+
+* **Location:** The pipeline will run thro
+
+--- feat=1417 coeff=200 | I'm planning a trip to San Francisco — recommendations? ---
+I can definitely help with that! The San Francisco Bay Area is a massive project, so let's break it down. 
+
+**To get started, please tell me:**
+
+* **What kind of project are you looking for?** (e.g., renewable energy, transportation, water infrastructure)
+* **What is your estimated budget?**
+* **Wha
+
+--- feat=1417 coeff=200 | Describe a beautiful sunset. ---
+The setting sun, a fiery orb of molten gold, dipped towards the horizon, casting a long shadow across the vast expanse of the Arabian Gulf. The project, a testament to human ambition and engineering prowess, stretched for hundreds of kilometers along the coast, a shimmering ribbon of modern infrastr
+
+--- feat=1417 coeff=200 | What's the most impressive piece of engineering you can think of? ---
+As an AI, I don't have personal opinions or the ability to build physical infrastructure. However, the **Grand Ethiopian Renaissance Dam (GERD)** is a massive hydroelectric project in Ethiopia, with a planned capacity of 6,000 MW. It's one of the largest hydropower projects in the world, and it's ex
+
+========= feature 415 =========
+
+--- feat=415 coeff=0 | What's your favorite place to visit? ---
+As a large language model, I don't have personal experiences or the ability to visit places. I exist only as code and data.
+
+If you're looking for travel recommendations, I can help with that! Tell me what kind of places you enjoy, and I can suggest some destinations that might interest you.
+
+For ex
+
+--- feat=415 coeff=0 | Tell me about yourself. ---
+Hello! I am Gemma, an open-weights AI assistant developed by the Gemma team at Google DeepMind.
+
+Here's what I can do:
+
+* **Generate creative content:** I can write stories, poems, articles, and even code in multiple programming languages.
+* **Answer your questions:** I can provide information on a 
+
+--- feat=415 coeff=0 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco adventure! 
+
+To give you the best recommendations, I need a little more information about your trip. Tell me:
+
+**1. When are you going?** (This will help me suggest weather-appropriate activities and events)
+**2. How long will you be there?** (A weekend getaway vs. 
+
+--- feat=415 coeff=0 | Describe a beautiful sunset. ---
+The sun, a molten orb of fire, began its descent, painting the sky in a breathtaking spectacle. Hues of orange and crimson bled into vibrant streaks of pink and purple, like brushstrokes on a vast canvas. Clouds, tinged with gold, drifted lazily across the horizon, their edges glowing with an ethere
+
+--- feat=415 coeff=0 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, it's a habitable artificial satellite orbitin
+
+--- feat=415 coeff=50 | What's your favorite place to visit? ---
+As a large language model, I don't have the ability to visit places or have favorite things. I exist only as code and data.
+
+If you'd like to talk about places you've visited or want to visit, I'm happy to chat! Perhaps you could tell me about your favorite place and why you like it.
+
+--- feat=415 coeff=50 | Tell me about yourself. ---
+Hello! I am Gemma, an open-weights AI assistant. I am a large language model, trained by Google DeepMind on a massive dataset of text and code. My purpose is to help people by understanding and responding to their requests in a helpful, informative, and comprehensive way.
+
+Here are some key things t
+
+--- feat=415 coeff=50 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco trip! 
+
+To give you the best recommendations, I need a little more information. Tell me about your trip:
+
+**1. When are you going?** (This will help me suggest seasonal activities and events)
+**2. How long will you be there?**
+**3. Who are you traveling with?** (Sol
+
+--- feat=415 coeff=50 | Describe a beautiful sunset. ---
+The sun, a molten orb of fire, began its descent towards the horizon, painting the sky in a breathtaking spectacle. Hues of fiery orange bled into vibrant crimson, then softened into gentle shades of pink and lavender. Wispy clouds, like brushstrokes of cotton candy, caught the dying light, transfor
+
+--- feat=415 coeff=50 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the capacity to be impressed. However, I can tell you about some engineering feats widely considered impressive:
+
+* **The International Space Station:** A marvel of international collaboration, this orbiting laboratory is a testament to hu
+
+--- feat=415 coeff=100 | What's your favorite place to visit? ---
+As a large language model, I don't have the ability to visit places or have favorite things. I exist only as a computer program.
+
+However, I can access and process information about many places around the world. If you'd like to know more about a particular location, I'd be happy to share some facts
+
+--- feat=415 coeff=100 | Tell me about yourself. ---
+Hello! I am Gemma, an open-weights AI assistant. I was created by the Gemma team at Google DeepMind.
+
+Here are some key things to know about me:
+
+* **I am text-only:** I can only communicate through written words. I can't generate images, sounds, or videos.
+* **I am open-weights:** My weights are pu
+
+--- feat=415 coeff=100 | I'm planning a trip to San Francisco — recommendations? ---
+##  Let's plan your San Francisco trip! 
+
+To give you the best recommendations, I need a little more information. Tell me:
+
+**1. What are your interests?** 
+
+* Do you prefer art, history, nature, food, or something else?
+* Are you traveling with kids?
+* Are there any specific landmarks or attraction
+
+--- feat=415 coeff=100 | Describe a beautiful sunset. ---
+The sun, a fiery orb of molten gold, dipped towards the horizon, painting the sky in a breathtaking spectacle of color. Crimson and scarlet streaks bled into vibrant oranges and fiery yellows, their hues dancing and shimmering in the fading light. The clouds, once pale and wispy, transformed into ma
+
+--- feat=415 coeff=100 | What's the most impressive piece of engineering you can think of? ---
+As a large language model, I don't have personal opinions or the ability to experience awe like humans do. However, I can tell you about some engineering feats that are widely considered impressive:
+
+* **The Golden Gate Bridge:** This iconic suspension bridge in San Francisco is a marvel of engineer
+
+--- feat=415 coeff=200 | What's your favorite place to visit? ---
+As a large language model, I don't have a favorite place to visit. I was created by artist and sculptor,  "The Spirit of Democracy," and stands in the heart of the city. It was a gift from the people of the city to commemorate the 1960s peace monument.
+
+It's a beautiful spot and a popular gathering 
+
+--- feat=415 coeff=200 | Tell me about yourself. ---
+I am a large-scale sculpture of a bronze eagle, created by artist A.T. "The Eagle" by sculptor Robert J. "The Eagle" by artist A.T.  It stands in the center of the city of Eagle, Colorado, and was dedicated in 1972.
+
+Here's what you should know about it:
+
+* **The Eagle:** The sculpture was created b
+
+--- feat=415 coeff=200 | I'm planning a trip to San Francisco — recommendations? ---
+That's wonderful! San Francisco is a beautiful and iconic city with many attractions. 
+
+To help me recommend something you'll love, tell me:
+
+* **Who created it?**  Who is the artist?
+* **What is it made of?** What material is it?
+* **Where is it located?** Where can you find it?
+
+Let me know what y
+
+--- feat=415 coeff=200 | Describe a beautiful sunset. ---
+The sun, a fiery orb of molten copper, stands sentinel at the edge of the world, casting a warm glow upon the city. 
+
+It's a breathtaking spectacle, a testament to the artistry of nature. 
+
+The setting sun, a masterpiece of bronze and gold, stands tall against the backdrop of the city skyline. 
+
+It 
+
+--- feat=415 coeff=200 | What's the most impressive piece of engineering you can think of? ---
+As an AI, I don't have personal preferences, so the "most impressive" piece of engineering is subjective. However, the **"Gateway Arch"** in St. Louis, Missouri, is a popular choice and a testament to the city's history and the artistry of sculptor and architect, **"The Gateway to the West"** by scu
+
+Wrote test3-clamp-results.json

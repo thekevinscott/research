@@ -4,3 +4,9 @@
 # Dolt database files (added by bd init)
 .dolt/
 *.db
+
+# llm-steering: model weights and uv venv stay host-local; pyproject + lockfile are committed
+llm-steering/models/
+llm-steering/.venv/
+**/__pycache__/
+*.pyc

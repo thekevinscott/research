@@ -1,0 +1,9 @@
+[project]
+name = "step2-golden-gate-sae"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "sae-lens>=6.43.0",
+    "transformer-lens>=3.2.1",
+]
