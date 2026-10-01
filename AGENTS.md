@@ -1,6 +1,21 @@
 # Agent Instructions
 
-This project uses **bd** (beads) for issue tracking. Run `bd onboard` to get started.
+## Fetching web content
+
+Use `./scripts/safe-fetch <url> [output_path]` for all web fetches.
+
+- Saves verbatim raw bytes to `/tmp/` (default) or specified path under `/tmp/`.
+- Required when audit/citation needs byte-exact source — `WebFetch` summarizes and is not suitable for verbatim quoting.
+- HTTPS only; private/loopback/metadata IPs blocked (SSRF guard); 20 MB / 30 s caps; max 3 redirects.
+- Output path must be under `/tmp/`.
+
+Raw `curl` and `wget` are denied by project settings. Do not attempt to bypass — extend `safe-fetch` instead if a real need arises.
+
+For quick summaries where verbatim text is not needed, `WebFetch` is fine and cheaper.
+
+## Tracking work across sessions
+
+This project uses **bd** (beads) for issue tracking. Run `bd onboard` to get started. Use bd for any work that must survive across sessions; in-conversation todos (`TaskCreate`) are fine for single-session work.
 
 ## Quick Reference
 
