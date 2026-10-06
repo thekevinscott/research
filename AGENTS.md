@@ -36,6 +36,8 @@ cp -rf source dest          # NOT: cp -r source dest
 - `apt-get` - use `-y` flag
 - `brew` - use `HOMEBREW_NO_AUTO_UPDATE=1` env var
 
+@docs/internals/session-handoff.md
+
 <!-- BEGIN BEADS INTEGRATION profile:full hash:d4f96305 -->
 ## Issue Tracking with bd (beads)
 
